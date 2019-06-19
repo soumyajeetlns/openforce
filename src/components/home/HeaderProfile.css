@@ -1,0 +1,42 @@
+.wrapperProfile {
+    cursor: pointer;
+}
+
+.wrapperProfile .profileImgPlaceholder{
+    width: 33px;
+    height: 33px;
+    border-radius: 33px;
+    background-color: #464647;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: condensed;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color:#fed91c;
+    padding-top: 9px;
+    cursor: pointer;
+}
+.wrapperProfile .profileImg{
+    width: 33px;
+    height: 33px;
+    border-radius: 33px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 12px;
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;         /* Generic*/
+    cursor: pointer;
+}
+.wrapperProfile .companyName{
+    display: inline-block;
+}
+
