@@ -10,6 +10,11 @@ export const stringsSignup = new LocalizedStrings({
         BTN_STEP_1:"SUBMIT",
 
         TITLE_STEP_2:"Sign Up",
+
+        EMP_TYP_1 :"Limited Company",
+
+        EMP_TYP_2 : "Sole Trader",
+
         SUBTITLE_STEP_1:"Companies name",
         PLACEHOLDER_EMAIL_STEP_2:"address@example.com",
         LBL_PASSWORD_1:"Set a password",
