@@ -20,7 +20,8 @@ class LoginContainer extends Component {
                 <div className={"logo"}>
                     <img src={logo}/>
                 </div>
-                <div className={"cardLogin"}>
+                <div className={"cardLoginOut"} style={{backgroundImage: `url(${mapBackground})`}}>
+                    <div className={"cardLogin"}>
                     {
                         this.props.onBackButton ?
                             <div className={"wrapperBackArrow"} onClick={this.props.onBackButton}>
@@ -37,7 +38,8 @@ class LoginContainer extends Component {
                                                             this.state.animationComponent.component:
                                                             this.props.children} </div>
                 </div>
-                <Col xs={4} className={"leftColumn"}>
+                </div>
+                <Col xs={4} className={"leftColumn leftcol desktop_view"}>
                     <div className={"termsOfConditions"}>
                         <p>{strings.stringsSignup.LBL_TERMS_OF_CONDITIONS_1}</p>
                         <br/>
@@ -52,10 +54,25 @@ class LoginContainer extends Component {
                         </a>
                     </div>
                 </Col>
-                <Col xs={8} className={"rightColumn"} style={{paddingLeft: 0, paddingRight: 0}}>
-                    <img src={mapBackground} style={{width: "100%", height: "100vh", objectFit: "cover"}} />
+                <Col xs={8} className={"rightColumn rightcol"} style={{paddingLeft: 0, paddingRight: 0}}>
+                    <img src={mapBackground} style={{width: "100%", height: "", objectFit: "cover"}} />
                 </Col>
-
+                <br clear="all"/>
+                <Col xs={4} className={"leftColumn leftcol mobile_view"}>
+                    <div className={"termsOfConditions"}>
+                        <p>{strings.stringsSignup.LBL_TERMS_OF_CONDITIONS_1}</p>
+                        <br/>
+                        <a href={"mailto:"+constants.EMAIL_ISSUE}>
+                            <p className={"underline"}>{strings.stringsSignup.LBL_TERMS_OF_CONDITIONS_2}</p>
+                        </a>
+                        <br/>
+                        <p>{strings.stringsSignup.LBL_TERMS_OF_CONDITIONS_3}</p>
+                        <br/>
+                        <a href={"/assets/privacy_of.pdf"} target={"_blank"}>
+                            <p className={"underline"}>{strings.stringsSignup.LBL_TERMS_OF_CONDITIONS_4}</p>
+                        </a>
+                    </div>
+                </Col>
 
             </Row>
         )

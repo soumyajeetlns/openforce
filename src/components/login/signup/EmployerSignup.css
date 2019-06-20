@@ -96,3 +96,46 @@
     font-size: 14px;
     font-weight: 500;
 }
+
+.headerText{
+  font-family: Roboto !important;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #323432 !important;
+}
+.withPaddingSubtitle p.subtitle {
+    padding-left: 84px;
+}
+.withPaddingCustom{
+    padding: 10px 85px 0px 85px;
+}
+.checkbox-wrapper{
+    position: relative;
+  top: -1px;
+}
+.Oval-Copy{
+    width: 18px;
+    height: 18px;
+    border: solid 1px #06158f;
+}
+.Oval{
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border-color:black;
+    background-color:black;
+    color:white;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:1.3em;
+    /* width: 31px;
+    height: 31px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5); */
+    background-color: #4c53d1;
+}
+
