@@ -20,6 +20,7 @@ export const JOBS_DRAFT = "draft";
 export const JOBS_ARCHIVED = "archive";
 export const JOBS_CLOSED = "closed";
 
+
 export const EMP_TYP_1 = "Limited Company";
 
 export const EMP_TYP_2 = "Sole Trader";
