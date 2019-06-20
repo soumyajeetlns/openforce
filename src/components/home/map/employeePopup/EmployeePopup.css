@@ -1,0 +1,215 @@
+.employeePopupWrapper{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: #191a1a;
+    overflow-y: hidden;
+}
+
+.employeePopupWrapper .btnClose{
+    background-color: rgb(254, 217, 28);
+    width: 42px;
+    height: 42px;
+    border-radius: 42px;
+    margin-top: 40px;
+    margin-left: 50px;
+    color: black;
+}
+
+.employeePopupBody{
+    margin-top: 30px;
+    background-color: #f9f8f6;
+    width: fit-content;
+    height: 75vh;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.employeePopupBody .left{
+    width: 549px;
+    display: inline-block;
+    height: 100%;
+    background-color: #f9f8f6;
+    vertical-align:top
+}
+
+.employeePopupBody .left .profile{
+    background-color: #ffffff;
+    text-align: center;
+    height: 340px;
+}
+
+.employeePopupBody .left .profile img{
+    width: 120px;
+    height: 120px;
+    border-radius: 120px;
+    margin-top: calc(50% - 120px);
+    transform: translateY(-50%);
+}
+.employeePopupBody .left .profile .employeeName{
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: #000000;
+    margin-top: -40px;
+}
+.employeePopupBody .left .profile .rating{
+    font-family: Roboto;
+    font-size: 10px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.4;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.employeePopupBody .right{
+    width: 391px;
+    display: inline-block;
+    height: 100%;
+    background-color: #ffffff;
+    vertical-align:top;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    position: relative;
+    padding: 60px 45px 45px 45px ;
+}
+
+.right .sectionContainer{
+    border-bottom: solid 1px rgba(0, 0, 0, 0.11);
+    margin-top: 15px;
+    padding: 16px;
+}
+
+.right .lblTitle{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.right .lblTitleRating{
+    opacity: 0.57;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.employeePopupBody .btnMove{
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.24), 0 0 6px 0 rgba(0, 0, 0, 0.12);
+    background: white;
+    padding-top: 5px;
+    color: black;
+    border-radius: 44px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.employeePopupBody .btnMove.prev{
+    left:-100px;
+}
+.employeePopupBody .btnMove.next{
+    right:-100px;
+}
+
+.employeePopupBody .containerBtnOperations{
+    position: absolute;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.employeePopupBody .containerBtnOperations .btnOperations{
+    width: 56px;
+    height: 56px;
+    border-radius: 56px;
+    color: black;
+    padding-top: 5px;
+}
+.employeePopupBody .containerBtnOperations .btnOperations.decline{
+    margin-right: 5px;
+    background-color: #af2324;
+}
+.employeePopupBody .containerBtnOperations .btnOperations.accept{
+    margin-left: 5px;
+    background-color: #31a565;
+}
+
+.employeeLastJobsWrapper{
+    padding: 27px 94px;
+}
+.employeeLastJobsWrapper .lastJob .graphLastJob{
+    border-left: 1px solid black;
+    height: 100%;
+    margin-top: 15px;
+}
+.employeeLastJobsWrapper .lastJob{
+    height: 40px;
+}
+.employeeLastJobsWrapper .lastJob .lastJobBody{
+    position: relative;
+    padding-left: 30px;
+}
+.employeeLastJobsWrapper .lastJob .lastJobBody .circle{
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 13px;
+    background: black;
+    left: -29px;
+    top: 15px;
+    text-align: center;
+}
+.employeeLastJobsWrapper .lastJob .lastJobBody .subCircle{
+    width: 4px;
+    height: 4px;
+    background: white;
+    display: inline-block;
+    border-radius: 4px;
+    margin-bottom: 7px;
+}
+.employeeLastJobsWrapper .lastJob .lastJobBody .addressJob{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: #000000;
+}
+.employeeLastJobsWrapper .lastJob .lastJobBody .dateJob{
+    opacity: 0.57;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.87);
+}

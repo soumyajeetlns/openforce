@@ -1,0 +1,94 @@
+.wrapperLoginContainer{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.wrapperLoginContainer .leftColumn{
+    background-color: #fed91c;
+}
+
+.wrapperLoginContainer .rightColumn{
+
+}
+
+.wrapperLoginContainer .logo{
+    position: absolute;
+    top: 70px;
+    left: 90px;
+    z-index: 1;
+}
+
+.wrapperLoginContainer .cardLogin{
+    width: 550px;
+    position: absolute;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    border: solid 0.5px transparent;
+    background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.02) 95%, rgba(0, 0, 0, 0.04));
+    background-origin: border-box;
+    z-index: 1;
+    left: 250px;
+    top:210px;
+}
+
+.wrapperLoginContainer .leftColumn .termsOfConditions{
+    position: absolute;
+    bottom: 16px;
+    left: 32px;
+    margin-right: 66px;
+    z-index: 1;
+
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.wrapperLoginContainer .leftColumn .termsOfConditions p{
+    margin: 0;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.38);
+    margin-bottom: 4px;
+}
+.wrapperLoginContainer .leftColumn .termsOfConditions p a{
+    text-underline: rgba(0, 0, 0, 0.38);;
+}
+
+
+.cardLogin .withPadding{
+    padding: 60px 85px 0px 85px;
+}
+
+
+.wrapperLoginContainer .cardLogin .wrapperBackArrow{
+    position: relative;
+    cursor: pointer;
+}
+
+.wrapperLoginContainer .cardLogin .wrapperBackArrow .backArrow{
+    width: 41.1px;
+    height: 41.1px;
+    position: absolute;
+    background-color: #06158f;
+    box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.25);
+    color: white;
+    border-radius:41px;
+    top:40px;
+    left:-20px;
+    text-align: center;
+}
+
+.wrapperLoginContainer .cardLogin .wrapperBackArrow .backArrow i{
+    line-height: 41.1px;
+}

@@ -1,0 +1,98 @@
+.wrapperSignup .title{
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #323432;
+    margin:0;
+    margin-bottom: 20px;
+}
+
+.wrapperSignup .inputLogin{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.wrapperSignup .separatorStep1{
+    height: 2px;
+    border: solid 1px #e9e7e7;
+    width: 100%;
+    margin-top: 80px;
+}
+
+.wrapperSignup .separatorStep2{
+    height: 2px;
+    border: solid 1px #e9e7e7;
+    width: 100%;
+    margin-top: 35px;
+}
+
+.wrapperSignup .btnSubmitStepOne{
+    width: 215px;
+    height: 36px;
+    border-radius: 2px;
+    border:none;
+    background-color: #06158f;
+    margin-bottom: 35px;
+
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    margin-top: 30px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.wrapperSignup .btnSubmitStepTwo{
+    width: 215px;
+    height: 36px;
+    border-radius: 2px;
+    border:none;
+    background-color: #06158f;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.wrapperSignup .wrapperCheckbox{
+    margin-top: 50px;
+}
+
+.wrapperSignup .wrapperCheckbox .lblCheckbox{
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.wrapperSignup .wrapperButtons{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.wrapperSignup .statusMessage{
+    margin-top: 30px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: 500;
+}

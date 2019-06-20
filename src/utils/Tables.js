@@ -1,0 +1,1 @@
+export const TABLE_EMPLOYER_USER = "users";
