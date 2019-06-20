@@ -268,7 +268,7 @@ class EmployerSignup extends Component {
                                 <Col xs={12}>
                                     <Col xs={10}>
                                         <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
-                                            <i class="fa fa-briefcase Shape" style={{color:"white"}}></i> 
+                                            <i class="fa fa-shopping-bag Shape" style={{color:"white"}}></i> 
                                         </span>           
                                     &nbsp;
                                     {strings.stringsSignup.EMP_TYP_1}  
@@ -292,7 +292,7 @@ class EmployerSignup extends Component {
 
                                 <Col xs={12}>
                                     <Col xs={10}>
-                                        
+
                                         <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
                                             <i class="fa fa-shopping-bag Shape" style={{color:"white"}}></i> 
                                         </span>           
