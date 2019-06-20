@@ -73,3 +73,39 @@
     text-align: center;
     color: #ffffff;
 }
+
+.desktop_view{display: block!important;}
+.mobile_view{display: none!important;}
+.wrapperLoginContainer .rightcol{position: relative; right: 0; background: no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .cardLoginOut{float:left; clear: both; width: 100%!important; padding-top: 80%;  background: no-repeat center center; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;}
+    .wrapperSignin{padding: 5%!important; }
+    .wrapperLoginContainer .rightcol{position: relative; right: 0; width: 100%!important;}
+    .wrapperLoginContainer .rightcol img{display: none;}
+    .wrapperLoginContainer .leftcol{position: relative; right: 0; width: 100% !important; max-width: 100% !important;
+        flex-basis: 100% !important;  position: relative;  clear: both;}
+    .wrapperLoginContainer .cardLogin{position: relative; left: inherit; margin:0 auto; clear: both; top: inherit;}
+    .wrapperLoginContainer .leftColumn .termsOfConditions{position: relative!important;}
+    .wrapperLoginContainer .rightcol{position: relative; left: 0!important; width: 100% !important; max-width: 100% !important;
+        flex-basis: 100% !important;}
+        .wrapperSignin .title{width: 60% !important; max-width: 60% !important; flex-basis: 60% !important;}
+        .wrapperSignin .wrapperLblSignup{width: 40% !important; max-width: 40% !important; flex-basis: 40% !important;}
+        .wrapperSignin .wrapperButtons .btnForgot{width: 135px!important;}
+        .wrapperSignin .wrapperButtons .btnSubmit{width: 135px!important;}
+        .desktop_view{display: none!important;}
+        .mobile_view{display: block!important; margin-top: 0;}
+        .wrapperLoginContainer .leftColumn .termsOfConditions{bottom: 0; left:0;  padding:20px!important;}
+        .wrapperLoginContainer .logo{top: 5%;  left: 10%;}
+        .wrapperJobs{padding: 5%!important;}
+}
