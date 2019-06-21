@@ -221,6 +221,7 @@ class EmployerSignup extends Component {
                         </div>
                         <div className={"withPadding wrapperSignup"}>
                             <Input
+                                key={2}
                                 label={strings.stringsSignup.LBL_PASSWORD_1}
                                 type={"password"}
                                 onChange={this.onInputChange}
@@ -230,6 +231,7 @@ class EmployerSignup extends Component {
                                 placeholder={strings.stringsSignup.LBL_PASSWORD}/>
 
                             <Input
+                                key={2}
                                 label={strings.stringsSignup.LBL_PASSWORD_2}
                                 type={"password"}
                                 onChange={this.onInputChange}
