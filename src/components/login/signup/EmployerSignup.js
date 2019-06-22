@@ -25,11 +25,16 @@ class EmployerSignup extends Component {
             soletraderName:undefined,
             websiteName:undefined,
             utrName:undefined,
+            addressTraderName: undefined,
+            cityName: undefined,
+            postcodeName: undefined,
+            contactMobileName: undefined,
             checkbox:false,
             radio:undefined,
             loading:false,
             step:1,
             onBackButton:null,
+            isChecked: true,
             errors:{
                 companyName:false,
                 email:false,
@@ -39,6 +44,10 @@ class EmployerSignup extends Component {
             selectedOption: '',
             successMessage:null
         }
+    }
+    
+    radioChecked = () =>{
+        return {checked: true}
     }
 
     submitStepOne = () =>{
@@ -53,16 +62,28 @@ class EmployerSignup extends Component {
     submitStepTwo = () =>{
         if(this.checkErrorStepTwo()){
             const tempState = utils.deepCopy(this.state);
-            //console.log(tempState);
-            if(tempState.radio == "Limited Company"){
+            let checkOne = true;
+            if(tempState.radio === "Limited Company"){
                 tempState.step = 2;
-                tempState.onBackButton = this.onBackButton;
+                tempState.onBackButton = this.onBackButtonTwo;
+                this.setState(tempState);
+            }else if(tempState.radio === "Sole Trader"){
+                tempState.step = 3;
+                tempState.onBackButton = this.onBackButtonTwo;
                 this.setState(tempState);
             }else{
-                tempState.step = 3;
-                tempState.onBackButton = this.onBackButton;
-                this.setState(tempState);
+                
             }    
+            // }else{
+            //     tempState.errors.radio = true;
+            //     tempState.errors.message = strings.stringsSignup.errors.ERROR_PASSWORD_MATCH;
+            //     checkOne = false;
+            // }    
+            // }else{
+            //     tempState.step = 3;
+            //     tempState.onBackButton = this.onBackButton;
+            //     this.setState(tempState);
+            // }    
             // if(tempState.radio == "Limited Company"){
             //     tempState.step = 2;
             //     tempState.onBackButton = this.onBackButton;
@@ -83,12 +104,39 @@ class EmployerSignup extends Component {
             // });
         }
     }
+    submitStepThree = () =>{
+        if(this.checkErrorStepThree()){
+            const tempState = utils.deepCopy(this.state);
+            // tempState.step = 2;
+            // tempState.onBackButton = this.onBackButton;
+            // this.setState(tempState);
+            // console.log(tempState);
+            tempState.loading = true;
+            this.setState(tempState,()=>{
+                const employer = {};
+                employer.email = tempState.email;
+                employer.companies = [tempState.companyName];
+                employer.companytype = tempState.radio;
+
+                employer.businessname = tempState.soletraderName;
+                employer.companytype = tempState.websiteName;
+                employer.utrno = tempState.utrName;
+                employer.address = tempState.addressTradeName;
+                employer.cityname = tempState.cityName;
+                employer.postcode = tempState.postcodeName;
+                employer.contactno = tempState.contactMobileName;
+                // companyType
+                employer.type = constants.CLUSTER_EMPLOYER;
+                authFunctions.createEmployerUser(tempState.email, tempState.psw1, employer, this.successSignup, this.errorSignup);
+            });
+        }
+    }
 
     successSignup = () =>{
         const tempState = JSON.parse(JSON.stringify(this.state));
         tempState.loading = false;
         tempState.successMessage = strings.stringsSignup.MESSAGE_SUCCESS_SIGNUP;
-        tempState.step = 3;
+        tempState.step = '';
         tempState.onBackButton = null;
         this.setState(tempState);
     }
@@ -141,24 +189,39 @@ class EmployerSignup extends Component {
     checkErrorStepTwo = () =>{
         const tempState = utils.deepCopy(this.state);
         let check = true;
-        // for(let propertyName in tempState.errors) {
-        //     tempState.errors[propertyName] = false;
-        // }
         tempState.errors.message = null;
-        // const name = ;
-        if(tempState.radio  == ''){
-            tempState.errors.radio = true;
+        if(!tempState.companyType){
+            tempState.errors.companyType = true;
             tempState.errors.message = strings.stringsSignup.errors.ERROR_RADIO;
             check = false;
         }
-        // console.log(tempState.radio);
         this.setState(tempState);
         return check;
+    }
+
+    checkErrorStepThree = () =>{
+        const tempStateThree = utils.deepCopy(this.state);
+        let checkThree = true;
+        tempStateThree.errors.message = null;
+        if(!tempStateThree.soletraderName || tempStateThree.soletraderName.trim() === ""){
+            tempStateThree.errors.soletraderName = true;
+            tempStateThree.errors.message = strings.stringsSignup.errors.ERROR_SOLETRADER;
+            checkThree = false;
+        }    
+        this.setState(tempStateThree);
+        return checkThree;
     }
 
     onBackButton = () =>{
         const tempState = utils.deepCopy(this.state);
         tempState.step = 1;
+        tempState.onBackButton = this.goToSignin;
+        this.setState(tempState);
+    }
+
+    onBackButtonTwo = () =>{
+        const tempState = utils.deepCopy(this.state);
+        tempState.step = 2;
         tempState.onBackButton = this.goToSignin;
         this.setState(tempState);
     }
@@ -188,7 +251,9 @@ class EmployerSignup extends Component {
     onRadioButtonChange = (e) =>{
         const tempState = utils.deepCopy(this.state);
         tempState.radio = e.target.value;
-        //console.log(tempState);
+        // tempState.errors.companyType = true;
+        tempState.companyType = tempState.radio;
+        tempState.errors.message = null;
         this.setState(tempState);
     }
 
@@ -211,7 +276,6 @@ class EmployerSignup extends Component {
                         </div>
                         <div className={"withPadding wrapperSignup"}>
                             <Input
-                                key={2}
                                 onChange={this.onInputChange}
                                 name={"email"}
                                 error={this.state.errors.email}
@@ -221,7 +285,6 @@ class EmployerSignup extends Component {
                         </div>
                         <div className={"withPadding wrapperSignup"}>
                             <Input
-                                key={2}
                                 label={strings.stringsSignup.LBL_PASSWORD_1}
                                 type={"password"}
                                 onChange={this.onInputChange}
@@ -231,7 +294,6 @@ class EmployerSignup extends Component {
                                 placeholder={strings.stringsSignup.LBL_PASSWORD}/>
 
                             <Input
-                                key={2}
                                 label={strings.stringsSignup.LBL_PASSWORD_2}
                                 type={"password"}
                                 onChange={this.onInputChange}
@@ -260,7 +322,7 @@ class EmployerSignup extends Component {
 
                     : this.state.step === 2?
 
-                    <Wrapper>
+                    <Wrapper className={"withButton"}>
                         <div className={"withPadding"}>
                             <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_2}</p>
                         </div>
@@ -273,7 +335,7 @@ class EmployerSignup extends Component {
                                 <Col xs={12}>
                                     <Col xs={10}>
                                         <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
-                                            <i class="fa fa-shopping-bag Shape" style={{color:"white"}}></i> 
+                                            <i className={'fa fa-shopping-bag Shape'} style={{color:"white"}}></i> 
                                         </span>           
                                     &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
                                     {strings.stringsSignup.EMP_TYP_1}  
@@ -283,8 +345,11 @@ class EmployerSignup extends Component {
                                                 className={'Oval-Copy'}
                                                 name={"companyType"}
                                                 value={'Limited Company'}
+                                                defaultChecked={this.state.checked}
                                             onChange={this.onRadioButtonChange}
-                                            error={this.state.errors.checkbox}/>
+                                            onClick={this.onRadioButtonChange}
+                                            error={this.state.errors.radio}/>
+                                            {/* React.createElement('input',{type: 'checkbox', defaultChecked: false}); */}
                                     </Col>        
                                 </Col>
                             </Row>  
@@ -299,7 +364,7 @@ class EmployerSignup extends Component {
                                     <Col xs={10}>
 
                                         <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
-                                            <i class="fa fa-shopping-bag Shape" style={{color:"white"}}></i> 
+                                            <i className={'fa fa-shopping-bag Shape'} style={{color:"white"}}></i> 
                                         </span>           
                                         &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
                                     {strings.stringsSignup.EMP_TYP_2}  
@@ -309,9 +374,8 @@ class EmployerSignup extends Component {
                                                 className={'Oval-Copy'}
                                                 name={"companyType"}
                                                 value={'Sole Trader'}
-                                                checked={this.state.size === "small"}
                                                 onChange={this.onRadioButtonChange}
-                                                error={this.state.errors.checkbox}/>
+                                                error={this.state.errors.radio}/>
                                     </Col>        
                                 </Col>
                             </Row>  
@@ -394,11 +458,11 @@ class EmployerSignup extends Component {
                                     <Col xs={12}>
                                         <Input
                                             onChange={this.onInputChange}
-                                            name={"soletraderName"}
+                                            name={"addressTradeName"}
                                             key={1}
-                                            error={this.state.errors.soletraderName}
+                                            error={this.state.errors.addressTraderName}
                                             label={strings.stringsSignup.SUBTITLE_STEP_3}
-                                            value={this.state.soletraderName}
+                                            value={this.state.addressTraderName}
                                             placeholder={strings.stringsSignup.ADDRESS_PLACEHOLDER}/>
                                     </Col>
                             </Row>
@@ -408,19 +472,19 @@ class EmployerSignup extends Component {
                                     <Col xs={6}>
                                         <Input
                                             onChange={this.onInputChange}
-                                            name={"soletraderName"}
+                                            name={"cityName"}
                                             key={1}
-                                            error={this.state.errors.soletraderName}
-                                            value={this.state.soletraderName}
+                                            error={this.state.errors.cityName}
+                                            value={this.state.cityName}
                                             placeholder={strings.stringsSignup.CITY_PLACEHOLDER}/>
                                     </Col>  
                                     <Col xs={6}>
                                         <Input
                                             onChange={this.onInputChange}
-                                            name={"soletraderName"}
+                                            name={"postcodeName"}
                                             key={1}
-                                            error={this.state.errors.soletraderName}
-                                            value={this.state.soletraderName}
+                                            error={this.state.errors.postcodeName}
+                                            value={this.state.postcodeName}
                                             placeholder={strings.stringsSignup.POSTCODE_PLACEHOLDER}/>
                                     </Col> 
 
@@ -431,10 +495,10 @@ class EmployerSignup extends Component {
                                     <Col xs={6}>
                                         <Input
                                             onChange={this.onInputChange}
-                                            name={"soletraderName"}
+                                            name={"contactMobileName"}
                                             key={1}
-                                            error={this.state.errors.soletraderName}
-                                            value={this.state.soletraderName}
+                                            error={this.state.errors.contactMobileName}
+                                            value={this.state.contactMobileName}
                                             placeholder={strings.stringsSignup.PLACEHOLDER_CONTACT_MOBILE}/>
                                     </Col>       
                             </Row>            
@@ -453,7 +517,7 @@ class EmployerSignup extends Component {
                                     className={"btnSubmitStepTwo"}
                                     loading={this.state.loading}
                                     textButton={strings.stringsSignup.BTN_CONTINUE}
-                                    onClick={this.submitStepTwo}/>
+                                    onClick={this.submitStepThree}/>
 
 
                             </div>
