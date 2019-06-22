@@ -98,7 +98,7 @@ export const stringsJobs = new LocalizedStrings({
     en: {
         LBL_NO_JOBS:"You currently don't have any recruitment drives",
         LBL_NO_ARCHIVED_JOBS:"You don't have any archived jobs",
-        BTN_ADD_JOB:"CREATE NEW",
+        BTN_ADD_JOB:"POST NEW",
         LBL_ROLE:"Hiring",
         LBL_POSITIONS:"Positions",
         LBL_LENGTH:"Length",

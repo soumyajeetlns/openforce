@@ -51,7 +51,7 @@ class HomeContainer extends Component {
 
                                 {
                                     this.props.selectedTab.toLowerCase() !== "archive"?
-                                        <button className={"btnAddJob"} onClick={this.props.onJobAdd}>
+                                        <button className={"btnAddJob hidden-xs"} onClick={this.props.onJobAdd}>
                                             <i className="material-icons">add</i>
                                         </button>
                                         :null
@@ -66,6 +66,13 @@ class HomeContainer extends Component {
                     <Col xs={12}>
                         {this.props.children}
                     </Col>
+                    {
+                        this.props.selectedTab.toLowerCase() !== "archive"?
+                            <button className={"btnAddJob hidden-lg"} onClick={this.props.onJobAdd}>
+                                <i className="material-icons">add</i>
+                            </button>
+                            :null
+                    }
                 </Row>
             </div>
         )
