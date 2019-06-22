@@ -5,18 +5,29 @@ export const stringsSignup = new LocalizedStrings({
     en:{
         TITLE_STEP_1:"Enter business detail",
         LBL_COMPANY_NAME:"Companies name",
+        LBL_SOLETRADER_NAME:"Sole Trader name",
         LBL_EMAIL:"Enter email address",
         PLACEHOLDER_STEP_1:"Business name",
+        PLACEHOLDER_STEP_3: "Your trading name",
+        UTR_LABEL :"UTR number",
+        WEBSITE_LABEL : "Website or online presence",
+        WEBSITE_PLACEHOLDER :"e.g www.acneconstruction.com",
+        UTR_PLACEHOLDER: "9012345678",
         BTN_STEP_1:"SUBMIT",
 
         TITLE_STEP_2:"Sign Up",
-
+        TITLE_STEP_3:"Trading Details",
+        SUBTITLE_STEP_3:"Trading address",
         EMP_TYP_1 :"Limited Company",
-
         EMP_TYP_2 : "Sole Trader",
-
         SUBTITLE_STEP_1:"Companies name",
         PLACEHOLDER_EMAIL_STEP_2:"address@example.com",
+        ADDRESS_PLACEHOLDER:"Address line1",
+        CITY_PLACEHOLDER:"City",
+        UTRNO_PLACEHOLDER:"90123456768",
+        POSTCODE_PLACEHOLDER:"Post Code",
+        PLACEHOLDER_CONTACT_MOBILE:"Contact mobile no",
+
         LBL_PASSWORD_1:"Set a password",
         LBL_PASSWORD_2:"Confirm password",
         LBL_PASSWORD:"Enter your password",

@@ -22,6 +22,9 @@ class EmployerSignup extends Component {
             psw1:undefined,
             psw2:undefined,
             companyType:undefined,
+            soletraderName:undefined,
+            websiteName:undefined,
+            utrName:undefined,
             checkbox:false,
             radio:undefined,
             loading:false,
@@ -56,7 +59,7 @@ class EmployerSignup extends Component {
                 tempState.onBackButton = this.onBackButton;
                 this.setState(tempState);
             }else{
-                tempState.step = 1;
+                tempState.step = 3;
                 tempState.onBackButton = this.onBackButton;
                 this.setState(tempState);
             }    
@@ -218,6 +221,7 @@ class EmployerSignup extends Component {
                         </div>
                         <div className={"withPadding wrapperSignup"}>
                             <Input
+                                key={2}
                                 label={strings.stringsSignup.LBL_PASSWORD_1}
                                 type={"password"}
                                 onChange={this.onInputChange}
@@ -227,6 +231,7 @@ class EmployerSignup extends Component {
                                 placeholder={strings.stringsSignup.LBL_PASSWORD}/>
 
                             <Input
+                                key={2}
                                 label={strings.stringsSignup.LBL_PASSWORD_2}
                                 type={"password"}
                                 onChange={this.onInputChange}
@@ -270,7 +275,7 @@ class EmployerSignup extends Component {
                                         <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
                                             <i class="fa fa-shopping-bag Shape" style={{color:"white"}}></i> 
                                         </span>           
-                                    &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
                                     {strings.stringsSignup.EMP_TYP_1}  
                                     </Col> 
                                     <Col xs={2}>
@@ -296,7 +301,7 @@ class EmployerSignup extends Component {
                                         <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
                                             <i class="fa fa-shopping-bag Shape" style={{color:"white"}}></i> 
                                         </span>           
-                                    &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
                                     {strings.stringsSignup.EMP_TYP_2}  
                                     </Col> 
                                     <Col xs={2}>
@@ -331,7 +336,129 @@ class EmployerSignup extends Component {
                             </div>
                         </div>
                     </Wrapper>
+                    : this.state.step === 3?
 
+                    <Wrapper>
+                        <div className={"withPadding"}>
+                            <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_3}</p>
+                        </div>
+                        <div className={"withPadding"}>
+                            <Input
+                                onChange={this.onInputChange}
+                                name={"soletraderName"}
+                                error={this.state.errors.soletraderName}
+                                label={strings.stringsSignup.LBL_SOLETRADER_NAME}
+                                value={this.state.soletraderName}
+                                placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
+                        </div>
+                        <div className={"withPadding"}>
+                            <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                                    <Col xs={6}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"websiteName"}
+                                            error={this.state.errors.websiteName}
+                                            label={strings.stringsSignup.WEBSITE_LABEL}
+                                            value={this.state.websiteName}
+                                            placeholder={strings.stringsSignup.WEBSITE_PLACEHOLDER}/>
+                                    </Col>  
+                                    <Col xs={6}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"utrName"}
+                                            error={this.state.errors.utrName}
+                                            label={strings.stringsSignup.UTR_LABEL}
+                                            value={this.state.utrName}
+                                            placeholder={strings.stringsSignup.UTR_PLACEHOLDER}/>
+                                    </Col>      
+                            </Row>            
+                        </div>
+                        {/* <div className={"wrapperSignup  withPaddingSubtitle"}>
+                            <p className={"subtitle"}>{strings.stringsSignup.SUBTITLE_STEP_2}</p>
+                        </div> */}     
+                        <div className={"wrapperSignup"}>
+                            <div className={"separatorStep2"}/>
+                        </div>
+                        {/* <div className={"withPadding"}>
+                            <Input
+                                onChange={this.onInputChange}
+                                name={"soletraderName"}
+                                key={1}
+                                error={this.state.errors.soletraderName}
+                                label={strings.stringsSignup.LBL_SOLETRADER_NAME}
+                                value={this.state.soletraderName}
+                                placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
+                        </div> */}
+                        <div className={"withPadding"}>
+                            <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                                    <Col xs={12}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"soletraderName"}
+                                            key={1}
+                                            error={this.state.errors.soletraderName}
+                                            label={strings.stringsSignup.SUBTITLE_STEP_3}
+                                            value={this.state.soletraderName}
+                                            placeholder={strings.stringsSignup.ADDRESS_PLACEHOLDER}/>
+                                    </Col>
+                            </Row>
+                        </div>
+                        <div className={"withPadding"}>
+                            <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                                    <Col xs={6}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"soletraderName"}
+                                            key={1}
+                                            error={this.state.errors.soletraderName}
+                                            value={this.state.soletraderName}
+                                            placeholder={strings.stringsSignup.CITY_PLACEHOLDER}/>
+                                    </Col>  
+                                    <Col xs={6}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"soletraderName"}
+                                            key={1}
+                                            error={this.state.errors.soletraderName}
+                                            value={this.state.soletraderName}
+                                            placeholder={strings.stringsSignup.POSTCODE_PLACEHOLDER}/>
+                                    </Col> 
+
+                            </Row>
+                        </div>            
+                            <div className={"withPadding"}>
+                                <Row className={"wrapperCheckbox checkbox-wrapper"}>        
+                                    <Col xs={6}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"soletraderName"}
+                                            key={1}
+                                            error={this.state.errors.soletraderName}
+                                            value={this.state.soletraderName}
+                                            placeholder={strings.stringsSignup.PLACEHOLDER_CONTACT_MOBILE}/>
+                                    </Col>       
+                            </Row>            
+                        </div> 
+                        <div className={"wrapperSignup withPadding"}>
+
+                            {
+                                this.state.successMessage?
+                                    <p className={"statusMessage globalSuccessMessage"}>{this.state.successMessage}</p>
+                                    :
+                                    <p className={"statusMessage globalErrorMessage"}>{this.state.errors.message}</p>
+                            }
+
+                            <div className={"wrapperButtons"}>
+                                <AsyncButton
+                                    className={"btnSubmitStepTwo"}
+                                    loading={this.state.loading}
+                                    textButton={strings.stringsSignup.BTN_CONTINUE}
+                                    onClick={this.submitStepTwo}/>
+
+
+                            </div>
+                        </div>
+                    </Wrapper>
                     :
 
                     <Wrapper>
