@@ -36,7 +36,8 @@ class LoginContainer extends Component {
                     }
                     <div className={"componentContainer"}> {this.state.animationComponent && this.state.animationComponent.component?
                                                             this.state.animationComponent.component:
-                                                            this.props.children} </div>
+                                                            this.props.children} 
+                    </div>
                 </div>
                 </div>
                 <Col xs={4} className={"leftColumn leftcol desktop_view"}>

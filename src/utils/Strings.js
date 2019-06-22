@@ -4,10 +4,10 @@ import LocalizedStrings from 'react-localization';
 export const stringsSignup = new LocalizedStrings({
     en:{
         TITLE_STEP_1:"Enter business detail",
-        LBL_COMPANY_NAME:"Companies name",
+        LBL_COMPANY_NAME:"Full name",
         LBL_SOLETRADER_NAME:"Sole Trader name",
         LBL_EMAIL:"Enter email address",
-        PLACEHOLDER_STEP_1:"Business name",
+        PLACEHOLDER_STEP_1:"Enter your full first and surname",
         PLACEHOLDER_STEP_3: "Your trading name",
         UTR_LABEL :"UTR number",
         WEBSITE_LABEL : "Website or online presence",
@@ -20,7 +20,7 @@ export const stringsSignup = new LocalizedStrings({
         SUBTITLE_STEP_3:"Trading address",
         EMP_TYP_1 :"Limited Company",
         EMP_TYP_2 : "Sole Trader",
-        SUBTITLE_STEP_1:"Companies name",
+        SUBTITLE_STEP_1:"Full Name",
         PLACEHOLDER_EMAIL_STEP_2:"address@example.com",
         ADDRESS_PLACEHOLDER:"Address line1",
         CITY_PLACEHOLDER:"City",
@@ -42,6 +42,8 @@ export const stringsSignup = new LocalizedStrings({
             ERROR_EMAIL:"Invalid email",
             ERROR_PASSWORD:"Invalid password. The password must be at least 6 chars",
             ERROR_PASSWORD_MATCH:"The two password doesn't match",
+            ERROR_SOLETRADER : "Please provide a sole trader name",
+            ERROR_RADIO : "Please select one company type",
             ERROR_CHECKBOX:"You have to confirm that you are an hiring manager"
         },
         LBL_TERMS_OF_CONDITIONS_1:"Openforce is a registered company in England, Wales and Northern Ireland 09860607",
