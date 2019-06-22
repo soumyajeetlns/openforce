@@ -15,13 +15,10 @@ export const ERROR = "/error";
 export const JOBS = "/jobs"
 export const JOB_MAP = "/map"
 
-/*export const JOBS_ACTIVE = "active";
-export const JOBS_DRAFT = "draft";
-export const JOBS_ARCHIVED = "archive";*/
-
 export const JOBS_ACTIVE = "active";
 export const JOBS_DRAFT = "draft";
 export const JOBS_ARCHIVED = "archive";
+export const JOBS_CLOSED = "closed";
 
 export const REDUX_PUT_USER_EMPLOYER_STATE = "REDUX_PUT_USER_EMPLOYER_STATE";
 export const REDUX_GET_USER_EMPLOYER_STATE = "REDUX_GET_USER_EMPLOYER_STATE";
@@ -40,6 +37,7 @@ export const FUNCTION_DISMISS_EMPLOYEE = "dismissEmployee";
 export const FUNCTION_END_JOB = "endJob";
 export const FUNCTION_RATING_EMPLOYEE = "rateEmployee";
 export const FUNCTION_GET_PAST_JOBS_EMPLOYEE = "getPastJobForUser";
+
 
 export const DEFAULT_OF_RATE = 10;
 
