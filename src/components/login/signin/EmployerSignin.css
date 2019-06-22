@@ -91,7 +91,11 @@
 
     .jobItemContainer .body div:nth-child(4){min-height: 100px;}
     .jobItemContainer .header .bg{width: 85px!important; height:18px!important; line-height:1em!important;}
+    
+    .popupBody .body{text-align: justify;}
+    .popupBody .body .textBody{margin-bottom: 20px;}
 
+    .bodyJob .col-xs-12.box{font-weight: normal!important;}
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
     .cardLoginOut{float:left; clear: both; width: 100%!important; padding-top: 80%;  background: no-repeat center center; 
@@ -134,12 +138,53 @@
         .wrapperProfile .companyName{float: left!important; margin-top: 8px; margin-right: 5px; font-size: 11px;}
 
         .wrapperJob .bodyJob{width: 90%!important; padding: 5%!important;}
-        .wrapperJob .bodyJob .wrapperBox .box{padding: 10px 15px!important;}
+        .wrapperJob .bodyJob .wrapperBox .box{padding: 20px!important;}
         .wrapperJob .bodyJob .wrapperBox .box .col-xs-1{padding: 0!important;}
         .wrapperJob .bodyJob .wrapperBox .box{height: auto!important;}
-        .wrapperJob .bodyJob{height: 400px;}
+        .wrapperJob .bodyJob{min-height:400px!important;}
         .wrapperJob .bodyJob .footer{padding: 15px 0!important; text-align: center!important;}
 
         .mapContainer .footer .tab{width: 50%!important; margin: 0!important;}
          .mapContainer .footer .col-xs-3{flex-basis: 50%; max-width: 50%;}
+
+         .btnAddJob.hidden-lg{width: 56px; height: 56px; -webkit-box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.24), 0 0 6px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.24), 0 0 6px 0 rgba(0, 0, 0, 0.12); background-color: #0c15b0;
+            border-style: solid; border-width: 0.5px; border-image-source: linear-gradient(to bottom, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06) 20%, rgba(255, 255, 255, 0));
+            border-image-slice: 1; border-radius: 56px; position: fixed; bottom:20px; right:20px; z-index: 10;
+            color: white; border: 0!important;}
+            .wrapperJobs{min-height:400px;}
+            .popupBody .body{width:90%!important; padding: 5%!important; height: 200px!important;;}
+            .popupBody .body .wrapperButtons .buttons{position: relative; bottom: 0;}
+            .popupBody .body .wrapperButtons button{width: 110px;}
+            .col-xs-12.subBox .col-xs-11.box_1 div{width:100%!important; }
+            .wrapperJob .bodyJob{padding-bottom: 150px!important;}
+            .subBox .wrapperChoosedJobRoles .wrapperSlider{width: 70%!important;}
+            .wrapperJob .bodyJob .wrapperBox .subBox{padding: 15px 10px!important;}
+            .subBox .separator{margin-left: -10px!important; margin-right: -10px!important;}
+            .col-xs-12.subBox.subBox3 .col-xs-1{display: none!important;}
+            .col-xs-12.subBox.subBox3 .col-xs-11{width: 100%!important; flex-basis:100%; max-width:100%; text-align: center;}
+            .col-xs-12.subBox.subBox3 .col-xs-4{width:50%!important; flex-basis:50%; max-width:50%;}
+            .col-xs-12.subBox.subBox3 .col-xs-4 p{margin-bottom: 0!important;}
+            /* .subBox.subBox3 [role="btnDatePicker"]{width: 110px!important; font-size: 12px!important;} */
+
+            .popupBody .body .wrapperButtons .buttons{ position: relative!important;}
+            .popupBody .body .wrapperButtons button{width: 110px!important;}
+            .popupBody .body .wrapperButtons{width: 100%!important;}
+            .popupBody .body .wrapperButtons .buttons{bottom: 0!important;}
+            .wrapperJob .bodyJob .wrapperBox{padding: 5px!important;}
+            .wrapperJob .bodyJob .wrapperBox .box{margin-bottom: 0!important;}
+            .wrapperJob .col-xs-12.subBox.subBox3{padding-top: 45px!important;}
+            
+            .wrapperProfileEmployer{padding-left:10px!important; padding-right:10px!important; }
+            .wrapperProfileEmployer > div{margin-left: 0!important;}
+
+            .wrapperProfileEmployer .col-xs-3.customCol{ width: 100%!important; flex-basis: 100%!important; max-width: 100%!important;}
+            .wrapperProfileEmployer .col-xs-5.customCol{ width: 90%!important; flex-basis: 90%!important; max-width: 90%!important;}
+            .wrapperProfileEmployer .col-xs-5.customCol .titleColumn{margin-left: 0!important;}
+
+            .wrapperProfileEmployer > .col-xs-12 > .col-xs-3{width: 98%!important; flex-basis: 98%!important; max-width: 98%!important;}
+            .wrapperProfileEmployer .customCol.bodyCustomCol{padding: 15px;}
+    }
+    @media only screen and (min-width: 320px) and (max-width: 414px) {
+        .subBox .wrapperChoosedJobRoles .wrapperSlider{width: 68%!important;}
     }
