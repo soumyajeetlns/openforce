@@ -33,6 +33,7 @@ class JobItem extends Component {
                 jobstatus: strings.stringsJobs.LBL_JOB_OPEN
             }
             return this.state;*/
+            return <div className={"bg"}><span className={"recruiting"}>{strings.stringsJobs.LBL_JOB_OPEN}</span></div>;
         }
         else if(this.props.hoc.status == 'draft')
         {
