@@ -215,9 +215,13 @@ export const stringsJobMap = new LocalizedStrings({
         LBL_APPLIED:"Applied",
         POPUP_CONFIRM_END_JOB_TITLE:"End the job",
         POPUP_CONFIRM_END_JOB_BODY:"Ending the job informs the contractor that they are no longer needed and the will no longer turn up for work",
-        
+        POPUP_CONFIRM_BTN_ACCEPT:"YES",
+        POPUP_CONFIRM_BTN_CANCEL:"NO",
+
         POPUP_CONFIRM_RE_HIRE_TITLE:"Extending the job",
-        POPUP_CONFIRM_RE_HIRE_BODY:"You’re re-submitting a job post for an extention to the hiring process, are you sure you wish to-do this?"
+        POPUP_CONFIRM_RE_HIRE_BODY:"You’re re-submitting a job post for an extention to the hiring process, are you sure you wish to-do this?",
+        POPUP_CONFIRM_RE_HIRE_ACCEPT:"SUBMIT",
+        POPUP_CONFIRM_RE_HIRE_CANCEL:"CANCEL"
     }
 })
 
