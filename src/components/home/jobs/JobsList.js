@@ -102,6 +102,8 @@ class JobsList extends Component {
                                     <JobItem key={index} hoc={el} onEdit={this.editJob.bind(this,index)} history={this.props.history}/>
                                 )}
                             </Row>
+
+                            
                         }
                         </div>
                     </div>

@@ -28,29 +28,14 @@ class JobItem extends Component {
     openjob = () =>{
         if(this.props.hoc.status == 'active')
         {
-            /*this.state =    {
-                tagclass: "bg",
-                jobstatus: strings.stringsJobs.LBL_JOB_OPEN
-            }
-            return this.state;*/
             return <div className={"bg"}><span className={"recruiting"}>{strings.stringsJobs.LBL_JOB_OPEN}</span></div>;
         }
         else if(this.props.hoc.status == 'draft')
         {
-            /*this.state =    {
-                tagclass: "bgclose",
-                jobstatus: strings.stringsJobs.LBL_JOB_DRAFT
-            }
-            return this.state;*/
             return <div className={"bgclose"}><span className={"recruiting"}>{strings.stringsJobs.LBL_JOB_DRAFT}</span></div>;
         }
         else
         {
-            /*this.state =    {
-                tagclass: "bgclose",
-                jobstatus: strings.stringsJobs.LBL_JOB_CLOSED
-            }
-            return this.state;*/
             return <div className={"bgclose"}><span className={"recruiting"}>{strings.stringsJobs.LBL_JOB_CLOSED}</span></div>;
         }
     }
