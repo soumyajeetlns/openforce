@@ -81,7 +81,16 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;}
+    .cardLogin .withPadding{padding-top: 50px;}
+    .wrapperSignup .separatorStep1{margin-top: 40px;}
 
+    .jobItemContainer .header .bgclose{height: 18px!important; line-height: 1em!important;}
+    .jobItemContainer .header .btnEdit{border: 0!important;}
+    .jobItemContainer .body{height: auto!important;;}
+    .jobItemContainer .body .fieldRole{min-height:60px; }
+
+    .jobItemContainer .body div:nth-child(4){min-height: 100px;}
+    .jobItemContainer .header .bg{width: 85px!important; height:18px!important; line-height:1em!important;}
 
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
@@ -90,7 +99,7 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;}
-    .wrapperSignin{padding: 5%!important; }
+    .wrapperSignin{padding:6% 8%!important; }
     .wrapperLoginContainer .rightcol{position: relative; right: 0; width: 100%!important;}
     .wrapperLoginContainer .rightcol img{display: none;}
     .wrapperLoginContainer .leftcol{position: relative; right: 0; width: 100% !important; max-width: 100% !important;
@@ -108,4 +117,29 @@
         .wrapperLoginContainer .leftColumn .termsOfConditions{bottom: 0; left:0;  padding:20px!important;}
         .wrapperLoginContainer .logo{top: 5%;  left: 10%;}
         .wrapperJobs{padding: 5%!important;}
+        .wrapperLoginContainer .cardLogin{width: 100%!important;}
+        .cardLogin .wrapperBackArrow .backArrow{left:15px!important; top: 20px;}
+        .cardLogin .wrapperBackArrow{background: #fed91c; width: 100%; height: 65px;}
+
+        .cardLogin .withPadding{padding:8%;}
+
+        /*============================================Jobs===============================================*/
+        .wrapperHomeContainer .header .logo{margin-top:20px!important; margin-left: 20px!important;}
+        .wrapperHomeContainer .header .logo img{width:80px!important;}
+        .wrapperHomeContainer .header .profile{margin-right: 20px!important; margin-top: 15px!important;}
+        .wrapperHomeContainer .header .sections{left: 0!important; width: 100%!important;}
+        .wrapperHomeContainer .header .sections .section{width:33%!important; padding:10px!important; ;}
+        .wrapperHomeContainer .header{height: 140px!important;}
+        .wrapperProfile .profileImg{float:right!important;}
+        .wrapperProfile .companyName{float: left!important; margin-top: 8px; margin-right: 5px; font-size: 11px;}
+
+        .wrapperJob .bodyJob{width: 90%!important; padding: 5%!important;}
+        .wrapperJob .bodyJob .wrapperBox .box{padding: 10px 15px!important;}
+        .wrapperJob .bodyJob .wrapperBox .box .col-xs-1{padding: 0!important;}
+        .wrapperJob .bodyJob .wrapperBox .box{height: auto!important;}
+        .wrapperJob .bodyJob{height: 400px;}
+        .wrapperJob .bodyJob .footer{padding: 15px 0!important; text-align: center!important;}
+
+        .mapContainer .footer .tab{width: 50%!important; margin: 0!important;}
+         .mapContainer .footer .col-xs-3{flex-basis: 50%; max-width: 50%;}
     }
