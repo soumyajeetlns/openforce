@@ -119,7 +119,7 @@ class EmployerSignup extends Component {
                 employer.companytype = tempState.radio;
 
                 employer.businessname = tempState.soletraderName;
-                employer.companytype = tempState.websiteName;
+                employer.website = tempState.websiteName;
                 employer.utrno = tempState.utrName;
                 employer.address = tempState.addressTradeName;
                 employer.cityname = tempState.cityName;
