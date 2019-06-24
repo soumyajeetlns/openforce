@@ -1,0 +1,145 @@
+.wrapperSignin{
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    padding: 60px 60px 30px 60px;
+}
+
+.wrapperSignin .title{
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #323432;
+}
+
+.wrapperSignin .wrapperLblSignup{
+    text-align: right;
+}
+
+.wrapperSignin .wrapperLblSignup .lblSignup{
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #9b9b9b;
+}
+
+.wrapperSignin .wrapperButtons{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.wrapperSignin .wrapperButtons .btnForgot{
+    width: 146px;
+    height: 36px;
+    margin-right: 5px;
+    border-radius: 2px;
+    border: solid 1px #d2d2d2;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #05106e;
+    background: white;
+}
+
+.wrapperSignin .wrapperButtons .btnSubmit{
+    width: 146px;
+    height: 36px;
+    margin-left: 5px;
+    border:0;
+    border-radius: 2px;
+    background-color: #05106e;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+}
+
+.desktop_view{display: block!important;}
+.mobile_view{display: none!important;}
+.wrapperLoginContainer .rightcol{position: relative; right: 0; background: no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;}
+    .cardLogin .withPadding{padding-top: 50px;}
+    .wrapperSignup .separatorStep1{margin-top: 40px;}
+
+    .jobItemContainer .header .bgclose{height: 18px!important; line-height: 1em!important;}
+    .jobItemContainer .header .btnEdit{border: 0!important;}
+    .jobItemContainer .body{height: auto!important;;}
+    .jobItemContainer .body .fieldRole{min-height:60px; }
+
+    .jobItemContainer .body div:nth-child(4){min-height: 100px;}
+    .jobItemContainer .header .bg{width: 85px!important; height:18px!important; line-height:1em!important;}
+
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .cardLoginOut{float:left; clear: both; width: 100%!important; padding-top: 80%;  background: no-repeat center center; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;}
+    .wrapperSignin{padding:6% 8%!important; }
+    .wrapperLoginContainer .rightcol{position: relative; right: 0; width: 100%!important;}
+    .wrapperLoginContainer .rightcol img{display: none;}
+    .wrapperLoginContainer .leftcol{position: relative; right: 0; width: 100% !important; max-width: 100% !important;
+        flex-basis: 100% !important;  position: relative;  clear: both;}
+    .wrapperLoginContainer .cardLogin{position: relative; left: inherit; margin:0 auto; clear: both; top: inherit;}
+    .wrapperLoginContainer .leftColumn .termsOfConditions{position: relative!important;}
+    .wrapperLoginContainer .rightcol{position: relative; left: 0!important; width: 100% !important; max-width: 100% !important;
+        flex-basis: 100% !important;}
+        .wrapperSignin .title{width: 60% !important; max-width: 60% !important; flex-basis: 60% !important;}
+        .wrapperSignin .wrapperLblSignup{width: 40% !important; max-width: 40% !important; flex-basis: 40% !important;}
+        .wrapperSignin .wrapperButtons .btnForgot{width: 135px!important;}
+        .wrapperSignin .wrapperButtons .btnSubmit{width: 135px!important;}
+        .desktop_view{display: none!important;}
+        .mobile_view{display: block!important; margin-top: 0;}
+        .wrapperLoginContainer .leftColumn .termsOfConditions{bottom: 0; left:0;  padding:20px!important;}
+        .wrapperLoginContainer .logo{top: 5%;  left: 10%;}
+        .wrapperJobs{padding: 5%!important;}
+        .wrapperLoginContainer .cardLogin{width: 100%!important;}
+        .cardLogin .wrapperBackArrow .backArrow{left:15px!important; top: 20px;}
+        .cardLogin .wrapperBackArrow{background: #fed91c; width: 100%; height: 65px;}
+
+        .cardLogin .withPadding{padding:8%;}
+
+        /*============================================Jobs===============================================*/
+        .wrapperHomeContainer .header .logo{margin-top:20px!important; margin-left: 20px!important;}
+        .wrapperHomeContainer .header .logo img{width:80px!important;}
+        .wrapperHomeContainer .header .profile{margin-right: 20px!important; margin-top: 15px!important;}
+        .wrapperHomeContainer .header .sections{left: 0!important; width: 100%!important;}
+        .wrapperHomeContainer .header .sections .section{width:33%!important; padding:10px!important; ;}
+        .wrapperHomeContainer .header{height: 140px!important;}
+        .wrapperProfile .profileImg{float:right!important;}
+        .wrapperProfile .companyName{float: left!important; margin-top: 8px; margin-right: 5px; font-size: 11px;}
+
+        .wrapperJob .bodyJob{width: 90%!important; padding: 5%!important;}
+        .wrapperJob .bodyJob .wrapperBox .box{padding: 10px 15px!important;}
+        .wrapperJob .bodyJob .wrapperBox .box .col-xs-1{padding: 0!important;}
+        .wrapperJob .bodyJob .wrapperBox .box{height: auto!important;}
+        .wrapperJob .bodyJob{height: 400px;}
+        .wrapperJob .bodyJob .footer{padding: 15px 0!important; text-align: center!important;}
+
+        .mapContainer .footer .tab{width: 50%!important; margin: 0!important;}
+         .mapContainer .footer .col-xs-3{flex-basis: 50%; max-width: 50%;}
+    }

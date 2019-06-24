@@ -1,0 +1,61 @@
+.popupBody{
+    width: 100%;
+    height: 100%;
+}
+.popupBody .body{
+    border-radius: 2px;
+    position: absolute;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    background-color: #ffffff;
+    padding: 100px 80px;
+    z-index: 999999;
+    margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+.popupBody .body .title{
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #323432;
+}
+.popupBody .body .textBody{
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.87);
+}
+.popupBody .body .wrapperButtons{
+    position: relative;
+    height: 100%;
+}
+.popupBody .body .wrapperButtons .buttons{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+.popupBody .body .wrapperButtons button{
+    width: 150px;
+    height: 36px;
+    border-radius: 2px;
+    background-color: #050505;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #ffffff;
+    margin-right: 5px;
+    margin-left: 5px;
+}

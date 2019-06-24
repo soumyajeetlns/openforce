@@ -1,0 +1,55 @@
+.rightbarContainer{
+    position: relative;
+}
+.rightbarContainer .rightBar{
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 25%;
+    background-color: #f9f8f6;;
+}
+.rightbarContainer .rightBar .header{
+    height: 100px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
+    background-color: #ffffff;
+    padding: 32px 21px 32px 21px;
+}
+
+.rightbarContainer .rightBar .content{
+    height: calc(100% - 100px);
+    position: relative;
+    padding-top: 1px;
+}
+
+.rightbarContainer .rightBar .header .sectionTitle{
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+
+.rightbarContainer .loaderForRightbar{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: white;
+    opacity: 0.8;
+    z-index: 100;
+}
+.rightbarContainer .loaderForRightbar div{
+    height: 100%;
+}
+
+.rightbarContainer .loaderForRightbar div img{
+    position: absolute;
+    bottom: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+}
