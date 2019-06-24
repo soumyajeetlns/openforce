@@ -40,6 +40,9 @@ class Job extends Component {
             confirmArchive:false,
             loadingArchiveJob:false,
         }
+        this.state.rehire = {
+
+        }
     }
     createSliderWithTooltip = Slider.createSliderWithTooltip;
     SliderTooltip = this.createSliderWithTooltip(Slider);
@@ -118,11 +121,27 @@ class Job extends Component {
         tempState.confirmArchive = true;
         this.setState(tempState);
     }
+
     closeConfirmArchive = () =>{
         const tempState = utils.deepCopy(this.state);
         tempState.confirmArchive = false;
         this.setState(tempState);
     }
+
+    confirmReHire = () =>{
+        //console.log("Hello Soumyajeet");
+        const tempState = utils.deepCopy(this.state.rehire);
+        tempState.confirmReHire = true;
+        this.setState(tempState);
+        console.log(tempState);
+    }
+
+    closeconfirmReHire = () =>{
+        const tempState = utils.deepCopy(this.state);
+        tempState.confirmReHire = false;
+        this.setState(tempState);
+    }
+
     archiveJob = () =>{
         const tempState = utils.deepCopy(this.state);
         const jobId =  tempState.job.id;
@@ -221,16 +240,36 @@ class Job extends Component {
             return 0;
         }
     }
+    
+    popUpTitle = () =>{
+        
+        if(this.state.job.status === 'archive')
+        {
+            return strings.stringsJobPopup.LBL_EDIT_TITLE
+        }
+        else
+        {
+            return strings.stringsJobPopup.LBL_TITLE
+        }                
+    }
 
     render() {
         return (
             <Wrapper>
                 <div className={"myShadow"}/>
 
-
-
                 <div className={"wrapperJob"}>
                     {
+                        this.state.confirmReHire?
+                        <Popup
+                            titleText={strings.stringsJobMap.POPUP_CONFIRM_RE_HIRE_TITLE}
+                            bodyText={strings.stringsJobMap.POPUP_CONFIRM_RE_HIRE_BODY}
+                            loading={this.state.loadingArchiveJob}
+                            onConfirmClick={this.saveJob.bind(this,false)}
+                            width={550}
+                            height={330}
+                            onDeclineClick={this.closeconfirmReHire}/>
+                        :
                         this.state.confirmArchive?
                             <Popup
                                 titleText={strings.stringsJobMap.POPUP_CONFIRM_END_JOB_TITLE}
@@ -243,9 +282,10 @@ class Job extends Component {
                             :
                             <div className={"bodyJob"}>
                                 <Row>
-                                    <Col xs={8} >
+                                    <Col xs={8}>
                                         <p className={"title"}>
-                                            {strings.stringsJobPopup.LBL_TITLE}
+                                            {/* {strings.stringsJobPopup.LBL_TITLE} */}
+                                            { this.popUpTitle() }
                                         </p>
                                     </Col>
                                     <Col xs={4} style={{textAlign:"right"}}>
@@ -275,6 +315,7 @@ class Job extends Component {
                                                             className={"defaultInput customAutocomplete"}
                                                             dataset={this.props.jobRoles}
                                                             readOnly={this.state.job.status === "active"}
+                                                            disabled={this.state.job.status === "archive"}
                                                             width={355}
                                                             onChoosed={this.onJobRuleChoosed}
                                                             shouldClearInputAfterChoose={true}
@@ -395,7 +436,7 @@ class Job extends Component {
                                                                             dateFormat="DD/MM/YYYY"
                                                                             customInput={<button role={"btnDatePicker"}>{this.state.job.startDate?moment(this.state.job.startDate).format('DD/MM/YYYY'):strings.stringsJobPopup.LBL_CHOOSE_DATE}</button>}
                                                                             selected={moment(this.state.job.startDate)}
-                                                                            disabled={this.state.job.status === "active"}
+                                                                            disabled={this.state.job.status === "active" || this.state.job.status === "archive"}
                                                                             minDate={moment.utc().add(1, "days")}
                                                                             onChange={this.handleChangeDate.bind(this,"startDate")} />
                                                                     </Col>
@@ -465,7 +506,7 @@ class Job extends Component {
                                                 enabled={!this.state.loadingDraft && !this.state.loading}
                                                 textButton={strings.stringsJobPopup.BTN_REHIRE}
                                                 spinnerColor={"#fff"}
-                                                onClick=""/>
+                                                onClick={this.confirmReHire}/>
                                         </Col>
                                     }
                                 </Row>

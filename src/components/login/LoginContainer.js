@@ -22,6 +22,7 @@ class LoginContainer extends Component {
                 </div>
                 <div className={"cardLoginOut"} style={{backgroundImage: `url(${mapBackground})`}}>
                     <div className={"cardLogin"}>
+                        {this.props.onBackButton}
                     {
                         this.props.onBackButton ?
                             <div className={"wrapperBackArrow"} onClick={this.props.onBackButton}>
