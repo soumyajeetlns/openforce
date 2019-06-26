@@ -46,6 +46,7 @@ class ProfileEmployer extends Component {
             tempState.companyNameProfile = utils.getCompanyNameFormatted(this.props.ctr.user.companies[0]);
             tempState.employer = this.props.ctr.user;
             //todo:update redux:
+            console.log(tempState.employer);
             this.setState(tempState);
         }
     }
@@ -214,7 +215,7 @@ class ProfileEmployer extends Component {
                         <Row>
                             <Col xs={3} className={"customCol"}>
                                 <div className={"titleColumn"}>
-                                    { this.props.ctr.user && this.props.ctr.user && this.props.ctr.user.companies ? this.props.ctr.user.companies[0]:null}
+                                   { this.props.ctr.user && this.props.ctr.user && this.props.ctr.user.companies ? this.props.ctr.user.companies[0]:null}
                                 </div>
                             </Col>
                             <Col xs={5} className={"customCol"}>
@@ -264,6 +265,10 @@ class ProfileEmployer extends Component {
                                     </Col>
                                 </Row>
                             </Col>
+                            <Col>
+                                {this.props.ctr.user.companyType}
+                                
+                            </Col>
                             <Col xs={5} className={"customCol bodyCustomCol defaultMarginLeft"} style={{height: "423px"}}>
                                 <div className={"section"} ref={this.refDetail}>
                                     <p className={"sectionTitle"}>
@@ -285,22 +290,31 @@ class ProfileEmployer extends Component {
                                     <p className={"sectionTitle"}>
                                         {strings.stringsProfileEmployer.LBL_ADDRESS}
                                     </p>
-                                    <input type={"text"} className={"inputProfileEmployer marginTop"}
-                                           value={this.state.employer.address_1}
-                                           onChange={this.onTextChange.bind(this,"address_1")}
-                                           placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_1}/>
-                                    <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                    <Col xs={12}>
+                                        <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                            value={this.state.employer.address_1}
+                                            onChange={this.onTextChange.bind(this,"address_1")}
+                                            placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_1}/>
+                                    </Col>
+                                    <Col xs={6}>
+                                        <input type={"text"} className={"inputProfileEmployer marginTop"}
                                            onChange={this.onTextChange.bind(this,"address_2")}
                                            value={this.state.employer.address_2}
-                                           placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_2}/>
-                                    <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                           placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_2}/>     
+                                    </Col>
+                                    <Col xs={6}>
+                                        <input type={"text"} className={"inputProfileEmployer marginTop"}
                                            onChange={this.onTextChange.bind(this,"address_3")}
                                            value={this.state.employer.address_3}
-                                           placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_3}/>
-                                    <input type={"text"} style={{width:"180px"}} className={"inputProfileEmployer marginTop"}
-                                           onChange={this.onTextChange.bind(this,"postCode")}
-                                           value={this.state.employer.postCode}
                                            placeholder={strings.stringsProfileEmployer.LBL_POST_CODE}/>
+                                    </Col>
+                                    <Col xs={6}>
+                                        <input type={"number"} className={"inputProfileEmployer"}
+                                           value={this.state.employer.contactNumber}
+                                           style={{width:"180px"}} 
+                                           placeholder={strings.stringsProfileEmployer.LBL_CONTACT_NUMBER}
+                                           onChange={this.onTextChange.bind(this,"contactNumber")}/>
+                                    </Col>        
                                 </div>
                             </Col>
                         </Row>

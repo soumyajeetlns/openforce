@@ -10,6 +10,8 @@ export default class EmployerUser{
             this.publicID = _user.publicID?_user.publicID:null
             this.companyNumber = _user.companyNumber?_user.companyNumber:null;
             this.contactNumber = _user.contactNumber?_user.contactNumber:null;
+            this.companyType = _user.companytype?_user.companytype:null;
+            
             this.address_1 = _user.address_1?_user.address_1:null;
             this.address_2 = _user.address_2?_user.address_2:null;
             this.address_3 = _user.address_3?_user.address_3:null;
