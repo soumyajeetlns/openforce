@@ -264,6 +264,9 @@ class ProfileEmployer extends Component {
                                     </Col>
                                 </Row>
                             </Col>
+                            <Col>
+                                {this.props.ctr.user.companyType}
+                            </Col>
                             <Col xs={5} className={"customCol bodyCustomCol defaultMarginLeft"} style={{height: "423px"}}>
                                 <div className={"section"} ref={this.refDetail}>
                                     <p className={"sectionTitle"}>

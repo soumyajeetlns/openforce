@@ -17,7 +17,10 @@ export const stringsSignup = new LocalizedStrings({
 
         TITLE_STEP_2:"Sign Up",
         TITLE_STEP_3:"Trading Details",
+        BTN_SUBMIT:"SUBMIT",
+        TITLE_STEP_4:"Business Details",
         SUBTITLE_STEP_3:"Trading address",
+        SUBTITLE_STEP_4:"Get details using companies house",
         EMP_TYP_1 :"Limited Company",
         EMP_TYP_2 : "Sole Trader",
         SUBTITLE_STEP_1:"Full Name",

@@ -64,7 +64,7 @@ class EmployerSignup extends Component {
             const tempState = utils.deepCopy(this.state);
             let checkOne = true;
             if(tempState.radio === "Limited Company"){
-                tempState.step = 2;
+                tempState.step = 4;
                 tempState.onBackButton = this.onBackButtonTwo;
                 this.setState(tempState);
             }else if(tempState.radio === "Sole Trader"){
@@ -523,6 +523,45 @@ class EmployerSignup extends Component {
                             </div>
                         </div>
                     </Wrapper>
+                    :this.state.step === 4?
+                        <Wrapper>
+                            <div className={"withPadding"}>
+                                <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_4}</p>
+                            </div>
+                            <div className={"withPadding"}>
+                                <p className={"title"}>Get details using companies house</p>
+                            </div>
+                            
+                            <div className={"withPadding"}>
+                                <Input
+                                    onChange={this.onInputChange}
+                                    name={"soletraderName"}
+                                    error={this.state.errors.soletraderName}
+                                    label={strings.stringsSignup.LBL_SOLETRADER_NAME}
+                                    value={this.state.soletraderName}
+                                    placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
+                            </div> 
+                            <div className={"wrapperSignup withPadding"}>
+
+                                {
+                                    this.state.successMessage?
+                                        <p className={"statusMessage globalSuccessMessage"}>{this.state.successMessage}</p>
+                                        :
+                                        <p className={"statusMessage globalErrorMessage"}>{this.state.errors.message}</p>
+                                }
+
+                                <div className={"wrapperButtons"}>
+                                    <AsyncButton
+                                        className={"btnSubmitStepTwo"}
+                                        loading={this.state.loading}
+                                        textButton={strings.stringsSignup.BTN_SUBMIT}
+                                        onClick={this.submitStepThree}/>
+
+
+                                </div>
+                            </div>
+                        </Wrapper>
+
                     :
 
                     <Wrapper>
