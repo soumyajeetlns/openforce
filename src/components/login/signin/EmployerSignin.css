@@ -97,7 +97,35 @@
 
     .bodyJob .col-xs-12.box{font-weight: normal!important;}
 
-@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .profileBox{padding-top:250px; text-align: left; padding-bottom:15px;}
+    .employeeNameDiv{margin-top: 10px!important;}
+    .employeePopupBody .left .profile .employeeName{color:#fff!important;}
+    .employeePopupBody .left .star{fill: #fff!important;}
+
+    /*===============================Profile=======================================*/
+    .employeePopupBody .right{padding: 0px 3% 25px 3%!important; }
+    .RateSection{margin-top: 0!important;}
+    .employeePopupBody .lblTitle{ margin-bottom: 5px!important;}
+    .employeePopupBody .left{height: 630px!important;}
+    .employeePopupBody .right{height: 630px!important;}
+    .employeePopupBody .left .profile{height: 350px!important;}
+    .employeePopupBody .left .profile img{height: 67px!important; width: 67px!important; margin-top: 0!important;
+        -webkit-transform: translateY(-50%); -ms-transform:inherit!important; transform:inherit!important; background:#fff;}
+        .employeePopupBody .left .profile .employeeName{margin-top: 0!important;}
+        .employeePopupBody .left .profile{text-align: left;}
+        .employeePopupBody{height: auto!important;}
+        .profileBox{-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;}
+        .CardInner{height:200px; background:#464647; display: block; margin: 15px auto 0 auto;}
+        .CardInnerName{webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); padding:10px; 
+            text-align: left; font-weight: bold; background: #fff;}
+        .employeeLastJobsWrapper{padding: 20px 5%!important;}
+        .employeeLastJobsWrapper .lastJob {height:auto!important;}
+        .HistoryTop{margin-top:5%;}
+        .CscsCardDiv{background: #f9f8f6;}
+        .ResumeDiv{background: #f9f8f6;}
+
+
+        @media only screen and (min-width: 320px) and (max-width: 767px) {
     .cardLoginOut{float:left; clear: both; width: 100%!important; padding-top: 80%;  background: no-repeat center center; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -128,6 +156,11 @@
 
         .wrapperLoginContainer .logo{ z-index: 999;}
 
+        .wrapperProfileEmployer .defaultMarginTop.row .col-xs-3{width:100%!important; flex-basis: 100%!important; max-width: 100%!important;}
+        .wrapperProfileEmployer  .col-xs-5.customCol.defaultMarginLeft{margin-left: 10px!important; width: 93% !important;
+            flex-basis: 933% !important;  max-width: 93% !important;}
+            .wrapperProfileEmployer .btnLogout{margin-bottom:20px; }
+        .wrapperProfileEmployer .defaultMarginTop.row .col-xs-5.col-xs-offset-3.customCol .titleColumn{margin-left: 0!important;}
         /*============================================Jobs===============================================*/
         .wrapperHomeContainer .header .logo{margin-top:20px!important; margin-left: 20px!important;}
         .wrapperHomeContainer .header .logo img{width:80px!important;}
@@ -180,11 +213,13 @@
             .wrapperProfileEmployer > div{margin-left: 0!important;}
 
             .wrapperProfileEmployer .col-xs-3.customCol{ width: 100%!important; flex-basis: 100%!important; max-width: 100%!important;}
-            .wrapperProfileEmployer .col-xs-5.customCol{ width: 90%!important; flex-basis: 90%!important; max-width: 90%!important;}
+            .wrapperProfileEmployer .col-xs-5.customCol{ width:92%!important; flex-basis:92%!important; max-width: 92%!important;}
             .wrapperProfileEmployer .col-xs-5.customCol .titleColumn{margin-left: 0!important;}
-
-            .wrapperProfileEmployer > .col-xs-12 > .col-xs-3{width: 98%!important; flex-basis: 98%!important; max-width: 98%!important;}
+            .wrapperProfileEmployer .customCol.bodyCustomCol{padding:10px 4%!important;;}
+            .wrapperProfileEmployer > .col-xs-12 > .col-xs-3{width: 94%!important; flex-basis: 94%!important; max-width: 94%!important;}
             .wrapperProfileEmployer .customCol.bodyCustomCol{padding: 15px;}
+            .wrapperProfileEmployer .leftColumn .item{padding-left: 4%!important; padding-right: 4%!important;}
+            .wrapperProfileEmployer .btnUpdate{width: 80px!important; margin-right: 0!important;}
 
             .withPaddingCustom { padding: 10px 20px 0px 20px!important;}
             .wrapperSignup .Oval{-webkit-border-radius: 50px!important; -moz-border-radius: 50px!important; border-radius: 50px!important; 
@@ -193,8 +228,50 @@
 
             .TraderBox{padding-top:10px!important; padding-bottom:10px!important;  }
             
+
+                /*===============================Profile=======================================*/
+
+                .mapContainer .btnBack{top: 10px!important; left:10px!important;}
+                .jobItemOverlayContainer{width: 90%!important;}
+                .MapBodyDiv{height: 1500px!important;}
+                .employeePopupBody .left{width: 100%!important;}
+                .employeePopupBody{width: 90%!important;}
+                .employeePopupBody .left .profile img{width: 30px!important; height: 30px!important;}
+                .employeeNameDiv{margin-top: 0!important;}
+                .employeePopupBody .right{width: 100%!important;}
+                .rightbarContainer .rightBar{width:90%!important;}
+                .employeePopupBody .right{height: auto!important; padding-bottom: 45px!important;}
+                /* .MapBodyDiv > div > div > div > div > div > div{left: 0!important; top: 0!important;}
+                .mapContainer .footer{bottom: 0!important; top: auto!important;}
+                .jobItemOverlayContainer{margin-top:80%!important;} */
+                .baloonLocationJob{ min-width: 250px!important; height:auto!important; position: absolute; left: -120px !important; top: -400px !important;}
+                .jobItemOverlayContainer{width: 305px!important; position: absolute; margin: 0 auto; left: 0; right: 0;}
+                .jobItemOverlayContainer .body{padding-left:5px!important; padding-right:5px!important;}
+                .jobItemOverlayContainer .body .subbody{padding: 13px 5px 13px 5px!important;}
+                .jobItemOverlayContainer .body .field{font-size: 13px!important;}
+                .employeePopupBody .btnMove.prev{left:5%!important;}
+                .employeePopupBody .btnMove.next{right:5%!important;}
+                .MobileSlideBtn{position: relative; margin-top: 25px;}
+                .employeePopupBody .containerBtnOperations .btnOperations{width:40px!important; height:40px!important;}
+                .employeePopupBody .containerBtnOperations{bottom:-20px!important;}
+                .wrapperJob .bodyJob{top:10%;}
             }
     @media only screen and (min-width: 320px) and (max-width: 414px) {
         .subBox .wrapperChoosedJobRoles .wrapperSlider{width: 68%!important;}
         .TradeTwo .col-xs-6{width: 100%!important; flex-basis: 100%!important; max-width: 100%!important; padding-top:10px!important; padding-bottom:10px!important;}
+    }
+    
+    @media only screen and (min-width: 768px) and (max-width: 900px) {
+        .MapBodyDiv{height: 1400px!important;}
+        .employeePopupBody .left{width: 100%!important;}
+        .employeePopupBody{width: 90%!important;}
+        .employeePopupBody .right{width: 100%!important;}
+        .rightbarContainer .rightBar{width:400px!important;}
+        .baloonLocationJob{ min-width: 250px!important; height:auto!important; position: absolute; left: -120px !important; top: -400px !important;}
+        .jobItemOverlayContainer{width: 305px!important; position: absolute; margin: 0 auto; left: 0; right: 0;}
+        .jobItemOverlayContainer .body{padding-left:5px!important; padding-right:5px!important;}
+        .jobItemOverlayContainer .body .subbody{padding: 13px 5px 13px 5px!important;}
+        .jobItemOverlayContainer .body .field{font-size: 13px!important;}
+        .employeePopupBody .btnMove.prev{left:-6%!important;}
+        .employeePopupBody .btnMove.next{right:-6%!important;}
     }
