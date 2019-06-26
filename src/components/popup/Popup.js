@@ -24,12 +24,16 @@ class Popup extends Component {
                             :
                                 <Wrapper>
                                     <AsyncButton
+                                        className={"btnAccept"}
                                         loading={this.props.loading}
-                                        textButton={"Yes"}
+                                        textButton={this.props.btnAccept}
                                         onClick={this.props.onConfirmClick}/>
-                                    <button disabled={this.state.loading}
-                                            style={{verticalAlign: "bottom"}}
-                                            onClick={this.props.onDeclineClick}>No</button>
+                                    <button
+                                        className={"btnCancel"} 
+                                        disabled={this.state.loading}
+                                        style={{verticalAlign: "bottom"}}
+                                        onClick={this.props.onDeclineClick}>{this.props.btnCancel}
+                                    </button>
                                 </Wrapper>
                             }
 

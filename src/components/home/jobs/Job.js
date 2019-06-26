@@ -133,7 +133,6 @@ class Job extends Component {
         const tempState = utils.deepCopy(this.state.rehire);
         tempState.confirmReHire = true;
         this.setState(tempState);
-        console.log(tempState);
     }
 
     closeconfirmReHire = () =>{
@@ -264,6 +263,8 @@ class Job extends Component {
                         <Popup
                             titleText={strings.stringsJobMap.POPUP_CONFIRM_RE_HIRE_TITLE}
                             bodyText={strings.stringsJobMap.POPUP_CONFIRM_RE_HIRE_BODY}
+                            btnAccept={strings.stringsJobMap.POPUP_CONFIRM_RE_HIRE_ACCEPT}
+                            btnCancel={strings.stringsJobMap.POPUP_CONFIRM_RE_HIRE_CANCEL}
                             loading={this.state.loadingArchiveJob}
                             onConfirmClick={this.saveJob.bind(this,false)}
                             width={550}
@@ -274,6 +275,8 @@ class Job extends Component {
                             <Popup
                                 titleText={strings.stringsJobMap.POPUP_CONFIRM_END_JOB_TITLE}
                                 bodyText={strings.stringsJobMap.POPUP_CONFIRM_END_JOB_BODY}
+                                btnAccept={strings.stringsJobMap.POPUP_CONFIRM_BTN_ACCEPT}
+                                btnCancel={strings.stringsJobMap.POPUP_CONFIRM_BTN_CANCEL}
                                 loading={this.state.loadingArchiveJob}
                                 onConfirmClick={this.archiveJob}
                                 width={550}

@@ -337,7 +337,7 @@ class EmployerSignup extends Component {
                                         <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
                                             <i className={'fa fa-shopping-bag Shape'} style={{color:"white"}}></i> 
                                         </span>           
-                                    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp;
                                     {strings.stringsSignup.EMP_TYP_1}  
                                     </Col> 
                                     <Col xs={2}>
@@ -364,9 +364,9 @@ class EmployerSignup extends Component {
                                     <Col xs={10}>
 
                                         <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
-                                            <i className={'fa fa-shopping-bag Shape'} style={{color:"white"}}></i> 
+                                            <i className={'fa fa-wrench Shape'} style={{color:"white"}}></i> 
                                         </span>           
-                                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp;
                                     {strings.stringsSignup.EMP_TYP_2}  
                                     </Col> 
                                     <Col xs={2}>
@@ -403,10 +403,10 @@ class EmployerSignup extends Component {
                     : this.state.step === 3?
 
                     <Wrapper>
-                        <div className={"withPadding"}>
+                        <div className={"withPadding TraderBox1"}>
                             <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_3}</p>
                         </div>
-                        <div className={"withPadding"}>
+                        <div className={"withPadding TraderBox"}>
                             <Input
                                 onChange={this.onInputChange}
                                 name={"soletraderName"}
@@ -415,7 +415,7 @@ class EmployerSignup extends Component {
                                 value={this.state.soletraderName}
                                 placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
                         </div>
-                        <div className={"withPadding"}>
+                        <div className={"withPadding TraderBox TradeTwo"}>
                             <Row className={"wrapperCheckbox checkbox-wrapper"}>
                                     <Col xs={6}>
                                         <Input
