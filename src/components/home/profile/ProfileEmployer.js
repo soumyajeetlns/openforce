@@ -219,6 +219,7 @@ class ProfileEmployer extends Component {
                             </Col>
                             <Col xs={5} className={"customCol"}>
                                 <div className={"titleColumn"} style={{marginLeft: "30px"}}>
+                                    
                                     {strings.stringsProfileEmployer.LBL_COLUMN_BUSINESS_DETAIL}
                                     <AsyncButton loading={this.state.loadingUpdate} className={"btnUpdate"} onClick={this.saveEmployer} textButton={strings.stringsProfileEmployer.BTN_UPDATE}/>
                                 </div>
