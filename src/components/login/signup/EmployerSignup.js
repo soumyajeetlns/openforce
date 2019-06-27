@@ -116,7 +116,7 @@ class EmployerSignup extends Component {
                 const employer = {};
                 employer.email = tempState.email;
                 employer.companies = [tempState.companyName];
-                employer.companytype = tempState.radio;
+                employer.companyType = tempState.radio;
 
                 employer.businessname = tempState.soletraderName;
                 employer.website = tempState.websiteName;
