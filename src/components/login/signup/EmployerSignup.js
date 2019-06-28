@@ -453,7 +453,7 @@ class EmployerSignup extends Component {
                                 value={this.state.soletraderName}
                                 placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
                         </div> */}
-                        <div className={"withPadding"}>
+                        <div className={"withPadding TraderBox"}>
                             <Row className={"wrapperCheckbox checkbox-wrapper"}>
                                     <Col xs={12}>
                                         <Input
@@ -467,7 +467,7 @@ class EmployerSignup extends Component {
                                     </Col>
                             </Row>
                         </div>
-                        <div className={"withPadding"}>
+                        <div className={"withPadding TraderBox"}>
                             <Row className={"wrapperCheckbox checkbox-wrapper"}>
                                     <Col xs={6}>
                                         <Input
@@ -490,7 +490,7 @@ class EmployerSignup extends Component {
 
                             </Row>
                         </div>            
-                            <div className={"withPadding"}>
+                            <div className={"withPadding TraderBox"}>
                                 <Row className={"wrapperCheckbox checkbox-wrapper"}>        
                                     <Col xs={6}>
                                         <Input
@@ -503,7 +503,7 @@ class EmployerSignup extends Component {
                                     </Col>       
                             </Row>            
                         </div> 
-                        <div className={"wrapperSignup withPadding"}>
+                        <div className={"wrapperSignup withPadding TraderBox paddingTopZero"}>
 
                             {
                                 this.state.successMessage?
