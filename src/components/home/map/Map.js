@@ -41,7 +41,7 @@ const MyMapComponent = compose(
     withProps({
         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=" + constants.GOOGLE_MAPS_API_KEY + "&libraries=places",
         loadingElement: <div style={{height: '100%'}}/>,
-        containerElement: <div style={{height: '100vh'}}/>,
+        containerElement: <div className={"MapBodyDiv"} style={{height: '850px'}}/>,
         mapElement: <div style={{height: '100%'}}/>,
     }),
     withScriptjs,
