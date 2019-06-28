@@ -546,15 +546,15 @@ class EmployerSignup extends Component {
                                 <p className={"title"}>{strings.stringsSignup.COMPANY_HOUSE_SIGNUP_1}</p>
                             </div>
                             
-                            <div className={"withPadding"}>
+                            <div className={"withPadding GetSeratchTop"}>                            
                                 <Input
                                     onChange={this.onInputChange}
                                     name={"soletraderName"}
                                     error={this.state.errors.soletraderName}
                                     value={this.state.soletraderName}
-                                    className={"searchField"}
+                                    className={"searchField GetSeratch"}
                                     placeholder={strings.stringsSignup.PLACEHOLDER_STEP_COMPANY}/>
-                                    <button className={"searchButton"}><i class="fa fa-search"></i></button>
+                                    <button className={"searchButton SearchBtnClass"}>Get Details</button>
                             </div> 
                             <div className={"withPadding"}>
                                 <button className={"button-bg"} onClick={this.submitManually}>ENTER COMPANY DETAILS MANUALLY </button>
@@ -585,24 +585,129 @@ class EmployerSignup extends Component {
                         <div className={"withPadding"}>
                             <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_4}</p>
                         </div>
-                        <div className={"withlessheaderPadding"}>
-                            <p className={"title"}>{strings.stringsSignup.COMPANY_HOUSE_SIGNUP_1}</p>
-                        </div>
-                        
                         <div className={"withPadding"}>
+                                <button className={"button-bg"} onClick={this.submitManually}>ENTER COMPANY DETAILS MANUALLY </button>
+                            </div>
+                        <div className={"withPadding TraderBox"}>
                             <Input
                                 onChange={this.onInputChange}
                                 name={"soletraderName"}
                                 error={this.state.errors.soletraderName}
+                                label={strings.stringsSignup.LBL_SOLETRADER_NAME}
                                 value={this.state.soletraderName}
-                                className={"searchField"}
-                                placeholder={strings.stringsSignup.PLACEHOLDER_STEP_COMPANY}/>
-                                <button className={"searchButton"}><i class="fa fa-search"></i></button>
-                        </div> 
-                        <div className={"withPadding"}>
-                            <button className={"button-bg"} onClick={this.submitManually}>ENTER COMPANY DETAILS MANUALLY </button>
+                                placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
                         </div>
-                        <div className={"wrapperSignup withPadding"}>
+                        <div className={"withPadding TraderBox"}>
+                            <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                            <Col xs={8}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"websiteName"}
+                                            error={this.state.errors.websiteName}
+                                            label={strings.stringsSignup.WEBSITE_LABEL}
+                                            value={this.state.websiteName}
+                                            placeholder={strings.stringsSignup.WEBSITE_PLACEHOLDER}/>
+                                    </Col>  
+                                    <Col xs={4} className={"DropdownStyle"}>
+                                        <select
+                                            onChange={this.onInputChange}
+                                            name={"utrName"}
+                                            error={this.state.errors.utrName}
+                                            label={strings.stringsSignup.UTR_LABEL}
+                                            value={'Limited'}
+                                            placeholder={strings.stringsSignup.UTR_PLACEHOLDER}/>
+                                    </Col>  
+                            </Row>        
+                        </div>     
+                        <div className={"withPadding TraderBox TradeTwo"}>
+                            <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                                    <Col xs={6}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"websiteName"}
+                                            error={this.state.errors.websiteName}
+                                            label={strings.stringsSignup.WEBSITE_LABEL}
+                                            value={this.state.websiteName}
+                                            placeholder={strings.stringsSignup.WEBSITE_PLACEHOLDER}/>
+                                    </Col>  
+                                    <Col xs={6}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"utrName"}
+                                            error={this.state.errors.utrName}
+                                            label={strings.stringsSignup.UTR_LABEL}
+                                            value={this.state.utrName}
+                                            placeholder={strings.stringsSignup.UTR_PLACEHOLDER}/>
+                                    </Col>      
+                            </Row>            
+                        </div>
+                        {/* <div className={"wrapperSignup  withPaddingSubtitle"}>
+                            <p className={"subtitle"}>{strings.stringsSignup.SUBTITLE_STEP_2}</p>
+                        </div> */}     
+                        <div className={"wrapperSignup"}>
+                            <div className={"separatorStep2"}/>
+                        </div>
+                        {/* <div className={"withPadding"}>
+                            <Input
+                                onChange={this.onInputChange}
+                                name={"soletraderName"}
+                                key={1}
+                                error={this.state.errors.soletraderName}
+                                label={strings.stringsSignup.LBL_SOLETRADER_NAME}
+                                value={this.state.soletraderName}
+                                placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
+                        </div> */}
+                        <div className={"withPadding TraderBox"}>
+                            <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                                    <Col xs={12}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"addressTradeName"}
+                                            key={1}
+                                            error={this.state.errors.addressTraderName}
+                                            label={strings.stringsSignup.SUBTITLE_STEP_3}
+                                            value={this.state.addressTraderName}
+                                            placeholder={strings.stringsSignup.ADDRESS_PLACEHOLDER}/>
+                                    </Col>
+                            </Row>
+                        </div>
+                        <div className={"withPadding TraderBox"}>
+                            <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                                    <Col xs={6}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"cityName"}
+                                            key={1}
+                                            error={this.state.errors.cityName}
+                                            value={this.state.cityName}
+                                            placeholder={strings.stringsSignup.CITY_PLACEHOLDER}/>
+                                    </Col>  
+                                    <Col xs={6}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"postcodeName"}
+                                            key={1}
+                                            error={this.state.errors.postcodeName}
+                                            value={this.state.postcodeName}
+                                            placeholder={strings.stringsSignup.POSTCODE_PLACEHOLDER}/>
+                                    </Col> 
+
+                            </Row>
+                        </div>            
+                            <div className={"withPadding TraderBox"}>
+                                <Row className={"wrapperCheckbox checkbox-wrapper"}>        
+                                    <Col xs={6}>
+                                        <Input
+                                            onChange={this.onInputChange}
+                                            name={"contactMobileName"}
+                                            key={1}
+                                            error={this.state.errors.contactMobileName}
+                                            value={this.state.contactMobileName}
+                                            placeholder={strings.stringsSignup.PLACEHOLDER_CONTACT_MOBILE}/>
+                                    </Col>       
+                            </Row>            
+                        </div> 
+                        <div className={"wrapperSignup withPadding TraderBox paddingTopZero"}>
 
                             {
                                 this.state.successMessage?
@@ -615,8 +720,7 @@ class EmployerSignup extends Component {
                                 <AsyncButton
                                     className={"btnSubmitStepTwo"}
                                     loading={this.state.loading}
-                                    disabled
-                                    textButton={strings.stringsSignup.BTN_SUBMIT}
+                                    textButton={strings.stringsSignup.BTN_CONTINUE}
                                     onClick={this.submitStepThree}/>
 
 
