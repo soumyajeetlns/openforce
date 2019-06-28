@@ -58,6 +58,13 @@ class EmployerSignup extends Component {
             this.setState(tempState);
         }
     }
+    submitManually =() =>{
+        const tempState = utils.deepCopy(this.state);
+        tempState.step = 5;
+        tempState.onBackButton = this.onBackButton;
+        this.setState(tempState);
+    }
+
 
     submitStepTwo = () =>{
         if(this.checkErrorStepTwo()){
@@ -415,6 +422,13 @@ class EmployerSignup extends Component {
                                 value={this.state.soletraderName}
                                 placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
                         </div>
+                        <div className={"withPadding TraderBox"}>
+                            <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                                    <Col xs={12} className={'tradingName'}>
+                                        <p className="tradingDt">Trading name is required</p>
+                                    </Col>
+                            </Row>        
+                        </div>     
                         <div className={"withPadding TraderBox TradeTwo"}>
                             <Row className={"wrapperCheckbox checkbox-wrapper"}>
                                     <Col xs={6}>
@@ -528,8 +542,8 @@ class EmployerSignup extends Component {
                             <div className={"withPadding"}>
                                 <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_4}</p>
                             </div>
-                            <div className={"withPadding"}>
-                                <p className={"title"}>Get details using companies house</p>
+                            <div className={"withlessheaderPadding"}>
+                                <p className={"title"}>{strings.stringsSignup.COMPANY_HOUSE_SIGNUP_1}</p>
                             </div>
                             
                             <div className={"withPadding"}>
@@ -537,10 +551,14 @@ class EmployerSignup extends Component {
                                     onChange={this.onInputChange}
                                     name={"soletraderName"}
                                     error={this.state.errors.soletraderName}
-                                    label={strings.stringsSignup.LBL_SOLETRADER_NAME}
                                     value={this.state.soletraderName}
-                                    placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
+                                    className={"searchField"}
+                                    placeholder={strings.stringsSignup.PLACEHOLDER_STEP_COMPANY}/>
+                                    <button className={"searchButton"}><i class="fa fa-search"></i></button>
                             </div> 
+                            <div className={"withPadding"}>
+                                <button className={"button-bg"} onClick={this.submitManually}>ENTER COMPANY DETAILS MANUALLY </button>
+                            </div>
                             <div className={"wrapperSignup withPadding"}>
 
                                 {
@@ -554,6 +572,7 @@ class EmployerSignup extends Component {
                                     <AsyncButton
                                         className={"btnSubmitStepTwo"}
                                         loading={this.state.loading}
+                                        disabled
                                         textButton={strings.stringsSignup.BTN_SUBMIT}
                                         onClick={this.submitStepThree}/>
 
@@ -561,6 +580,49 @@ class EmployerSignup extends Component {
                                 </div>
                             </div>
                         </Wrapper>
+                    :this.state.step === 5?
+                    <Wrapper>
+                        <div className={"withPadding"}>
+                            <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_4}</p>
+                        </div>
+                        <div className={"withlessheaderPadding"}>
+                            <p className={"title"}>{strings.stringsSignup.COMPANY_HOUSE_SIGNUP_1}</p>
+                        </div>
+                        
+                        <div className={"withPadding"}>
+                            <Input
+                                onChange={this.onInputChange}
+                                name={"soletraderName"}
+                                error={this.state.errors.soletraderName}
+                                value={this.state.soletraderName}
+                                className={"searchField"}
+                                placeholder={strings.stringsSignup.PLACEHOLDER_STEP_COMPANY}/>
+                                <button className={"searchButton"}><i class="fa fa-search"></i></button>
+                        </div> 
+                        <div className={"withPadding"}>
+                            <button className={"button-bg"} onClick={this.submitManually}>ENTER COMPANY DETAILS MANUALLY </button>
+                        </div>
+                        <div className={"wrapperSignup withPadding"}>
+
+                            {
+                                this.state.successMessage?
+                                    <p className={"statusMessage globalSuccessMessage"}>{this.state.successMessage}</p>
+                                    :
+                                    <p className={"statusMessage globalErrorMessage"}>{this.state.errors.message}</p>
+                            }
+
+                            <div className={"wrapperButtons"}>
+                                <AsyncButton
+                                    className={"btnSubmitStepTwo"}
+                                    loading={this.state.loading}
+                                    disabled
+                                    textButton={strings.stringsSignup.BTN_SUBMIT}
+                                    onClick={this.submitStepThree}/>
+
+
+                            </div>
+                        </div>
+                    </Wrapper>    
 
                     :
 
