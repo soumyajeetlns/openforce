@@ -233,14 +233,14 @@ export const stringsJobMap = new LocalizedStrings({
 //map:
 export const stringsProfileEmployer = new LocalizedStrings({
     en: {
-        LBL_COLUMN_BUSINESS_DETAIL:"Business Details",
+        LBL_COLUMN_BUSINESS_DETAIL:"Business Details",        
         LBL_DETAIL:"Detail",
         LBL_ADDRESS:"Trading Address",
         LBL_SETTINGS:"Settings",
-        BTN_UPDATE:"Update",
+        BTN_UPDATE:"Update",        
         LBL_COMPANY_NUMBER:"Company number",
         LBL_CONTACT_NUMBER:"Contact Number",
-        LBL_ADDRESS_1:"Address line 1",
+        LBL_ADDRESS_1:"Address",
         LBL_ADDRESS_2:"City",
         LBL_ADDRESS_3:"Address line3",
         LBL_POST_CODE:"Post code",
@@ -257,5 +257,13 @@ export const stringsProfileEmployer = new LocalizedStrings({
         LBL_ERROR_PASSWORDS_MISMATCH:"Passwords doesn't match",
         LBL_ERROR_PASSWORDS_NO_VALID:"Your password is too week",
         BTN_LOGOUT:"LOG OUT",
+
+        LBL_COLUMN_TRADING_DETAILS:"Trading Details",
+        BTN_DELETE_ACCOUNT:"DELETE MY ACCOUNT",
+        LBL_REGISTER_TRADE_NAME:"Registered trading name",
+        LBL_COMPANY_TRADE_TYPE:"Status",
+        LBL_COMPANY_TRADE_UTR:"UTR Number",
+        LBL_EMPLOYER_NAME:"Employer name",
+        LBL_COMPANY_NUMBER:"Company number",
     }
 })

@@ -11,11 +11,14 @@ export default class EmployerUser{
             this.companyNumber = _user.companyNumber?_user.companyNumber:null;
             this.contactNumber = _user.contactNumber?_user.contactNumber:null;
             this.companyType = _user.companytype?_user.companytype:null;
+            this.businessname = _user.businessname?_user.businessname:null;
+            this.utrno = _user.utrno?_user.utrno:null;
             
             this.address_1 = _user.address_1?_user.address_1:null;
             this.address_2 = _user.address_2?_user.address_2:null;
             this.address_3 = _user.address_3?_user.address_3:null;
-            this.postCode = _user.postCode?_user.postCode:null;
+            this.postCode = _user.postCode?_user.postCode:null;//company
+            this.postcode = _user.postcode?_user.postcode:null;//sole trader
         }
     }
 
