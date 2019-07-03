@@ -16,7 +16,7 @@ class LoginContainer extends Component {
 
     render() {
         return (
-            <Row className={"wrapperLoginContainer"}>
+            <Row className={"wrapperLoginContainer"} style={{backgroundImage: `url(${mapBackground})`, height: "100%"}}>
                 <div className={"logo"}>
                     <img src={logo}/>
                 </div>
@@ -42,7 +42,7 @@ class LoginContainer extends Component {
                 </div>
                 </div>
                 <Col xs={4} className={"leftColumn leftcol desktop_view"}>
-                    <div className={"termsOfConditions"}>
+                    {/* <div className={"termsOfConditions"}>
                         <p>{strings.stringsSignup.LBL_TERMS_OF_CONDITIONS_1}</p>
                         <br/>
                         <a href={"mailto:"+constants.EMAIL_ISSUE}>
@@ -54,13 +54,13 @@ class LoginContainer extends Component {
                         <a href={"/assets/privacy_of.pdf"} target={"_blank"}>
                             <p className={"underline"}>{strings.stringsSignup.LBL_TERMS_OF_CONDITIONS_4}</p>
                         </a>
-                    </div>
+                    </div> */}
                 </Col>
                 <Col xs={8} className={"rightColumn rightcol"} style={{paddingLeft: 0, paddingRight: 0}}>
-                    <img src={mapBackground} style={{width: "100%", height: "", objectFit: "cover"}} />
+                    <img src={mapBackground} style={{width: "100%", height: "", objectFit: "cover", visibility: "hidden"}} />
                 </Col>
                 <br clear="all"/>
-                <Col xs={4} className={"leftColumn leftcol mobile_view"}>
+                <Col xs={4} className={"leftColumn leftcol"}>
                     <div className={"termsOfConditions"}>
                         <p>{strings.stringsSignup.LBL_TERMS_OF_CONDITIONS_1}</p>
                         <br/>

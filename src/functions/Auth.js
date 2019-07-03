@@ -41,7 +41,6 @@ export function createEmployerUser (email, pw, employer, successCallback, errorC
         if(createdUser && createdUser.user){
             createdUser.user.sendEmailVerification();
         }
-
         employer.uid = createdUser.user.uid;
         authFunctions.insertEmployer(employer,successCallback,errorCallback);
     }).catch((error)=> {
