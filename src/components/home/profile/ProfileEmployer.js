@@ -216,12 +216,12 @@ class ProfileEmployer extends Component {
                         <Col xs={12}>
                             <Row>
                                 <Col xs={3} className={"customCol"}>
-                                    <div className={"titleColumn  leftuptitle"}>
+                                    <div className={"titleColumn  leftuptitle mobileHide"}>
                                         { this.props.ctr.user && this.props.ctr.user && this.props.ctr.user.companies ? this.props.ctr.user.companies[0]:null}
                                     </div>
                                 </Col>
                                 <Col xs={5} className={"customCol"}>
-                                    <div className={"titleColumn"} style={{marginLeft: "30px"}}>
+                                    <div className={"titleColumn myTitleStyle"} style={{marginLeft: "30px"}}>
                                         {strings.stringsProfileEmployer.LBL_COLUMN_TRADING_DETAILS}
                                         {/* <AsyncButton loading={this.state.loadingUpdate} className={"btnUpdate"} onClick={this.saveEmployer} textButton={strings.stringsProfileEmployer.BTN_UPDATE}/> */}
                                     </div>
@@ -246,7 +246,7 @@ class ProfileEmployer extends Component {
                                     </span>
 
                                     <Row className={"defaultMarginTop2"}>
-                                        <Col xs={12} className={"customCol leftColumn"}>
+                                        <Col xs={12} className={"customCol leftColumn mySpaceRemove"}>
                                             {/* <div className={"item"} onClick={this.scrollToSection.bind(this,"detail")}>
                                                 <img src={detailIcon}/>
                                                 {strings.stringsProfileEmployer.LBL_DETAIL}
@@ -266,9 +266,9 @@ class ProfileEmployer extends Component {
                                         </Col>
                                     </Row>
                                 </Col>
-                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft"} style={{height: "423px"}}>
+                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft myProfileStyle"} style={{height: "423px"}}>
                                     <div className={"section"} ref={this.refDetail}>
-                                        <Col xs={6}>
+                                        <Col lg={6} xs={12}>
                                             <p className={"sectionTitle"}>
                                                 {strings.stringsProfileEmployer.LBL_REGISTER_TRADE_NAME}
                                             </p>
@@ -276,7 +276,7 @@ class ProfileEmployer extends Component {
                                                 {this.props.ctr.user.businessname}
                                             </p>
                                         </Col>
-                                        <Col xs={6}>
+                                        <Col lg={6} xs={12}>
                                             <p className={"sectionTitle"}>
                                                 {strings.stringsProfileEmployer.LBL_COMPANY_TRADE_TYPE}
                                             </p>
@@ -284,7 +284,7 @@ class ProfileEmployer extends Component {
                                                 {this.props.ctr.user.companyType}
                                             </p>                                    
                                         </Col>
-                                        <Col xs={6}>
+                                        <Col lg={6} xs={12}>
                                             <p className={"sectionTitle"}>
                                                 {strings.stringsProfileEmployer.LBL_COMPANY_TRADE_UTR}
                                             </p>
@@ -293,10 +293,10 @@ class ProfileEmployer extends Component {
                                             </p> 
                                         </Col>
                                     </div>
-                                    <hr/>
+                                    
                                     <div className={"section"} ref={this.refAddress}>
                                         <Col xs={12}>
-                                            <Col xs={12}>
+                                            <Col lg={12} xs={12}>
                                                 <p className={"sectionTitle"}>
                                                     {strings.stringsProfileEmployer.LBL_ADDRESS}
                                                 </p>
@@ -305,7 +305,7 @@ class ProfileEmployer extends Component {
                                                     onChange={this.onTextChange.bind(this,"address_1")}
                                                     placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_1}/>
                                             </Col>
-                                            <Col xs={6}>
+                                            <Col lg={6} xs={12}>
                                                 <input type={"text"} className={"inputProfileEmployer marginTop"}
                                                     onChange={this.onTextChange.bind(this,"address_2")}
                                                     value={this.state.employer.address_2}
@@ -317,13 +317,13 @@ class ProfileEmployer extends Component {
                                                     value={this.state.employer.address_3}
                                                     placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_3}/>
                                             </Col> */}                                            
-                                            <Col xs={6}>
+                                            <Col lg={6} xs={12}>
                                                 <input type={"text"} style={{width:"180px"}} className={"inputProfileEmployer marginTop"}
                                                     onChange={this.onTextChange.bind(this,"postCode")}
                                                     value={this.state.employer.postCode}
                                                     placeholder={strings.stringsProfileEmployer.LBL_POST_CODE}/>
                                             </Col>
-                                            <Col xs={12}>                                                
+                                            <Col lg={6} xs={12}>                                                
                                                 <input type={"text"} className={"inputProfileEmployer"}
                                                     value={this.state.employer.companyNumber}
                                                     style={{width:"180px"}} onChange={this.onTextChange.bind(this,"companyNumber")}
@@ -335,8 +335,9 @@ class ProfileEmployer extends Component {
                                 </Col>
                             </Row>
                             <Row className={"defaultMarginTop"}>
-                                <Col xs={5} xsOffset={3} className={"customCol"}>
-                                    <div className={"titleColumn"} style={{marginLeft: "30px"}}>
+                            <Col xs={3} ></Col>
+                                <Col xs={7} xsOffset={3} className={"customCol titleColumnProfile"}>
+                                    <div className={"titleColumn"}>
                                         {strings.stringsProfileEmployer.LBL_SETTINGS}
                                     </div>
                                 </Col>
@@ -345,7 +346,7 @@ class ProfileEmployer extends Component {
                                 <Col xs={3}>
                                     &nbsp;
                                 </Col>
-                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft"}>
+                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft myProfileStyle"}>
                                     <div className={"section"}>
                                         <p className={"sectionTitle"}>
                                             {strings.stringsProfileEmployer.LBL_EMAIL_ADDRESS}
@@ -376,12 +377,12 @@ class ProfileEmployer extends Component {
                                 </Col>
                             </Row>
                             <Row className={"defaultMarginTop"}>
-                                <Col xs={6} className={"customCol"}>
+                                <Col lg={6} xs={12} className={"customCol"}>
                                     <div className={"titleColumn"} style={{marginLeft: "30px"}}>
                                         <AsyncButton loading={this.state.loadingUpdate} className={"btnUpdate"} onClick={this.saveEmployer} textButton={strings.stringsProfileEmployer.BTN_UPDATE}/>
                                     </div>
                                 </Col>
-                                <Col xs={6} className={"customCol"}>
+                                <Col lg={6} xs={12} className={"customCol"}>
                                     <div className={"titleColumn"} style={{marginLeft: "30px"}}>
                                         <AsyncButton loading={this.state.loadingUpdate} className={"btnDelete"}  textButton={strings.stringsProfileEmployer.BTN_DELETE_ACCOUNT}/>
                                     </div>
@@ -394,12 +395,12 @@ class ProfileEmployer extends Component {
                         <Col xs={12}>
                             <Row>
                                 <Col xs={3} className={"customCol"}>
-                                    <div className={"titleColumn leftuptitle"}>
+                                    <div className={"titleColumn leftuptitle mobileHide"}>
                                         { this.props.ctr.user && this.props.ctr.user && this.props.ctr.user.companies ? this.props.ctr.user.companies[0]:null}
                                     </div>
                                 </Col>
                                 <Col xs={5} className={"customCol"}>
-                                    <div className={"titleColumn"} style={{marginLeft: "30px"}}>
+                                    <div className={"titleColumn myTitleStyle"}>
                                         {strings.stringsProfileEmployer.LBL_COLUMN_BUSINESS_DETAIL}
                                         {/* <AsyncButton loading={this.state.loadingUpdate} className={"btnUpdate"} onClick={this.saveEmployer} textButton={strings.stringsProfileEmployer.BTN_UPDATE}/> */}
                                     </div>
@@ -424,7 +425,7 @@ class ProfileEmployer extends Component {
                                     </span>
 
                                     <Row className={"defaultMarginTop2"}>
-                                        <Col xs={12} className={"customCol leftColumn"}>
+                                        <Col xs={12} className={"customCol leftColumn mySpaceRemove"}>
                                             <div className={"item"} onClick={this.scrollToSection.bind(this,"detail")}>
                                                 <img src={addressIcon}/>
                                                 {strings.stringsProfileEmployer.LBL_COLUMN_BUSINESS_DETAIL}
@@ -444,9 +445,9 @@ class ProfileEmployer extends Component {
                                         </Col>
                                     </Row>
                                 </Col>
-                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft"} style={{height: "423px"}}>
+                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft myProfileStyle"} style={{height: "423px"}}>
                                     <div className={"section"} ref={this.refDetail}>
-                                        <Col xs={6}>
+                                        <Col lg={6} xs={12}>
                                         <p className={"sectionTitle"}>
                                             {strings.stringsProfileEmployer.LBL_EMPLOYER_NAME}
                                         </p>
@@ -454,7 +455,7 @@ class ProfileEmployer extends Component {
                                             {this.props.ctr.user.businessname}
                                         </p>
                                         </Col>
-                                        <Col xs={6}>
+                                        <Col lg={6} xs={12}>
                                             <p className={"sectionTitle"}>
                                                 {strings.stringsProfileEmployer.LBL_COMPANY_TRADE_TYPE}
                                             </p>
@@ -462,7 +463,7 @@ class ProfileEmployer extends Component {
                                                 {this.props.ctr.user.companyType}
                                             </p>                                    
                                         </Col>
-                                        <Col xs={6}>
+                                        <Col lg={6} xs={12}>
                                             <p className={"sectionTitle"}>
                                                 {strings.stringsProfileEmployer.LBL_COMPANY_NUMBER}
                                             </p>
@@ -485,7 +486,7 @@ class ProfileEmployer extends Component {
                                             style={{width:"180px"}} onChange={this.onTextChange.bind(this,"contactNumber")}/>
                                         */}
                                     </div>
-                                    <hr/>
+                                    
                                     <div className={"section"} ref={this.refAddress}>
                                         <Col xs={12}>
                                             <Col xs={12}>
@@ -497,7 +498,7 @@ class ProfileEmployer extends Component {
                                                     onChange={this.onTextChange.bind(this,"address_1")}
                                                     placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_1}/>
                                             </Col>
-                                            <Col xs={6}>
+                                            <Col lg={6} xs={12}>
                                                 <input type={"text"} className={"inputProfileEmployer marginTop"}
                                                     onChange={this.onTextChange.bind(this,"address_2")}
                                                     value={this.state.employer.address_2}
@@ -509,13 +510,13 @@ class ProfileEmployer extends Component {
                                                     value={this.state.employer.address_3}
                                                     placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_3}/>
                                             </Col> */}
-                                            <Col xs={6}>
+                                            <Col lg={6} xs={12}>
                                                 <input type={"text"} style={{width:"180px"}} className={"inputProfileEmployer marginTop"}
                                                     onChange={this.onTextChange.bind(this,"postCode")}
                                                     value={this.state.employer.postCode}
                                                     placeholder={strings.stringsProfileEmployer.LBL_POST_CODE}/>
                                             </Col>
-                                            <Col xs={6}>
+                                            <Col lg={6} xs={12}>
                                                 <input type={"text"} className={"inputProfileEmployer marginTop"}
                                                     onChange={this.onTextChange.bind(this,"companyNumber")}
                                                     value={this.state.employer.companyNumber}
@@ -526,8 +527,9 @@ class ProfileEmployer extends Component {
                                 </Col>
                             </Row>
                             <Row className={"defaultMarginTop"}>
-                                <Col xs={5} xsOffset={3} className={"customCol"}>
-                                    <div className={"titleColumn"} style={{marginLeft: "30px"}}>
+                            <Col xs={3} ></Col>
+                                <Col xs={7} xsOffset={3} className={"customCol titleColumnProfile"}>
+                                    <div className={"titleColumn"}>
                                         {strings.stringsProfileEmployer.LBL_SETTINGS}
                                     </div>
                                 </Col>
@@ -536,7 +538,7 @@ class ProfileEmployer extends Component {
                                 <Col xs={3}>
                                     &nbsp;
                                 </Col>
-                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft"}>
+                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft myProfileStyle"}>
                                     <div className={"section"}>
                                         <p className={"sectionTitle"}>
                                             {strings.stringsProfileEmployer.LBL_EMAIL_ADDRESS}
@@ -567,12 +569,12 @@ class ProfileEmployer extends Component {
                                 </Col>
                             </Row>
                             <Row className={"defaultMarginTop"}>
-                                <Col xs={6} className={"customCol"}>
+                                <Col lg={6} xs={12} className={"customCol myUpdateBtn"}>
                                     <div className={"titleColumn"} style={{marginLeft: "30px"}}>
                                         <AsyncButton loading={this.state.loadingUpdate} className={"btnUpdate"} onClick={this.saveEmployer} textButton={strings.stringsProfileEmployer.BTN_UPDATE}/>
                                     </div>
                                 </Col>
-                                <Col xs={6} className={"customCol"}>
+                                <Col lg={6} xs={12} className={"customCol myDeleteBtn"}>
                                     <div className={"titleColumn"} style={{marginLeft: "30px"}}>
                                         <AsyncButton loading={this.state.loadingUpdate} className={"btnDelete"}  textButton={strings.stringsProfileEmployer.BTN_DELETE_ACCOUNT}/>
                                     </div>

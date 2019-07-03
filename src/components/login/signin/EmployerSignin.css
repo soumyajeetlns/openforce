@@ -146,7 +146,12 @@
             .tradingDt{width: 100%; float: left; height:inherit;  padding-top: 8px!important; color:rgba(0, 0, 0, 0.57)!important; }
             .wrapperLoginContainer .leftColumn .termsOfConditions{position: relative; bottom: inherit; padding-top: 25px; padding-bottom: 25px;}
             .DropdownStyle select{ width: 100%;  height: 39px; border-radius: 2px; border: solid 1px #d2d2d2;}
+            .myTitleStyle{margin-left: 30px;}
 
+            .titleColumnProfile{margin-left: 30px;}
+            .myProfileStyle .section .col-xs-12{ margin-bottom: 15px!important;}
+                .myProfileStyle{height:auto!important;}
+               
             
         @media only screen and (min-width: 320px) and (max-width: 767px) {
     .cardLoginOut{float:left; clear: both; width: 100%!important; padding-top: 80%;  background: no-repeat center center; 
@@ -229,11 +234,11 @@
             .wrapperJob .bodyJob .wrapperBox .box{margin-bottom: 0!important;}
             .wrapperJob .col-xs-12.subBox.subBox3{padding-top: 45px!important;}
             
-            .wrapperProfileEmployer{padding-left:10px!important; padding-right:10px!important; }
+            .wrapperProfileEmployer{padding-left:0!important; padding-right:0!important; }
             .wrapperProfileEmployer > div{margin-left: 0!important;}
 
             .wrapperProfileEmployer .col-xs-3.customCol{ width: 100%!important; flex-basis: 100%!important; max-width: 100%!important;}
-            .wrapperProfileEmployer .col-xs-5.customCol{ width:92%!important; flex-basis:92%!important; max-width: 92%!important;}
+            .wrapperProfileEmployer .col-xs-5.customCol{ width:100%!important; flex-basis:100%!important; max-width: 100%!important;}
             .wrapperProfileEmployer .col-xs-5.customCol .titleColumn{margin-left: 0!important;}
             .wrapperProfileEmployer .customCol.bodyCustomCol{padding:10px 4%!important;;}
             .wrapperProfileEmployer > .col-xs-12 > .col-xs-3{width: 94%!important; flex-basis: 94%!important; max-width: 94%!important;}
@@ -288,6 +293,19 @@
                 .GetSeratch{width: 100%; margin-bottom: 15px;}
                 .SearchBtnClass{margin: 0 auto; display: block; clear: both; float: none;}
                 .withlessheaderPadding{padding-left: 8%; padding-right:8%; }
+
+                .myProfileStyle{width: 98%!important; flex-basis: 98%!important; max-width: 98%!important;}
+                .mobileHide{display:none;}
+                .myTitleStyle{margin-left: 0; text-align: center;}
+                .mySpaceRemove{padding-left: 0!important; padding-right: 0!important;}
+                .wrapperProfileEmployer .defaultMarginLeft{margin-left: 0!important;}
+                .myUpdateBtn .titleColumn{margin-left: 0!important; text-align: center!important;}
+                .myUpdateBtn .titleColumn button{float: none!important; width: 150px!important;}
+                .myDeleteBtn .titleColumn{margin-left: 0!important; text-align: center!important;}
+                .titleColumnProfile{margin-left: 0!important;}
+                .wrapperProfileEmployer .backButton{margin-left: 10px!important;}
+                .wrapperProfileEmployer {overflow-x: hidden;}
+                
             }
     @media only screen and (min-width: 320px) and (max-width: 414px) {
         .subBox .wrapperChoosedJobRoles .wrapperSlider{width: 68%!important;}
