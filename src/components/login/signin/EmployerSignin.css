@@ -299,7 +299,7 @@
                 .myTitleStyle{margin-left: 0; text-align: center;}
                 .mySpaceRemove{padding-left: 0!important; padding-right: 0!important;}
                 .wrapperProfileEmployer .defaultMarginLeft{margin-left: 0!important;}
-                .myUpdateBtn .titleColumn{margin-left: 0!important; text-align: center!important;}
+                .myUpdateBtn .titleColumn{margin-left: 0!important; text-align: center!important; margin-bottom: 15px!important;}
                 .myUpdateBtn .titleColumn button{float: none!important; width: 150px!important;}
                 .myDeleteBtn .titleColumn{margin-left: 0!important; text-align: center!important;}
                 .titleColumnProfile{margin-left: 0!important;}
