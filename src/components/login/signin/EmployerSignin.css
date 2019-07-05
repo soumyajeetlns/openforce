@@ -151,7 +151,7 @@
             .titleColumnProfile{margin-left: 30px;}
             .myProfileStyle .section .col-xs-12{ margin-bottom: 15px!important;}
                 .myProfileStyle{height:auto!important;}
-               
+                .react-datepicker-popper{z-index:999!important;}
             
         @media only screen and (min-width: 320px) and (max-width: 767px) {
     .cardLoginOut{float:left; clear: both; width: 100%!important; padding-top: 80%;  background: no-repeat center center; 
@@ -305,10 +305,11 @@
                 .titleColumnProfile{margin-left: 0!important;}
                 .wrapperProfileEmployer .backButton{margin-left: 10px!important;}
                 .wrapperProfileEmployer {overflow-x: hidden;}
+                .react-datepicker__day-name, .react-datepicker__day {margin: 0.1rem !important;}
                 
             }
     @media only screen and (min-width: 320px) and (max-width: 414px) {
-        .subBox .wrapperChoosedJobRoles .wrapperSlider{width: 68%!important;}
+        .subBox .wrapperChoosedJobRoles .wrapperSlider{width: 64%!important;}
         .TradeTwo .col-xs-6{width: 100%!important; flex-basis: 100%!important; max-width: 100%!important; padding-top:10px!important; padding-bottom:10px!important;}
     }
     
