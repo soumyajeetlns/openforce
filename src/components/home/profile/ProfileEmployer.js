@@ -35,7 +35,7 @@ class ProfileEmployer extends Component {
             old_password:null,
             password_1:null,
             password_2:null,
-            companytype:null,
+            companyType:null,
             businessname:null,
         }
 
