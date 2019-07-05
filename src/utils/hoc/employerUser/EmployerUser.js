@@ -9,7 +9,7 @@ export default class EmployerUser{
             this.profileImageThumb = _user.profileImageThumb?_user.profileImageThumb:null;
             this.publicID = _user.publicID?_user.publicID:null
             this.contactNumber = _user.contactNumber?_user.contactNumber:null;
-            this.companyType = _user.companytype?_user.companytype:null;
+            this.companyType = _user.companyType?_user.companyType:null;
             this.businessname = _user.businessname?_user.businessname:null;
             this.utrno = _user.utrno?_user.utrno:null;
             
