@@ -289,7 +289,10 @@ class ProfileEmployer extends Component {
                                                 {strings.stringsProfileEmployer.LBL_COMPANY_TRADE_UTR}
                                             </p>
                                             <p className={"inputProfileEmployer"}>
-                                                {this.props.ctr.user.utrno}
+                                                <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                                    value={this.state.employer.utrno}
+                                                    onChange={this.onTextChange.bind(this,"utrno")}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_COMPANY_TRADE_UTR}/>
                                             </p> 
                                         </Col>
                                     </div>
