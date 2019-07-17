@@ -42,7 +42,9 @@ class EmployerSignup extends Component {
                 checkbox:false,
             },
             selectedOption: '',
-            successMessage:null
+            successMessage:null,
+
+            apiCompanyName:[]
         }
     }
     
@@ -262,6 +264,66 @@ class EmployerSignup extends Component {
         tempState.companyType = tempState.radio;
         tempState.errors.message = null;
         this.setState(tempState);
+    }
+
+    getCompanyDetails = (e) =>{
+        //console.log('Hello Soumyajeet');
+        const tempState = utils.deepCopy(this.state);
+        console.log(tempState.soletraderName);
+
+        let url         =   'https://api.companieshouse.gov.uk/search/companies?q=';
+        let username    =   'Authorization';
+        let password    =   'u-edHGZK8RVB1aooUKLU8R7DsePsR1O6r9xOjJua:';
+        let headers     =   new Headers();
+
+        //headers.append('Accept', 'application/json');
+        let encoded     =   window.btoa(password);
+        let auth        =   username +':Basic ' + encoded;
+        headers.append('Authorization', auth);
+        headers.append('pragma', 'no-cache');
+        headers.append('cache-control', 'no-cache');
+        headers.append('Content-Type', 'application/json');
+
+        console.log(auth);
+
+        let req         =   new Request(url + tempState.soletraderName, {
+            method  :   'GET',
+            headers :   headers,
+            credentials : 'include'
+        });
+
+        //headers.set('Authorization', 'Basic ' + window.btoa(username + ":" + password));
+        //headers.set('Authorization', 'Basic ' + window.btoa(password));
+
+        //fetch(API + tempState.soletraderName)
+        //fetch(url, {method:'GET',headers: headers})
+        //fetch(API + tempState.soletraderName, headers)
+        
+        /*fetch(req)
+            .then((response)=> {
+                if(response.ok)
+                {
+                    console.log('hello soumya');
+                    return response.json();
+                }
+                else
+                {
+                    throw new Error('BAD HTTP stuff');
+                }
+            })
+            .then(data => this.setState({ apiCompanyName: data.apiCompanyName }))
+            .catch(error => { console.log('request failed', error); });
+        */
+
+        fetch(url + tempState.soletraderName,{
+            method: 'GET',
+            headers : headers,
+            credentials : 'include'
+        })
+        .then(response => response.json())
+        .then(data => this.setState({ apiCompanyName: data.apiCompanyName }))
+        .catch(error => { console.log('request failed', error); });
+        console.log(btoa(password));
     }
 
     render() {
@@ -552,9 +614,9 @@ class EmployerSignup extends Component {
                                     name={"soletraderName"}
                                     error={this.state.errors.soletraderName}
                                     value={this.state.soletraderName}
-                                    className={"searchField GetSeratch"}
+                                    className={"searchField GetSeratch"}                                    
                                     placeholder={strings.stringsSignup.PLACEHOLDER_STEP_COMPANY}/>
-                                    <button className={"searchButton SearchBtnClass"}>Get Details</button>
+                                    <button className={"searchButton SearchBtnClass"} onClick = {this.getCompanyDetails}>Get Details</button>
                             </div> 
                             <div className={"withPadding"}>
                                 <button className={"button-bg"} onClick={this.submitManually}>ENTER COMPANY DETAILS MANUALLY </button>
