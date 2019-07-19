@@ -21,7 +21,10 @@ class EmployerSignup extends Component {
             email:undefined,
             psw1:undefined,
             psw2:undefined,
+<<<<<<< HEAD
             searchCompanyUrl:undefined,
+=======
+>>>>>>> 066d5cf540e2439017ec4a95e99a8c773eafa6db
             companyType:undefined,
             soletraderName:undefined,
             websiteName:undefined,
@@ -66,6 +69,7 @@ class EmployerSignup extends Component {
         this.setState(tempState);
     }
 
+<<<<<<< HEAD
     getCompany = () =>{
         // const tempState = utils.deepCopy(this.state);
         // tempState.confirmArchive = true;
@@ -106,6 +110,9 @@ class EmployerSignup extends Component {
         )
         console.log(companyLists);
     }
+=======
+
+>>>>>>> 066d5cf540e2439017ec4a95e99a8c773eafa6db
     submitStepTwo = () =>{
         if(this.checkErrorStepTwo()){
             const tempState = utils.deepCopy(this.state);
@@ -121,6 +128,7 @@ class EmployerSignup extends Component {
             }else{
                 
             }    
+<<<<<<< HEAD
         }
     }
     submitStepThree = () =>{
@@ -137,11 +145,34 @@ class EmployerSignup extends Component {
             // // tempState.onBackButton = this.onBackButton;
             // // this.setState(tempState);
             // // console.log(tempState);
+=======
+            // }else{
+            //     tempState.errors.radio = true;
+            //     tempState.errors.message = strings.stringsSignup.errors.ERROR_PASSWORD_MATCH;
+            //     checkOne = false;
+            // }    
+            // }else{
+            //     tempState.step = 3;
+            //     tempState.onBackButton = this.onBackButton;
+            //     this.setState(tempState);
+            // }    
+            // if(tempState.radio == "Limited Company"){
+            //     tempState.step = 2;
+            //     tempState.onBackButton = this.onBackButton;
+            //     this.setState(tempState);
+            // }else{
+            //     tempState.step = 1;
+            //     tempState.onBackButton = this.onBackButton;
+            //     this.setState(tempState);
+            // }
+            
+>>>>>>> 066d5cf540e2439017ec4a95e99a8c773eafa6db
             // tempState.loading = true;
             // this.setState(tempState,()=>{
             //     const employer = {};
             //     employer.email = tempState.email;
             //     employer.companies = [tempState.companyName];
+<<<<<<< HEAD
             //     employer.companyType = tempState.radio;
 
             //     employer.businessname = tempState.soletraderName;
@@ -156,6 +187,38 @@ class EmployerSignup extends Component {
             //     authFunctions.createEmployerUser(tempState.email, tempState.psw1, employer, this.successSignup, this.errorSignup);
             // });
             /**********************end of the sole trader registration******** */
+=======
+            //     employer.type = constants.CLUSTER_EMPLOYER;
+            //     authFunctions.createEmployerUser(tempState.email, tempState.psw1, employer, this.successSignup, this.errorSignup);
+            // });
+        }
+    }
+    submitStepThree = () =>{
+        if(this.checkErrorStepThree()){
+            const tempState = utils.deepCopy(this.state);
+            // tempState.step = 2;
+            // tempState.onBackButton = this.onBackButton;
+            // this.setState(tempState);
+            // console.log(tempState);
+            tempState.loading = true;
+            this.setState(tempState,()=>{
+                const employer = {};
+                employer.email = tempState.email;
+                employer.companies = [tempState.companyName];
+                employer.companyType = tempState.radio;
+
+                employer.businessname = tempState.soletraderName;
+                employer.website = tempState.websiteName;
+                employer.utrno = tempState.utrName;
+                employer.address = tempState.addressTradeName;
+                employer.cityname = tempState.cityName;
+                employer.postcode = tempState.postcodeName;
+                employer.contactno = tempState.contactMobileName;
+                // companyType
+                employer.type = constants.CLUSTER_EMPLOYER;
+                authFunctions.createEmployerUser(tempState.email, tempState.psw1, employer, this.successSignup, this.errorSignup);
+            });
+>>>>>>> 066d5cf540e2439017ec4a95e99a8c773eafa6db
         }
     }
 
@@ -471,10 +534,29 @@ class EmployerSignup extends Component {
                                     </Col>      
                             </Row>            
                         </div>
+<<<<<<< HEAD
                            
                         <div className={"wrapperSignup"}>
                             <div className={"separatorStep2"}/>
                         </div>
+=======
+                        {/* <div className={"wrapperSignup  withPaddingSubtitle"}>
+                            <p className={"subtitle"}>{strings.stringsSignup.SUBTITLE_STEP_2}</p>
+                        </div> */}     
+                        <div className={"wrapperSignup"}>
+                            <div className={"separatorStep2"}/>
+                        </div>
+                        {/* <div className={"withPadding"}>
+                            <Input
+                                onChange={this.onInputChange}
+                                name={"soletraderName"}
+                                key={1}
+                                error={this.state.errors.soletraderName}
+                                label={strings.stringsSignup.LBL_SOLETRADER_NAME}
+                                value={this.state.soletraderName}
+                                placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
+                        </div> */}
+>>>>>>> 066d5cf540e2439017ec4a95e99a8c773eafa6db
                         <div className={"withPadding TraderBox"}>
                             <Row className={"wrapperCheckbox checkbox-wrapper"}>
                                     <Col xs={12}>
@@ -512,8 +594,13 @@ class EmployerSignup extends Component {
 
                             </Row>
                         </div>            
+<<<<<<< HEAD
                         <div className={"withPadding TraderBox"}>
                             <Row className={"wrapperCheckbox checkbox-wrapper"}>        
+=======
+                            <div className={"withPadding TraderBox"}>
+                                <Row className={"wrapperCheckbox checkbox-wrapper"}>        
+>>>>>>> 066d5cf540e2439017ec4a95e99a8c773eafa6db
                                     <Col xs={6}>
                                         <Input
                                             onChange={this.onInputChange}
@@ -522,7 +609,11 @@ class EmployerSignup extends Component {
                                             error={this.state.errors.contactMobileName}
                                             value={this.state.contactMobileName}
                                             placeholder={strings.stringsSignup.PLACEHOLDER_CONTACT_MOBILE}/>
+<<<<<<< HEAD
                                     </Col>     
+=======
+                                    </Col>       
+>>>>>>> 066d5cf540e2439017ec4a95e99a8c773eafa6db
                             </Row>            
                         </div> 
                         <div className={"wrapperSignup withPadding TraderBox paddingTopZero"}>
@@ -544,7 +635,10 @@ class EmployerSignup extends Component {
 
                             </div>
                         </div>
+<<<<<<< HEAD
                         
+=======
+>>>>>>> 066d5cf540e2439017ec4a95e99a8c773eafa6db
                     </Wrapper>
                     :this.state.step === 4?
                         <Wrapper>
@@ -558,12 +652,21 @@ class EmployerSignup extends Component {
                             <div className={"withPadding GetSeratchTop"}>                            
                                 <Input
                                     onChange={this.onInputChange}
+<<<<<<< HEAD
                                     name={"companyBusinessName"}
                                     error={this.state.errors.companyBusinessName}
                                     value={this.state.companyBusniessName}
                                     className={"searchField GetSeratch"}
                                     placeholder={strings.stringsSignup.PLACEHOLDER_STEP_COMPANY}/>
                                     <button className={"searchButton SearchBtnClass"} onClick={this.getCompany}>Get Details</button>
+=======
+                                    name={"soletraderName"}
+                                    error={this.state.errors.soletraderName}
+                                    value={this.state.soletraderName}
+                                    className={"searchField GetSeratch"}
+                                    placeholder={strings.stringsSignup.PLACEHOLDER_STEP_COMPANY}/>
+                                    <button className={"searchButton SearchBtnClass"}>Get Details</button>
+>>>>>>> 066d5cf540e2439017ec4a95e99a8c773eafa6db
                             </div> 
                             <div className={"withPadding"}>
                                 <button className={"button-bg"} onClick={this.submitManually}>ENTER COMPANY DETAILS MANUALLY </button>
@@ -736,6 +839,7 @@ class EmployerSignup extends Component {
                             </div>
                         </div>
                     </Wrapper>    
+<<<<<<< HEAD
                     :this.state.step === 6?
                     
                     <Wrapper className={"withButton"}>
@@ -829,6 +933,8 @@ class EmployerSignup extends Component {
                         </div>
                     </div>
                 </Wrapper>        
+=======
+>>>>>>> 066d5cf540e2439017ec4a95e99a8c773eafa6db
 
                     :
 

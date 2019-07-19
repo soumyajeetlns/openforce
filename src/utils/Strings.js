@@ -7,7 +7,6 @@ export const stringsSignup = new LocalizedStrings({
         LBL_COMPANY_NAME:"Full name",
         LBL_SOLETRADER_NAME:"Sole Trader name",
         COMPANY_HOUSE_SIGNUP_1: "Get details using companies house",
-        COMPANY_HOUSE_API: "https://api.companieshouse.gov.uk/search/companies?q=",
         LBL_EMAIL:"Enter email address",
         PLACEHOLDER_STEP_1:"Enter your full first and surname",
         PLACEHOLDER_STEP_3: "Your trading name",
