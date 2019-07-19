@@ -271,62 +271,17 @@ class EmployerSignup extends Component {
         const tempState = utils.deepCopy(this.state);
         console.log(tempState.soletraderName);
 
-        let url         =   'https://api.companieshouse.gov.uk/search/companies?q=';
-        let username    =   'Authorization';
-        let password    =   'u-edHGZK8RVB1aooUKLU8R7DsePsR1O6r9xOjJua:';
-        let headers     =   new Headers();
-
-        //headers.append('Accept', 'application/json');
-        let encoded     =   window.btoa(password);
-        let auth        =   username +':Basic ' + encoded;
-        headers.append('Authorization', auth);
-        headers.append('pragma', 'no-cache');
-        headers.append('cache-control', 'no-cache');
-        headers.append('Content-Type', 'application/json');
-
-        console.log(auth);
-
-        let req         =   new Request(url + tempState.soletraderName, {
-            method  :   'GET',
-            headers :   headers,
-            credentials : 'include'
-        });
-
-        //headers.set('Authorization', 'Basic ' + window.btoa(username + ":" + password));
-        //headers.set('Authorization', 'Basic ' + window.btoa(password));
-
-        //fetch(API + tempState.soletraderName)
-        //fetch(url, {method:'GET',headers: headers})
-        //fetch(API + tempState.soletraderName, headers)
+        let url    =   "http://lnsel.co.in/openforce-web-master/companyhouseapi.php?page="+tempState.soletraderName;
         
-        /*fetch(req)
-            .then((response)=> {
-                if(response.ok)
-                {
-                    console.log('hello soumya');
-                    return response.json();
-                }
-                else
-                {
-                    throw new Error('BAD HTTP stuff');
-                }
-            })
-            .then(data => this.setState({ apiCompanyName: data.apiCompanyName }))
-            .catch(error => { console.log('request failed', error); });
-        */
-
-        fetch(url + tempState.soletraderName,{
-            method: 'GET',
-            headers : headers,
-            credentials : 'include'
-        })
-        .then(response => response.json())
-        .then(data => this.setState({ apiCompanyName: data.apiCompanyName }))
-        .catch(error => { console.log('request failed', error); });
-        console.log(btoa(password));
+        fetch(url)
+        .then((response) => response.json())
+        .then((findresponse) => this.setState({apiCompanyName : findresponse.company}));
     }
 
     render() {
+        let data =  this.state.apiCompanyName;
+        console.log(typeof(data));
+        console.log(data);
         return (
             <LoginContainer onBackButton={this.state.onBackButton}>
                 {
@@ -361,7 +316,6 @@ class EmployerSignup extends Component {
                                 style={{marginTop:"-30px"}}
                                 error={this.state.errors.password}
                                 placeholder={strings.stringsSignup.LBL_PASSWORD}/>
-
                             <Input
                                 label={strings.stringsSignup.LBL_PASSWORD_2}
                                 type={"password"}
@@ -617,11 +571,40 @@ class EmployerSignup extends Component {
                                     className={"searchField GetSeratch"}                                    
                                     placeholder={strings.stringsSignup.PLACEHOLDER_STEP_COMPANY}/>
                                     <button className={"searchButton SearchBtnClass"} onClick = {this.getCompanyDetails}>Get Details</button>
-                            </div> 
-                            <div className={"withPadding"}>
+                            </div>
+                            <div className="companydatalist">
+                                    {this.state.apiCompanyName.map((p,i)=>
+                                    <Col xs={12} className="companyData">                                    
+                                        <Col md={1} xs={2}>
+                                            <span><i class="material-icons Oval cmpi">work</i></span>
+                                        </Col>      
+                                        <Col md={5} className="hidden-xs">  
+                                            <p>{p.title}<br/>
+                                            {p.company_number}</p>
+                                        </Col>
+                                        <Col xs={5} className="hidden-xs">
+                                            <p>{p.address_snippet}</p>
+                                        </Col>
+                                        <Col xs={9} className="hidden-md hidden-lg">
+                                            <p>{p.title}, {p.company_number}<br/>{p.address_snippet}</p>
+                                        </Col>
+                                        <Col xs={1}>
+                                            <Input type={"radio"}
+                                                    className={'Oval-Copy'}
+                                                    name={"registedbusinessname"}
+                                                    value={p.title}
+                                                    defaultChecked={this.state.checked}
+                                                onChange={this.onRadioButtonChange}
+                                                onClick={this.onRadioButtonChange}
+                                                error={this.state.errors.radio}/>
+                                        </Col>
+                                    </Col>)
+                                    }
+                            </div>
+                            <div className={"withPadding companydatalist_btn"}>
                                 <button className={"button-bg"} onClick={this.submitManually}>ENTER COMPANY DETAILS MANUALLY </button>
                             </div>
-                            <div className={"wrapperSignup withPadding"}>
+                            <div className={"wrapperSignup withPadding companydatalist_btn"}>
 
                                 {
                                     this.state.successMessage?
