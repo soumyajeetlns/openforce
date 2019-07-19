@@ -248,9 +248,8 @@ class EmployerSignup extends Component {
     getCompanyDetails = (e) =>{
         //console.log('Hello Soumyajeet');
         const tempState = utils.deepCopy(this.state);
-        console.log(tempState.soletraderName);
 
-        let url    =   "http://lnsel.co.in/openforce-web-master/companyhouseapi.php?page="+tempState.soletraderName;
+        let url    =   constants.COMPANYHOUSEAPIURL+tempState.soletraderName;
         
         fetch(url)
         .then((response) => response.json())
@@ -258,9 +257,6 @@ class EmployerSignup extends Component {
     }
 
     render() {
-        let data =  this.state.apiCompanyName;
-        console.log(typeof(data));
-        console.log(data);
         return (
             <LoginContainer onBackButton={this.state.onBackButton}>
                 {

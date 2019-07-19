@@ -11,6 +11,7 @@ export const FORGOT_EMPLOYER = "/employer/forgot"
 export const PROFILE_EMPLOYER = "/employer/profile"
 export const NOT_FOUND_PAGE = "/pageNotFound"
 export const ERROR = "/error";
+export const COMPANYHOUSEAPIURL    =   "http://lnsel.co.in/openforce-web-master/companyhouseapi.php?page=";
 
 export const JOBS = "/jobs"
 export const JOB_MAP = "/map"
