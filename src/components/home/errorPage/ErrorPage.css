@@ -1,0 +1,22 @@
+.pageErrorPageWrapper{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.87);
+}
+.pageErrorPageWrapper .title{
+    font-size: 20px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #323432;
+}
+.pageErrorPageWrapper .body{
+
+}

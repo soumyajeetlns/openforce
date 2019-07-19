@@ -1,0 +1,310 @@
+.wrapperSignin{
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    padding: 60px 60px 30px 60px;
+}
+
+.wrapperSignin .title{
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #323432;
+}
+
+.wrapperSignin .wrapperLblSignup{
+    text-align: right;
+}
+
+.wrapperSignin .wrapperLblSignup .lblSignup{
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #9b9b9b;
+}
+
+.wrapperSignin .wrapperButtons{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.wrapperSignin .wrapperButtons .btnForgot{
+    width: 146px;
+    height: 36px;
+    margin-right: 5px;
+    border-radius: 2px;
+    border: solid 1px #d2d2d2;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #05106e;
+    background: white;
+}
+
+.wrapperSignin .wrapperButtons .btnSubmit{
+    width: 146px;
+    height: 36px;
+    margin-left: 5px;
+    border:0;
+    border-radius: 2px;
+    background-color: #05106e;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+}
+
+.desktop_view{display: block!important;}
+.mobile_view{display: none!important;}
+.wrapperLoginContainer .rightcol{position: relative; right: 0; background: no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;}
+    .cardLogin .withPadding{padding-top: 50px;}
+    .cardLogin .withPadding{padding:60px 60px 0px 60px;}
+    .wrapperSignup .separatorStep1{margin-top: 40px;}
+    .wrapperLoginContainer .cardLogin{top: 150px;}
+    .withPadding.TraderBox{padding-top: 25px;}
+    .paddingTopZero{padding-top: 0!important;}
+
+    .jobItemContainer .header .bgclose{height: 18px!important; line-height: 1em!important;}
+    .jobItemContainer .header .btnEdit{border: 0!important;}
+    .jobItemContainer .body{height: auto!important;;}
+    .jobItemContainer .body .fieldRole{min-height:60px; }
+
+    .jobItemContainer .body div:nth-child(4){min-height: 100px;}
+    .jobItemContainer .header .bg{width: 85px!important; height:18px!important; line-height:1em!important;}
+    
+    .popupBody .body{text-align: justify;}
+    .popupBody .body .textBody{margin-bottom: 20px;}
+
+    .bodyJob .col-xs-12.box{font-weight: normal!important;}
+
+    .profileBox{padding-top:250px; text-align: left; padding-bottom:15px;}
+    .employeeNameDiv{margin-top: 10px!important;}
+    .employeePopupBody .left .profile .employeeName{color:#fff!important;}
+    .employeePopupBody .left .star{fill: #fff!important;}
+
+    /*===============================Profile=======================================*/
+    .employeePopupBody .right{padding: 0px 3% 25px 3%!important; }
+    .RateSection{margin-top: 0!important;}
+    .employeePopupBody .lblTitle{ margin-bottom: 5px!important;}
+    .employeePopupBody .left{height: 630px!important;}
+    .employeePopupBody .right{height: 630px!important;}
+    .employeePopupBody .left .profile{height: 350px!important;}
+    .employeePopupBody .left .profile img{height: 67px!important; width: 67px!important; margin-top: 0!important;
+        -webkit-transform: translateY(-50%); -ms-transform:inherit!important; transform:inherit!important; background:#fff;}
+        .employeePopupBody .left .profile .employeeName{margin-top: 0!important;}
+        .employeePopupBody .left .profile{text-align: left;}
+        .employeePopupBody{height: auto!important;}
+        .profileBox{-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;}
+        .CardInner{height:200px; background:#464647; display: block; margin: 15px auto 0 auto;}
+        .CardInnerName{webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); padding:10px; 
+            text-align: left; font-weight: bold; background: #fff;}
+        .employeeLastJobsWrapper{padding: 20px 5%!important;}
+        .employeeLastJobsWrapper .lastJob {height:auto!important;}
+        .HistoryTop{margin-top:5%;}
+        .CscsCardDiv{background: #f9f8f6;}
+        .ResumeDiv{background: #f9f8f6;}
+        .hiredEmployeePopupBody{height: auto!important;;}
+
+        .GetSeratch{border-bottom: solid 1px rgba(0, 0, 0, 0.12)!important; font-size: 14px; font-weight: normal;
+          font-style: normal; font-stretch: normal; line-height: 1.71; letter-spacing: normal; color: rgba(0, 0, 0, 0.38); padding: 0;} 
+        .GetSeratchTop{padding-top: 25px!important;}
+        .withlessheaderPadding{padding: 18px 60px 0px 60px;}
+        .searchField{width:68%; margin-top: 10px;}
+        .SearchBtnClass{height: 36px; border-radius: 2px; border: none; background-color: #06158f;margin-bottom: 30px;
+            -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12); box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+            font-family: Roboto; font-size: 14px; font-weight: 500; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: 0.5px; text-align: center;
+            color: #ffffff; width:118px; text-transform: uppercase; margin-left:2%;}
+            .button-bg{width: auto; max-width:300px; margin: 0 auto; display: block; height: 36px;  border-radius: 2px; border: solid 1px #d6d6d6; background: #fff;
+                font-family: Roboto; font-size: 14px; font-weight: 500; font-style: normal; font-stretch: normal; line-height: normal; text-align: center;
+                color: #000000;}
+            .wrapperSignup .btnSubmitStepTwo{cursor: pointer;}
+            .tradingName{background:#fff1f1!important; opacity:1!important; }
+            .tradingDt{width: 100%; float: left; height:inherit;  padding-top: 8px!important; color:rgba(0, 0, 0, 0.57)!important; }
+            .wrapperLoginContainer .leftColumn .termsOfConditions{position: relative; bottom: inherit; padding-top: 25px; padding-bottom: 25px;}
+            .DropdownStyle select{ width: 100%;  height: 39px; border-radius: 2px; border: solid 1px #d2d2d2;}
+
+            
+        @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .cardLoginOut{float:left; clear: both; width: 100%!important; padding-top: 80%;  background: no-repeat center center; 
+        -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;}
+    .wrapperSignin{padding:6% 8%!important; }
+    .wrapperLoginContainer .rightcol{position: relative; right: 0; width: 100%!important;}
+    .wrapperLoginContainer .rightcol img{display: none;}
+    .wrapperLoginContainer .leftcol{position: relative; right: 0; width: 100% !important; max-width: 100% !important;
+        flex-basis: 100% !important;  position: relative;  clear: both;}
+    .wrapperLoginContainer .cardLogin{position: relative; left: inherit; margin:0 auto; clear: both; top: inherit;}
+    .wrapperLoginContainer .leftColumn .termsOfConditions{position: relative!important;}
+    .wrapperLoginContainer .rightcol{position: relative; left: 0!important; width: 100% !important; max-width: 100% !important;
+        flex-basis: 100% !important;}
+        .wrapperSignin .title{width: 60% !important; max-width: 60% !important; flex-basis: 60% !important;}
+        .wrapperSignin .wrapperLblSignup{width: 40% !important; max-width: 40% !important; flex-basis: 40% !important;}
+        .wrapperSignin .wrapperButtons .btnForgot{width: 135px!important;}
+        .wrapperSignin .wrapperButtons .btnSubmit{width: 135px!important;}
+        .desktop_view{display: none!important;}
+        .mobile_view{display: block!important; margin-top: 0;}
+        .wrapperLoginContainer .leftColumn .termsOfConditions{bottom: 0; left:0;  padding:20px!important;}
+        .wrapperLoginContainer .logo{top: 5%;  left: 10%;}
+        .wrapperJobs{padding: 5%!important;}
+        .wrapperLoginContainer .cardLogin{width: 100%!important;}
+        .cardLogin .wrapperBackArrow .backArrow{left:15px!important; top: 20px;}
+        .cardLogin .wrapperBackArrow{background: #fed91c; width: 100%; height: 65px;}
+        .cardLogin .withPadding{padding:5% 8%;}
+
+        .wrapperLoginContainer .logo{ z-index: 999;}
+
+        .wrapperProfileEmployer .defaultMarginTop.row .col-xs-3{width:100%!important; flex-basis: 100%!important; max-width: 100%!important;}
+        .wrapperProfileEmployer  .col-xs-5.customCol.defaultMarginLeft{margin-left: 10px!important; width: 93% !important;
+            flex-basis: 933% !important;  max-width: 93% !important;}
+            .wrapperProfileEmployer .btnLogout{margin-bottom:20px; }
+        .wrapperProfileEmployer .defaultMarginTop.row .col-xs-5.col-xs-offset-3.customCol .titleColumn{margin-left: 0!important;}
+        /*============================================Jobs===============================================*/
+        .wrapperHomeContainer .header .logo{margin-top:20px!important; margin-left: 20px!important;}
+        .wrapperHomeContainer .header .logo img{width:80px!important;}
+        .wrapperHomeContainer .header .profile{margin-right: 20px!important; margin-top: 15px!important;}
+        .wrapperHomeContainer .header .sections{left: 0!important; width: 100%!important;}
+        .wrapperHomeContainer .header .sections .section{width:33%!important; padding:10px!important; ;}
+        .wrapperHomeContainer .header{height: 140px!important;}
+        .wrapperProfile .profileImg{float:right!important;}
+        .wrapperProfile .companyName{float: left!important; margin-top: 8px; margin-right: 5px; font-size: 11px;}
+
+        .wrapperJob .bodyJob{width: 90%!important; padding: 5%!important;}
+        .wrapperJob .bodyJob .wrapperBox .box{padding: 20px!important;}
+        .wrapperJob .bodyJob .wrapperBox .box .col-xs-1{padding: 0!important;}
+        .wrapperJob .bodyJob .wrapperBox .box{height: auto!important;}
+        .wrapperJob .bodyJob{min-height:400px!important;}
+        .wrapperJob .bodyJob .footer{padding: 15px 0!important; text-align: center!important;}
+
+        .mapContainer .footer .tab{width: 50%!important; margin: 0!important;}
+         .mapContainer .footer .col-xs-3{flex-basis: 50%; max-width: 50%;}
+
+         .btnAddJob.hidden-lg{width: 56px; height: 56px; -webkit-box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.24), 0 0 6px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.24), 0 0 6px 0 rgba(0, 0, 0, 0.12); background-color: #0c15b0;
+            border-style: solid; border-width: 0.5px; border-image-source: linear-gradient(to bottom, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06) 20%, rgba(255, 255, 255, 0));
+            border-image-slice: 1; border-radius: 56px; position: fixed; bottom:20px; right:20px; z-index: 10;
+            color: white; border: 0!important;}
+            .wrapperJobs{min-height:400px;}
+            .popupBody .body{width:90%!important; padding: 5%!important; height: 200px!important;;}
+            .popupBody .body .wrapperButtons .buttons{position: relative; bottom: 0;}
+            .popupBody .body .wrapperButtons button{width: 110px;}
+            .col-xs-12.subBox .col-xs-11.box_1 div{width:100%!important; }
+            .wrapperJob .bodyJob{padding-bottom: 150px!important;}
+            .subBox .wrapperChoosedJobRoles .wrapperSlider{width: 70%!important;}
+            .wrapperJob .bodyJob .wrapperBox .subBox{padding: 15px 10px!important;}
+            .subBox .separator{margin-left: -10px!important; margin-right: -10px!important;}
+            .col-xs-12.subBox.subBox3 .col-xs-1{display: none!important;}
+            .col-xs-12.subBox.subBox3 .col-xs-11{width: 100%!important; flex-basis:100%; max-width:100%; text-align: center;}
+            .col-xs-12.subBox.subBox3 .col-xs-4{width:50%!important; flex-basis:50%; max-width:50%;}
+            .col-xs-12.subBox.subBox3 .col-xs-4 p{margin-bottom: 0!important;}
+            /* .subBox.subBox3 [role="btnDatePicker"]{width: 110px!important; font-size: 12px!important;} */
+
+            .popupBody .body .wrapperButtons .buttons{ position: relative!important;}
+            .popupBody .body .wrapperButtons button{width: 110px!important;}
+            .popupBody .body .wrapperButtons{width: 100%!important;}
+            .popupBody .body .wrapperButtons .buttons{bottom: 0!important;}
+            .wrapperJob .bodyJob .wrapperBox{padding: 5px!important;}
+            .wrapperJob .bodyJob .wrapperBox .box{margin-bottom: 0!important;}
+            .wrapperJob .col-xs-12.subBox.subBox3{padding-top: 45px!important;}
+            
+            .wrapperProfileEmployer{padding-left:10px!important; padding-right:10px!important; }
+            .wrapperProfileEmployer > div{margin-left: 0!important;}
+
+            .wrapperProfileEmployer .col-xs-3.customCol{ width: 100%!important; flex-basis: 100%!important; max-width: 100%!important;}
+            .wrapperProfileEmployer .col-xs-5.customCol{ width:92%!important; flex-basis:92%!important; max-width: 92%!important;}
+            .wrapperProfileEmployer .col-xs-5.customCol .titleColumn{margin-left: 0!important;}
+            .wrapperProfileEmployer .customCol.bodyCustomCol{padding:10px 4%!important;;}
+            .wrapperProfileEmployer > .col-xs-12 > .col-xs-3{width: 94%!important; flex-basis: 94%!important; max-width: 94%!important;}
+            .wrapperProfileEmployer .customCol.bodyCustomCol{padding: 15px;}
+            .wrapperProfileEmployer .leftColumn .item{padding-left: 4%!important; padding-right: 4%!important;}
+            .wrapperProfileEmployer .btnUpdate{width: 80px!important; margin-right: 0!important;}
+
+            .withPaddingCustom { padding: 10px 20px 0px 20px!important;}
+            .wrapperSignup .Oval{-webkit-border-radius: 50px!important; -moz-border-radius: 50px!important; border-radius: 50px!important; 
+                font-size: 11px; padding: 6px 8px !important; }
+            .wrapperSignup .wrapperCheckbox{margin-top: 10px!important;}
+
+            .TraderBox{padding-top:10px!important; padding-bottom:10px!important;  }
+            
+
+                /*===============================Profile=======================================*/
+
+                .mapContainer .btnBack{top: 10px!important; left:10px!important;}
+                .jobItemOverlayContainer{width: 90%!important;}
+                .MapBodyDiv{height: 1500px!important;}
+                .employeePopupBody .left{width: 100%!important;}
+                .employeePopupBody{width: 90%!important;}
+                .employeePopupBody .left .profile img{width: 30px!important; height: 30px!important;}
+                .employeeNameDiv{margin-top: 0!important;}
+                .employeePopupBody .right{width: 100%!important;}
+                .rightbarContainer .rightBar{width:90%!important;}
+                .employeePopupBody .right{height: auto!important; padding-bottom: 45px!important;}
+                /* .MapBodyDiv > div > div > div > div > div > div{left: 0!important; top: 0!important;}
+                .mapContainer .footer{bottom: 0!important; top: auto!important;}
+                .jobItemOverlayContainer{margin-top:80%!important;} */
+                .baloonLocationJob{ min-width: 250px!important; height:auto!important; position: absolute; left: -120px !important; top: -400px !important;}
+                .jobItemOverlayContainer{width: 305px!important; position: absolute; margin: 0 auto; left: 0; right: 0;}
+                .jobItemOverlayContainer .body{padding-left:5px!important; padding-right:5px!important;}
+                .jobItemOverlayContainer .body .subbody{padding: 13px 5px 13px 5px!important;}
+                .jobItemOverlayContainer .body .field{font-size: 13px!important;}
+                .employeePopupBody .btnMove.prev{left:5%!important;}
+                .employeePopupBody .btnMove.next{right:5%!important;}
+                .MobileSlideBtn{position: relative; margin-top: 25px;}
+                .employeePopupBody .containerBtnOperations .btnOperations{width:40px!important; height:40px!important;}
+                .employeePopupBody .containerBtnOperations{bottom:-20px!important;}
+                .wrapperJob .bodyJob{top:10%;}
+
+                .hiredEmployeePopupBody{width: 90%!important;}
+                .hiredEmployeePopupBody .left{width: 100%!important;}
+                .hiredEmployeePopupBody .right{width: 100%!important; padding: 2%!important;}
+                .employeePopupWrapper .btnClose{margin-top: 10px!important; margin-left: 10px!important;}
+                .hiredEmployeePopupBody .left .header .profileImg{width:30px!important; height:30px!important; margin-top:5px; float: left;}
+                .hiredEmployeePopupBody .left .header .infoEmployee{margin-left: 5px!important;}
+                .hiredEmployeePopupBody .left .header .infoEmployee.center .lblRate{display: none!important;}
+                .hiredEmployeePopupBody .left .header{padding:12px 5px 12px 5px!important;}
+                .hiredEmployeePopupBody .left .wrapperCheckins .aligned-left div[class^="col-"]{padding-left: auto!important;}
+                .GetSeratch{width: 100%; margin-bottom: 15px;}
+                .SearchBtnClass{margin: 0 auto; display: block; clear: both; float: none;}
+                .withlessheaderPadding{padding-left: 8%; padding-right:8%; }
+            }
+    @media only screen and (min-width: 320px) and (max-width: 414px) {
+        .subBox .wrapperChoosedJobRoles .wrapperSlider{width: 68%!important;}
+        .TradeTwo .col-xs-6{width: 100%!important; flex-basis: 100%!important; max-width: 100%!important; padding-top:10px!important; padding-bottom:10px!important;}
+    }
+    
+    @media only screen and (min-width: 768px) and (max-width: 900px) {
+        .MapBodyDiv{height: 1400px!important;}
+        .employeePopupBody .left{width: 100%!important;}
+        .employeePopupBody{width: 90%!important;}
+        .employeePopupBody .right{width: 100%!important;}
+        .rightbarContainer .rightBar{width:400px!important;}
+        .baloonLocationJob{ min-width: 250px!important; height:auto!important; position: absolute; left: -120px !important; top: -400px !important;}
+        .jobItemOverlayContainer{width: 305px!important; position: absolute; margin: 0 auto; left: 0; right: 0;}
+        .jobItemOverlayContainer .body{padding-left:5px!important; padding-right:5px!important;}
+        .jobItemOverlayContainer .body .subbody{padding: 13px 5px 13px 5px!important;}
+        .jobItemOverlayContainer .body .field{font-size: 13px!important;}
+        .employeePopupBody .btnMove.prev{left:-6%!important;}
+        .employeePopupBody .btnMove.next{right:-6%!important;}
+    }

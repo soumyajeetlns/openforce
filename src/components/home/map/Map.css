@@ -1,0 +1,142 @@
+.mapContainer{
+    position: relative;
+}
+
+.mapContainer .btnBack{
+    width: 41.1px;
+    height: 41.1px;
+    border-radius: 41.1px;
+    box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.25);
+    background-color: #fed91c;
+    color: #343332;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.mapContainer .footer{
+    position: fixed;
+    height: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    text-align: right;
+    width: 100%;
+}
+
+
+.mapContainer .footer .tab{
+    padding: 15px 25px 15px 25px;
+    width: 360px;
+    height: 100%;
+    cursor: pointer;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.mapContainer .footer .tab.active{
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 14px 3px rgba(0, 0, 0, 0.12), 0 8px 10px 1px rgba(0, 0, 0, 0.14);
+}
+
+.mapContainer .footer .tab .labelDynamic{
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.mapContainer .footer .tab .label{
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color:#191a1a;
+    display: block;
+    padding: 0;
+}
+
+.mapContainer .footer .tab div{
+    text-align: left;
+}
+
+.mapContainer .wrapperConfirmEndJob{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: #191a1aeb;
+    overflow-y: hidden;
+}
+
+.mapContainer .wrapperConfirmEndJob .body{
+    width: 550px;
+    height: 331px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: calc(50% - 400px);
+    transform: translateY(-50%);
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    background: #ffffff;
+    padding: 40px 80px 40px 80px;
+    position: relative;
+}
+
+.mapContainer .wrapperConfirmEndJob .body .title{
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #323432;
+    margin-top: 60px;
+
+}
+.mapContainer .wrapperConfirmEndJob .body .textBody{
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.87);
+}
+.mapContainer .wrapperConfirmEndJob .body .wrapperButtons{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px;
+    transform: translateX(-50%);
+}
+.mapContainer .wrapperConfirmEndJob .body .wrapperButtons button{
+    width: 150px;
+    height: 36px;
+    border-radius: 2px;
+    background-color: #050505;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #ffffff;
+    margin-left: 5px;
+    margin-right: 5px;
+    vertical-align: bottom;
+}

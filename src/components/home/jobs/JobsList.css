@@ -1,0 +1,43 @@
+.wrapperJobs{
+    padding: 30px;
+    position: relative;
+}
+
+.wrapperJobs .noJobs{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.87);
+    margin-top: 120px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wrapperJobs .containerJobs{
+    margin-bottom: 50px;
+}
+
+.wrapperJobs .wrapperBtnAdd{
+    text-align: center;
+}
+
+.wrapperJobs .wrapperBtnAdd .btnAddJob{
+    width: 169px;
+    height: 36px;
+    border-radius: 2px;
+    background-color: #0c15b0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #ffffff;
+}
