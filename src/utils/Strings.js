@@ -19,6 +19,8 @@ export const stringsSignup = new LocalizedStrings({
 
         TITLE_STEP_2:"Sign Up",
         TITLE_STEP_3:"Trading Details",
+        TITLE_STEP_6:"Payment details",
+        PAYMENT_SUBTITLE: "Please add your payment details to finalise your account",
         BTN_SUBMIT:"SUBMIT",
         TITLE_STEP_4:"Business Details",
         SUBTITLE_STEP_3:"Trading address",

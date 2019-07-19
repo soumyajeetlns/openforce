@@ -65,7 +65,6 @@ class EmployerSignup extends Component {
         this.setState(tempState);
     }
 
-
     submitStepTwo = () =>{
         if(this.checkErrorStepTwo()){
             const tempState = utils.deepCopy(this.state);
@@ -81,61 +80,41 @@ class EmployerSignup extends Component {
             }else{
                 
             }    
-            // }else{
-            //     tempState.errors.radio = true;
-            //     tempState.errors.message = strings.stringsSignup.errors.ERROR_PASSWORD_MATCH;
-            //     checkOne = false;
-            // }    
-            // }else{
-            //     tempState.step = 3;
-            //     tempState.onBackButton = this.onBackButton;
-            //     this.setState(tempState);
-            // }    
-            // if(tempState.radio == "Limited Company"){
-            //     tempState.step = 2;
-            //     tempState.onBackButton = this.onBackButton;
-            //     this.setState(tempState);
-            // }else{
-            //     tempState.step = 1;
-            //     tempState.onBackButton = this.onBackButton;
-            //     this.setState(tempState);
-            // }
-            
-            // tempState.loading = true;
-            // this.setState(tempState,()=>{
-            //     const employer = {};
-            //     employer.email = tempState.email;
-            //     employer.companies = [tempState.companyName];
-            //     employer.type = constants.CLUSTER_EMPLOYER;
-            //     authFunctions.createEmployerUser(tempState.email, tempState.psw1, employer, this.successSignup, this.errorSignup);
-            // });
         }
     }
     submitStepThree = () =>{
         if(this.checkErrorStepThree()){
             const tempState = utils.deepCopy(this.state);
-            // tempState.step = 2;
-            // tempState.onBackButton = this.onBackButton;
-            // this.setState(tempState);
-            // console.log(tempState);
-            tempState.loading = true;
-            this.setState(tempState,()=>{
-                const employer = {};
-                employer.email = tempState.email;
-                employer.companies = [tempState.companyName];
-                employer.companyType = tempState.radio;
+            tempState.step = 6;
+            tempState.onBackButton = this.onBackButton;
+            this.setState(tempState);
 
-                employer.businessname = tempState.soletraderName;
-                employer.website = tempState.websiteName;
-                employer.utrno = tempState.utrName;
-                employer.address = tempState.addressTradeName;
-                employer.cityname = tempState.cityName;
-                employer.postcode = tempState.postcodeName;
-                employer.contactno = tempState.contactMobileName;
-                // companyType
-                employer.type = constants.CLUSTER_EMPLOYER;
-                authFunctions.createEmployerUser(tempState.email, tempState.psw1, employer, this.successSignup, this.errorSignup);
-            });
+
+            /******The following code will be used after payment on registration */
+            // const tempState = utils.deepCopy(this.state);
+            // // tempState.step = 2;
+            // // tempState.onBackButton = this.onBackButton;
+            // // this.setState(tempState);
+            // // console.log(tempState);
+            // tempState.loading = true;
+            // this.setState(tempState,()=>{
+            //     const employer = {};
+            //     employer.email = tempState.email;
+            //     employer.companies = [tempState.companyName];
+            //     employer.companyType = tempState.radio;
+
+            //     employer.businessname = tempState.soletraderName;
+            //     employer.website = tempState.websiteName;
+            //     employer.utrno = tempState.utrName;
+            //     employer.address = tempState.addressTradeName;
+            //     employer.cityname = tempState.cityName;
+            //     employer.postcode = tempState.postcodeName;
+            //     employer.contactno = tempState.contactMobileName;
+            //     // companyType
+            //     employer.type = constants.CLUSTER_EMPLOYER;
+            //     authFunctions.createEmployerUser(tempState.email, tempState.psw1, employer, this.successSignup, this.errorSignup);
+            // });
+            /**********************end of the sole trader registration******** */
         }
     }
 
@@ -451,22 +430,10 @@ class EmployerSignup extends Component {
                                     </Col>      
                             </Row>            
                         </div>
-                        {/* <div className={"wrapperSignup  withPaddingSubtitle"}>
-                            <p className={"subtitle"}>{strings.stringsSignup.SUBTITLE_STEP_2}</p>
-                        </div> */}     
+                           
                         <div className={"wrapperSignup"}>
                             <div className={"separatorStep2"}/>
                         </div>
-                        {/* <div className={"withPadding"}>
-                            <Input
-                                onChange={this.onInputChange}
-                                name={"soletraderName"}
-                                key={1}
-                                error={this.state.errors.soletraderName}
-                                label={strings.stringsSignup.LBL_SOLETRADER_NAME}
-                                value={this.state.soletraderName}
-                                placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
-                        </div> */}
                         <div className={"withPadding TraderBox"}>
                             <Row className={"wrapperCheckbox checkbox-wrapper"}>
                                     <Col xs={12}>
@@ -504,8 +471,8 @@ class EmployerSignup extends Component {
 
                             </Row>
                         </div>            
-                            <div className={"withPadding TraderBox"}>
-                                <Row className={"wrapperCheckbox checkbox-wrapper"}>        
+                        <div className={"withPadding TraderBox"}>
+                            <Row className={"wrapperCheckbox checkbox-wrapper"}>        
                                     <Col xs={6}>
                                         <Input
                                             onChange={this.onInputChange}
@@ -514,7 +481,7 @@ class EmployerSignup extends Component {
                                             error={this.state.errors.contactMobileName}
                                             value={this.state.contactMobileName}
                                             placeholder={strings.stringsSignup.PLACEHOLDER_CONTACT_MOBILE}/>
-                                    </Col>       
+                                    </Col>     
                             </Row>            
                         </div> 
                         <div className={"wrapperSignup withPadding TraderBox paddingTopZero"}>
@@ -536,6 +503,7 @@ class EmployerSignup extends Component {
 
                             </div>
                         </div>
+                        
                     </Wrapper>
                     :this.state.step === 4?
                         <Wrapper>
@@ -549,12 +517,12 @@ class EmployerSignup extends Component {
                             <div className={"withPadding GetSeratchTop"}>                            
                                 <Input
                                     onChange={this.onInputChange}
-                                    name={"soletraderName"}
-                                    error={this.state.errors.soletraderName}
-                                    value={this.state.soletraderName}
+                                    name={"companyBusinessName"}
+                                    error={this.state.errors.companyBusinessName}
+                                    value={this.state.companyBusniessName}
                                     className={"searchField GetSeratch"}
                                     placeholder={strings.stringsSignup.PLACEHOLDER_STEP_COMPANY}/>
-                                    <button className={"searchButton SearchBtnClass"}>Get Details</button>
+                                    <button className={"searchButton SearchBtnClass"} onClick={this.getCompany}>Get Details</button>
                             </div> 
                             <div className={"withPadding"}>
                                 <button className={"button-bg"} onClick={this.submitManually}>ENTER COMPANY DETAILS MANUALLY </button>
@@ -727,6 +695,99 @@ class EmployerSignup extends Component {
                             </div>
                         </div>
                     </Wrapper>    
+                    :this.state.step === 6?
+                    
+                    <Wrapper className={"withButton"}>
+                    <div className={"withPadding"}>
+                        <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_6}</p>
+                    </div>
+                    <div className={"wrapperSignup  withPaddingSubtitle"}>
+                        <p className={"subtitle"}>{strings.stringsSignup.PAYMENT_SUBTITLE}</p>
+                    </div>
+                    <div className={"wrapperSignup"}>
+                            <div className={"separatorStep1"}/>
+                    </div>
+                    <div className={"wrapperSignup withPaddingCustom"}>
+                        <Row className={"wrapperCheckbox checkbox-wrapper"}>
+
+                            <Col xs={3}>
+
+                                <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
+                                    <i className={'fa fa-shopping-bag Shape'} style={{color:"white"}}></i> 
+                                </span> 
+                            </Col>
+                            <Col xs={9}>
+                                <div>Connect your business</div>
+                                <div>Open Force uses Stripe to manage payments and invoices automatically.</div>
+                            </Col>
+                        </Row>
+                    </div>   
+                    <div className={"wrapperSignup withPadding"}>
+
+                        {
+                            this.state.successMessage?
+                                <p className={"statusMessage globalSuccessMessage"}>{this.state.successMessage}</p>
+                                :
+                                <p className={"statusMessage globalErrorMessage"}>{this.state.errors.message}</p>
+                        }
+
+                        <div className={"wrapperButtons"}>
+                            <AsyncButton
+                                className={"btnSubmitStepTwo"}
+                                loading={this.state.loading}
+                                textButton={strings.stringsSignup.BTN_CONTINUE}
+                                onClick={this.submitStepTwo}/>
+
+
+                        </div>
+                    </div>
+                </Wrapper> 
+                :this.state.step === 7?
+                <Wrapper className={"withButton"}>
+                    <div className={"withPadding"}>
+                        <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_6}</p>
+                    </div>
+                    <div className={"wrapperSignup  withPaddingSubtitle"}>
+                        <p className={"subtitle"}>{strings.stringsSignup.PAYMENT_SUBTITLE}</p>
+                    </div>
+                    <div className={"wrapperSignup"}>
+                            <div className={"separatorStep1"}/>
+                    </div>
+                    <div className={"wrapperSignup withPaddingCustom"}>
+                        <Row className={"wrapperCheckbox checkbox-wrapper"}>
+
+                            <Col xs={3}>
+
+                                <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
+                                    <i className={'fa fa-shopping-bag Shape'} style={{color:"white"}}></i> 
+                                </span> 
+                            </Col>
+                            <Col xs={9}>
+                                <div>Connect your business</div>
+                                <div>Open Force uses Stripe to manage payments and invoices automatically.</div>
+                            </Col>
+                        </Row>
+                    </div>   
+                    <div className={"wrapperSignup withPadding"}>
+
+                        {
+                            this.state.successMessage?
+                                <p className={"statusMessage globalSuccessMessage"}>{this.state.successMessage}</p>
+                                :
+                                <p className={"statusMessage globalErrorMessage"}>{this.state.errors.message}</p>
+                        }
+
+                        <div className={"wrapperButtons"}>
+                            <AsyncButton
+                                className={"btnSubmitStepTwo"}
+                                loading={this.state.loading}
+                                textButton={strings.stringsSignup.BTN_CONTINUE}
+                                onClick={this.submitStepTwo}/>
+
+
+                        </div>
+                    </div>
+                </Wrapper>        
 
                     :
 
