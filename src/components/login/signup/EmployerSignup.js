@@ -12,7 +12,9 @@ import * as authFunctions from "../../../functions/Auth";
 import AsyncButton from "../../asyncButton/AsyncButton";
 import * as errorsFirebase from "../../../utils/FirebaseErrors";
 import * as constants from "../../../utils/Constants";
-
+import stripeButton from '../../../assets/img/stripe_btn.jpg';
+import stripeIconES from '../../../assets/img/stripe-icon.svg';
+import linkBtnES from '../../../assets/img/link_btn.jpg';
 class EmployerSignup extends Component {
     constructor(args) {
         super(args);
@@ -736,29 +738,29 @@ class EmployerSignup extends Component {
                             </div>
                         </div>
                     </Wrapper>    
-                    :this.state.step === 6?
+                    :this.state.step === 7?
                     
                     <Wrapper className={"withButton"}>
                     <div className={"withPadding"}>
                         <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_6}</p>
-                    </div>
-                    <div className={"wrapperSignup  withPaddingSubtitle"}>
                         <p className={"subtitle"}>{strings.stringsSignup.PAYMENT_SUBTITLE}</p>
+                    </div>
+                    <div className={"wrapperSignup  withPaddingSubtitle"}>                        
                     </div>
                     <div className={"wrapperSignup"}>
                             <div className={"separatorStep1"}/>
                     </div>
                     <div className={"wrapperSignup withPaddingCustom"}>
-                        <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                        <Row className={"wrapperCheckbox checkbox-wrapper"} style={{marginTop:20}}>
 
-                            <Col xs={3}>
+                            <Col lg={2} xs={2} style={{marginTop:20}}>
 
                                 <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
                                     <i className={'fa fa-shopping-bag Shape'} style={{color:"white"}}></i> 
                                 </span> 
                             </Col>
-                            <Col xs={9}>
-                                <div>Connect your business</div>
+                            <Col lg={10} xs={10}>
+                                <h4>Connect your business</h4>
                                 <div>Open Force uses Stripe to manage payments and invoices automatically.</div>
                             </Col>
                         </Row>
@@ -771,40 +773,39 @@ class EmployerSignup extends Component {
                                 :
                                 <p className={"statusMessage globalErrorMessage"}>{this.state.errors.message}</p>
                         }
-
+                        <div className={"wrapperButtons"}>
+                            <a href="#" className="stripe_btn"><img src={stripeButton}/></a>
+                        </div>
                         <div className={"wrapperButtons"}>
                             <AsyncButton
                                 className={"btnSubmitStepTwo"}
                                 loading={this.state.loading}
-                                textButton={strings.stringsSignup.BTN_CONTINUE}
+                                textButton={strings.stringsSignup.BTN_STEP_1}
                                 onClick={this.submitStepTwo}/>
 
 
                         </div>
                     </div>
                 </Wrapper> 
-                :this.state.step === 7?
+                :this.state.step === 6?
                 <Wrapper className={"withButton"}>
                     <div className={"withPadding"}>
                         <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_6}</p>
-                    </div>
-                    <div className={"wrapperSignup  withPaddingSubtitle"}>
                         <p className={"subtitle"}>{strings.stringsSignup.PAYMENT_SUBTITLE}</p>
+                    </div>
+                    <div className={"wrapperSignup  withPaddingSubtitle"}>                        
                     </div>
                     <div className={"wrapperSignup"}>
                             <div className={"separatorStep1"}/>
                     </div>
                     <div className={"wrapperSignup withPaddingCustom"}>
-                        <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                        <Row className={"wrapperCheckbox checkbox-wrapper"} style={{marginTop:20}}>
 
-                            <Col xs={3}>
-
-                                <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
-                                    <i className={'fa fa-shopping-bag Shape'} style={{color:"white"}}></i> 
-                                </span> 
+                            <Col lg={2} xs={3} style={{marginTop:20}}>
+                            <img src={stripeIconES}/>
                             </Col>
-                            <Col xs={9}>
-                                <div>Connect your business</div>
+                            <Col lg={10} xs={9}>
+                                <h4>Connect your business</h4>
                                 <div>Open Force uses Stripe to manage payments and invoices automatically.</div>
                             </Col>
                         </Row>
@@ -817,12 +818,12 @@ class EmployerSignup extends Component {
                                 :
                                 <p className={"statusMessage globalErrorMessage"}>{this.state.errors.message}</p>
                         }
-
+                       <div className={"wrapperButtons"}><a href="#" target="_blank"><img src={linkBtnES}/></a></div>
                         <div className={"wrapperButtons"}>
                             <AsyncButton
                                 className={"btnSubmitStepTwo"}
                                 loading={this.state.loading}
-                                textButton={strings.stringsSignup.BTN_CONTINUE}
+                                textButton={strings.stringsSignup.BTN_STEP_1}
                                 onClick={this.submitStepTwo}/>
 
 
