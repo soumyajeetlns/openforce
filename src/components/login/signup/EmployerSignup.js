@@ -12,7 +12,9 @@ import * as authFunctions from "../../../functions/Auth";
 import AsyncButton from "../../asyncButton/AsyncButton";
 import * as errorsFirebase from "../../../utils/FirebaseErrors";
 import * as constants from "../../../utils/Constants";
-
+import stripeButton from '../../../assets/img/stripe_btn.jpg';
+import stripeIconES from '../../../assets/img/stripe-icon.svg';
+import linkBtnES from '../../../assets/img/link_btn.jpg';
 class EmployerSignup extends Component {
     constructor(args) {
         super(args);
@@ -42,7 +44,9 @@ class EmployerSignup extends Component {
                 checkbox:false,
             },
             selectedOption: '',
-            successMessage:null
+            successMessage:null,
+
+            apiCompanyName:[]
         }
     }
     
@@ -243,7 +247,22 @@ class EmployerSignup extends Component {
         this.setState(tempState);
     }
 
+    getCompanyDetails = (e) =>{
+        //console.log('Hello Soumyajeet');
+        const tempState = utils.deepCopy(this.state);
+        console.log(tempState.soletraderName);
+
+        let url    =   "http://lnsel.co.in/openforce-web-master/companyhouseapi.php?page="+tempState.soletraderName;
+        
+        fetch(url)
+        .then((response) => response.json())
+        .then((findresponse) => this.setState({apiCompanyName : findresponse.company}));
+    }
+
     render() {
+        let data =  this.state.apiCompanyName;
+        console.log(typeof(data));
+        console.log(data);
         return (
             <LoginContainer onBackButton={this.state.onBackButton}>
                 {
@@ -278,7 +297,6 @@ class EmployerSignup extends Component {
                                 style={{marginTop:"-30px"}}
                                 error={this.state.errors.password}
                                 placeholder={strings.stringsSignup.LBL_PASSWORD}/>
-
                             <Input
                                 label={strings.stringsSignup.LBL_PASSWORD_2}
                                 type={"password"}
@@ -517,17 +535,46 @@ class EmployerSignup extends Component {
                             <div className={"withPadding GetSeratchTop"}>                            
                                 <Input
                                     onChange={this.onInputChange}
-                                    name={"companyBusinessName"}
-                                    error={this.state.errors.companyBusinessName}
-                                    value={this.state.companyBusniessName}
-                                    className={"searchField GetSeratch"}
+                                    name={"soletraderName"}
+                                    error={this.state.errors.soletraderName}
+                                    value={this.state.soletraderName}
+                                    className={"searchField GetSeratch"}                                    
                                     placeholder={strings.stringsSignup.PLACEHOLDER_STEP_COMPANY}/>
-                                    <button className={"searchButton SearchBtnClass"} onClick={this.getCompany}>Get Details</button>
-                            </div> 
-                            <div className={"withPadding"}>
+                                    <button className={"searchButton SearchBtnClass"} onClick = {this.getCompanyDetails}>Get Details</button>
+                            </div>
+                            <div className="companydatalist">
+                                    {this.state.apiCompanyName.map((p,i)=>
+                                    <Col xs={12} className="companyData">                                    
+                                        <Col md={1} xs={2}>
+                                            <span><i class="material-icons Oval cmpi">work</i></span>
+                                        </Col>      
+                                        <Col md={5} className="hidden-xs">  
+                                            <p>{p.title}<br/>
+                                            {p.company_number}</p>
+                                        </Col>
+                                        <Col xs={5} className="hidden-xs">
+                                            <p>{p.address_snippet}</p>
+                                        </Col>
+                                        <Col xs={9} className="hidden-md hidden-lg">
+                                            <p>{p.title}, {p.company_number}<br/>{p.address_snippet}</p>
+                                        </Col>
+                                        <Col xs={1}>
+                                            <Input type={"radio"}
+                                                    className={'Oval-Copy'}
+                                                    name={"registedbusinessname"}
+                                                    value={p.title}
+                                                    defaultChecked={this.state.checked}
+                                                onChange={this.onRadioButtonChange}
+                                                onClick={this.onRadioButtonChange}
+                                                error={this.state.errors.radio}/>
+                                        </Col>
+                                    </Col>)
+                                    }
+                            </div>
+                            <div className={"withPadding companydatalist_btn"}>
                                 <button className={"button-bg"} onClick={this.submitManually}>ENTER COMPANY DETAILS MANUALLY </button>
                             </div>
-                            <div className={"wrapperSignup withPadding"}>
+                            <div className={"wrapperSignup withPadding companydatalist_btn"}>
 
                                 {
                                     this.state.successMessage?
@@ -695,29 +742,29 @@ class EmployerSignup extends Component {
                             </div>
                         </div>
                     </Wrapper>    
-                    :this.state.step === 6?
+                    :this.state.step === 7?
                     
                     <Wrapper className={"withButton"}>
                     <div className={"withPadding"}>
                         <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_6}</p>
-                    </div>
-                    <div className={"wrapperSignup  withPaddingSubtitle"}>
                         <p className={"subtitle"}>{strings.stringsSignup.PAYMENT_SUBTITLE}</p>
+                    </div>
+                    <div className={"wrapperSignup  withPaddingSubtitle"}>                        
                     </div>
                     <div className={"wrapperSignup"}>
                             <div className={"separatorStep1"}/>
                     </div>
                     <div className={"wrapperSignup withPaddingCustom"}>
-                        <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                        <Row className={"wrapperCheckbox checkbox-wrapper"} style={{marginTop:20}}>
 
-                            <Col xs={3}>
+                            <Col lg={2} xs={2} style={{marginTop:20}}>
 
                                 <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
                                     <i className={'fa fa-shopping-bag Shape'} style={{color:"white"}}></i> 
                                 </span> 
                             </Col>
-                            <Col xs={9}>
-                                <div>Connect your business</div>
+                            <Col lg={10} xs={10}>
+                                <h4>Connect your business</h4>
                                 <div>Open Force uses Stripe to manage payments and invoices automatically.</div>
                             </Col>
                         </Row>
@@ -730,40 +777,39 @@ class EmployerSignup extends Component {
                                 :
                                 <p className={"statusMessage globalErrorMessage"}>{this.state.errors.message}</p>
                         }
-
+                        <div className={"wrapperButtons"}>
+                            <a href="#" className="stripe_btn"><img src={stripeButton}/></a>
+                        </div>
                         <div className={"wrapperButtons"}>
                             <AsyncButton
                                 className={"btnSubmitStepTwo"}
                                 loading={this.state.loading}
-                                textButton={strings.stringsSignup.BTN_CONTINUE}
+                                textButton={strings.stringsSignup.BTN_STEP_1}
                                 onClick={this.submitStepTwo}/>
 
 
                         </div>
                     </div>
                 </Wrapper> 
-                :this.state.step === 7?
+                :this.state.step === 6?
                 <Wrapper className={"withButton"}>
                     <div className={"withPadding"}>
                         <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_6}</p>
-                    </div>
-                    <div className={"wrapperSignup  withPaddingSubtitle"}>
                         <p className={"subtitle"}>{strings.stringsSignup.PAYMENT_SUBTITLE}</p>
+                    </div>
+                    <div className={"wrapperSignup  withPaddingSubtitle"}>                        
                     </div>
                     <div className={"wrapperSignup"}>
                             <div className={"separatorStep1"}/>
                     </div>
                     <div className={"wrapperSignup withPaddingCustom"}>
-                        <Row className={"wrapperCheckbox checkbox-wrapper"}>
+                        <Row className={"wrapperCheckbox checkbox-wrapper"} style={{marginTop:20}}>
 
-                            <Col xs={3}>
-
-                                <span className={'Oval'} style={{paddingLeft:12,paddingRight:12}}>
-                                    <i className={'fa fa-shopping-bag Shape'} style={{color:"white"}}></i> 
-                                </span> 
+                            <Col lg={2} xs={3} style={{marginTop:20}}>
+                            <img src={stripeIconES}/>
                             </Col>
-                            <Col xs={9}>
-                                <div>Connect your business</div>
+                            <Col lg={10} xs={9}>
+                                <h4>Connect your business</h4>
                                 <div>Open Force uses Stripe to manage payments and invoices automatically.</div>
                             </Col>
                         </Row>
@@ -776,12 +822,12 @@ class EmployerSignup extends Component {
                                 :
                                 <p className={"statusMessage globalErrorMessage"}>{this.state.errors.message}</p>
                         }
-
+                       <div className={"wrapperButtons"}><a href="#" target="_blank"><img src={linkBtnES}/></a></div>
                         <div className={"wrapperButtons"}>
                             <AsyncButton
                                 className={"btnSubmitStepTwo"}
                                 loading={this.state.loading}
-                                textButton={strings.stringsSignup.BTN_CONTINUE}
+                                textButton={strings.stringsSignup.BTN_STEP_1}
                                 onClick={this.submitStepTwo}/>
 
 
