@@ -738,7 +738,7 @@ class EmployerSignup extends Component {
                             </div>
                         </div>
                     </Wrapper>    
-                    :this.state.step === 7?
+                    :this.state.step === 6?
                     
                     <Wrapper className={"withButton"}>
                     <div className={"withPadding"}>
@@ -787,7 +787,7 @@ class EmployerSignup extends Component {
                         </div>
                     </div>
                 </Wrapper> 
-                :this.state.step === 6?
+                :this.state.step === 7?
                 <Wrapper className={"withButton"}>
                     <div className={"withPadding"}>
                         <p className={"title headerText"}>{strings.stringsSignup.TITLE_STEP_6}</p>
