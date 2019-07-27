@@ -69,7 +69,7 @@ class EmployerSignup extends Component {
         this.setState(tempState);
     }
 
-    submitStepTwo = () =>{
+    submitStepTwo = () =>{        
         if(this.checkErrorStepTwo()){
             const tempState = utils.deepCopy(this.state);
             let checkOne = true;
@@ -80,8 +80,9 @@ class EmployerSignup extends Component {
             }else if(tempState.radio === "Sole Trader"){
                 tempState.step = 3;
                 tempState.onBackButton = this.onBackButtonTwo;
-                this.setState(tempState);
-            }else{
+                this.setState(tempState);                
+            }
+            else{
                 
             }    
         }
@@ -92,34 +93,111 @@ class EmployerSignup extends Component {
             tempState.step = 6;
             tempState.onBackButton = this.onBackButton;
             this.setState(tempState);
-
-
-            /******The following code will be used after payment on registration */
-            // const tempState = utils.deepCopy(this.state);
-            // // tempState.step = 2;
-            // // tempState.onBackButton = this.onBackButton;
-            // // this.setState(tempState);
-            // // console.log(tempState);
-            // tempState.loading = true;
-            // this.setState(tempState,()=>{
-            //     const employer = {};
-            //     employer.email = tempState.email;
-            //     employer.companies = [tempState.companyName];
-            //     employer.companyType = tempState.radio;
-
-            //     employer.businessname = tempState.soletraderName;
-            //     employer.website = tempState.websiteName;
-            //     employer.utrno = tempState.utrName;
-            //     employer.address = tempState.addressTradeName;
-            //     employer.cityname = tempState.cityName;
-            //     employer.postcode = tempState.postcodeName;
-            //     employer.contactno = tempState.contactMobileName;
-            //     // companyType
-            //     employer.type = constants.CLUSTER_EMPLOYER;
-            //     authFunctions.createEmployerUser(tempState.email, tempState.psw1, employer, this.successSignup, this.errorSignup);
-            // });
-            /**********************end of the sole trader registration******** */
+            let session     =   JSON.stringify(tempState);
+            //console.log(session);
+            localStorage.setItem('session', session);
         }
+    }
+
+    finalSubmitForSignUp = () =>{
+        /******The following code will be used after payment on registration Sole Trader*/
+            const tempState = utils.deepCopy(this.state);
+            // tempState.step = 2;
+            // tempState.onBackButton = this.onBackButton;
+            // this.setState(tempState);
+            // console.log(tempState);
+            // Soumyajeet Amends
+            if(this.props.location.search!=""){
+                let params = this.props.location.search.split("&");
+                let values = params[1].split("=");
+                let stripeId = values[1];
+                //console.log('Stripe Id Pritam ' + stripeId);
+                       
+            let getlocalData =   JSON.parse(localStorage.getItem('session'));
+            console.log(getlocalData);
+            if(getlocalData != null && getlocalData.companyType === 'Sole Trader')
+            {
+                tempState.companyName           =   getlocalData.companyName;
+                tempState.email                 =   getlocalData.email;
+                tempState.psw1                  =   getlocalData.psw1;
+                tempState.psw2                  =   getlocalData.psw2;
+                tempState.companyType           =   getlocalData.companyType;
+                tempState.soletraderName        =   getlocalData.soletraderName;
+                tempState.websiteName           =   getlocalData.websiteName;
+                tempState.utrName               =   getlocalData.utrName;
+                tempState.cityName              =   getlocalData.cityName;
+                tempState.postcodeName          =   getlocalData.postcodeName;
+                tempState.contactMobileName     =   getlocalData.contactMobileName;
+                tempState.checkbox              =   getlocalData.checkbox;
+                tempState.radio                 =   getlocalData.radio;
+                tempState.isChecked             =   getlocalData.isChecked;
+                tempState.addressTradeName      =   getlocalData.addressTradeName;
+                tempState.stripeId              =   stripeId
+            
+                // Pritam Amends
+                tempState.loading = true;
+                this.setState(tempState,()=>{
+                const employer = {};
+                employer.email          =   tempState.email;
+                employer.companies      =   [tempState.companyName];
+                employer.companyType    =   tempState.radio;
+                employer.businessname   =   tempState.soletraderName;
+                employer.website        =   tempState.websiteName;
+                employer.utrno          =   tempState.utrName;
+                employer.address        =   tempState.addressTradeName;
+                employer.cityname       =   tempState.cityName;
+                employer.postcode       =   tempState.postcodeName;
+                employer.contactno      =   tempState.contactMobileName;
+                employer.stripeId       =   tempState.stripeId;
+                // companyType
+                employer.type = constants.CLUSTER_EMPLOYER;
+                authFunctions.createEmployerUser(tempState.email, tempState.psw1, employer, this.successSignup, this.errorSignup);
+                });
+                /**********************end of the sole trader registration******** */
+                localStorage.removeItem('session');
+            }
+            else if(getlocalData != null && getlocalData.companyType != 'Sole Trader'){
+                let params = this.props.location.search.split("&");
+                let values = params[1].split("=");
+                let stripeId = values[1];
+
+                tempState.companyName           =   getlocalData.companyType;
+                tempState.email                 =   getlocalData.email;
+                tempState.psw1                  =   getlocalData.psw1;
+                tempState.psw2                  =   getlocalData.psw2;
+                tempState.companyType           =   'Limited Company';
+                tempState.soletraderName        =   getlocalData.soletraderName;
+                tempState.radio                 =   getlocalData.radio;
+                tempState.isChecked             =   getlocalData.isChecked;
+                tempState.stripeId              =   stripeId
+                // Pritam Amends
+                tempState.loading = true;
+                this.setState(tempState,()=>{
+                const employer = {};
+                employer.businessname       =   tempState.radio;
+                employer.email              =   tempState.email;
+                employer.companies          =   [tempState.companyName];
+                employer.companyType        =   tempState.companyType;
+                tempState.soletraderName    =   [tempState.companyName];
+                tempState.isChecked         =   getlocalData.isChecked;
+                employer.stripeId           =   tempState.stripeId;
+
+                employer.type = constants.CLUSTER_EMPLOYER;
+                authFunctions.createEmployerUser(tempState.email, tempState.psw1, employer, this.successSignup, this.errorSignup);
+                });
+                localStorage.removeItem('session');
+            }
+        }            
+    }
+
+    companyStripeConnect = () =>{
+        const tempState = utils.deepCopy(this.state);
+        tempState.step = 7;
+        delete tempState.apiCompanyName;
+        //console.log(tempState);
+        let session     =   JSON.stringify(tempState);
+        localStorage.setItem('session', session);
+        window.location.assign('https://dashboard.stripe.com/oauth/authorize?response_type=code&client_id=ca_FPl1s22wpJgCIUacHACu2Oi1HFj3CkQo&scope=read_write');
     }
 
     successSignup = () =>{
@@ -221,9 +299,27 @@ class EmployerSignup extends Component {
     }
 
     componentDidMount = () =>{
-        const tempState = utils.deepCopy(this.state);
-        tempState.onBackButton = this.goToSignin;
-        this.setState(tempState);
+                //For Stripe Payment
+                if(this.props.location.search!=""){
+                    let params = this.props.location.search.split("&");
+                    let values = params[1].split("=");
+                    let stripeId = values[1];
+                    //console.log("Stripe Id: "+stripeId);
+                    //alert("Stripe Connected Successfully, Your Stripe ID: "+stripeId);
+                    const tempState = utils.deepCopy(this.state);
+                    tempState.step = 7;
+                    tempState.onBackButton = this.onBackButtonTwo;
+                    this.setState(tempState);
+                    // console.log(tempState);
+                    //localStorage.removeItem('session');
+                    /*console.log('CHECK ' +  getlocalData.radio);*/
+                }else{
+                    const tempState = utils.deepCopy(this.state);
+                    tempState.onBackButton = this.goToSignin;
+                    this.setState(tempState);
+
+                }  
+        
     }
 
     onInputChange = (e) =>{
@@ -245,17 +341,20 @@ class EmployerSignup extends Component {
         tempState.companyType = tempState.radio;
         tempState.errors.message = null;
         this.setState(tempState);
+        this.setState({submitting: !this.state.submitting});
     }
 
     getCompanyDetails = (e) =>{
         //console.log('Hello Soumyajeet');
         const tempState = utils.deepCopy(this.state);
-
-        let url    =   constants.COMPANYHOUSEAPIURL+tempState.soletraderName;
-        
+        let url    =   constants.COMPANYHOUSEAPIURL+tempState.soletraderName;        
         fetch(url)
         .then((response) => response.json())
         .then((findresponse) => this.setState({apiCompanyName : findresponse.company}));
+    }
+
+    stripeLogin = (e) =>{
+        window.location.assign('https://dashboard.stripe.com/oauth/authorize?response_type=code&client_id=ca_FPl1s22wpJgCIUacHACu2Oi1HFj3CkQo&scope=read_write');
     }
 
     render() {
@@ -450,16 +549,16 @@ class EmployerSignup extends Component {
                         </div>
                         <div className={"withPadding TraderBox"}>
                             <Row className={"wrapperCheckbox checkbox-wrapper"}>
-                                    <Col xs={12}>
-                                        <Input
-                                            onChange={this.onInputChange}
-                                            name={"addressTradeName"}
-                                            key={1}
-                                            error={this.state.errors.addressTraderName}
-                                            label={strings.stringsSignup.SUBTITLE_STEP_3}
-                                            value={this.state.addressTraderName}
-                                            placeholder={strings.stringsSignup.ADDRESS_PLACEHOLDER}/>
-                                    </Col>
+                                <Col xs={12}>
+                                    <Input
+                                        onChange={this.onInputChange}
+                                        name={"addressTradeName"}
+                                        key={1}
+                                        error={this.state.errors.addressTraderName}
+                                        label={strings.stringsSignup.SUBTITLE_STEP_3}
+                                        value={this.state.addressTraderName}
+                                        placeholder={strings.stringsSignup.ADDRESS_PLACEHOLDER}/>
+                                </Col>
                             </Row>
                         </div>
                         <div className={"withPadding TraderBox"}>
@@ -567,9 +666,9 @@ class EmployerSignup extends Component {
                                     </Col>)
                                     }
                             </div>
-                            <div className={"withPadding companydatalist_btn"}>
+                            {/* <div className={"withPadding companydatalist_btn"}>
                                 <button className={"button-bg"} onClick={this.submitManually}>ENTER COMPANY DETAILS MANUALLY </button>
-                            </div>
+                            </div> */}
                             <div className={"wrapperSignup withPadding companydatalist_btn"}>
 
                                 {
@@ -582,12 +681,10 @@ class EmployerSignup extends Component {
                                 <div className={"wrapperButtons"}>
                                     <AsyncButton
                                         className={"btnSubmitStepTwo"}
-                                        loading={this.state.loading}
-                                        disabled
+                                        loading={this.state.loading}                                        
                                         textButton={strings.stringsSignup.BTN_SUBMIT}
-                                        onClick={this.submitStepThree}/>
-
-
+                                        disabled={this.state.submitting}
+                                        onClick={this.companyStripeConnect}/>
                                 </div>
                             </div>
                         </Wrapper>
@@ -733,8 +830,6 @@ class EmployerSignup extends Component {
                                     loading={this.state.loading}
                                     textButton={strings.stringsSignup.BTN_CONTINUE}
                                     onClick={this.submitStepThree}/>
-
-
                             </div>
                         </div>
                     </Wrapper>    
@@ -774,16 +869,14 @@ class EmployerSignup extends Component {
                                 <p className={"statusMessage globalErrorMessage"}>{this.state.errors.message}</p>
                         }
                         <div className={"wrapperButtons"}>
-                            <a href="#" className="stripe_btn"><img src={stripeButton}/></a>
+                            <a href="#" className="stripe_btn" onClick={this.stripeLogin}><img src={stripeButton}/></a>
                         </div>
                         <div className={"wrapperButtons"}>
-                            <AsyncButton
+                            {/* <AsyncButton
                                 className={"btnSubmitStepTwo"}
                                 loading={this.state.loading}
                                 textButton={strings.stringsSignup.BTN_STEP_1}
-                                onClick={this.submitStepTwo}/>
-
-
+                                onClick={this.submitStepTwo}/> */}
                         </div>
                     </div>
                 </Wrapper> 
@@ -818,13 +911,13 @@ class EmployerSignup extends Component {
                                 :
                                 <p className={"statusMessage globalErrorMessage"}>{this.state.errors.message}</p>
                         }
-                       <div className={"wrapperButtons"}><a href="#" target="_blank"><img src={linkBtnES}/></a></div>
+                       <div className={"wrapperButtons"}><a href="#" onClick={this.stripeLogin}><img src={linkBtnES}/></a></div>
                         <div className={"wrapperButtons"}>
                             <AsyncButton
                                 className={"btnSubmitStepTwo"}
                                 loading={this.state.loading}
                                 textButton={strings.stringsSignup.BTN_STEP_1}
-                                onClick={this.submitStepTwo}/>
+                                onClick={this.finalSubmitForSignUp}/>
 
 
                         </div>
