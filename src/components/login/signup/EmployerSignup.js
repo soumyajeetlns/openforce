@@ -684,7 +684,9 @@ class EmployerSignup extends Component {
                                         loading={this.state.loading}                                        
                                         textButton={strings.stringsSignup.BTN_SUBMIT}
                                         disabled={this.state.submitting}
-                                        onClick={this.companyStripeConnect}/>
+                                        // onClick={this.companyStripeConnect}
+                                        onClick = {this.submitStepThree}                                        
+                                        />
                                 </div>
                             </div>
                         </Wrapper>
