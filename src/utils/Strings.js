@@ -50,8 +50,9 @@ export const stringsSignup = new LocalizedStrings({
             ERROR_PASSWORD:"Invalid password. The password must be at least 6 chars",
             ERROR_PASSWORD_MATCH:"The two password doesn't match",
             ERROR_SOLETRADER : "Please provide a sole trader name",
+            ERROR_BUSINESS : "Please enter the Business Name",            
             ERROR_RADIO : "Please select one company type",
-            ERROR_CHECKBOX:"You have to confirm that you are an hiring manager"
+            ERROR_CHECKBOX:"You have to confirm that you are an hiring manager",           
         },
         LBL_TERMS_OF_CONDITIONS_1:"Openforce is a registered company in England, Wales and Northern Ireland 09860607",
         LBL_TERMS_OF_CONDITIONS_2:"CONTACT US",
@@ -86,7 +87,8 @@ export const stringsSignin = new LocalizedStrings({
         BTN_SUBMIT:"SUBMIT",
         errors:{
             ERROR_EMAIL:"Invalid email",
-            ERROR_PASSWORD:"Invalid password",
+            //ERROR_PASSWORD:"Invalid password",
+            ERROR_PASSWORD:"Invalid Credentials",
             USER_NOT_FOUND:"User not found",
             USER_NOT_VERIFIED:"Please, confirm the registration"
         }

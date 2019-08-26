@@ -135,7 +135,6 @@ class EmployerSignin extends Component {
                                    name={"password"}
                                    error={this.state.errors.password}
                                    label={strings.stringsSignin.LBL_PASSWORD}
-                                   value={this.state.password}
                                    placeholder={strings.stringsSignin.PLACEHOLDER_PASSWORD}/>
                         </Col>
 

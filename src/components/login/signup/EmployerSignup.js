@@ -20,6 +20,7 @@ class EmployerSignup extends Component {
         super(args);
         this.state = {
             companyName:undefined,
+            getCompanyName:undefined,
             email:undefined,
             psw1:undefined,
             psw2:undefined,
@@ -28,6 +29,7 @@ class EmployerSignup extends Component {
             websiteName:undefined,
             utrName:undefined,
             addressTraderName: undefined,
+            addressTradeName: undefined,
             cityName: undefined,
             postcodeName: undefined,
             contactMobileName: undefined,
@@ -84,11 +86,23 @@ class EmployerSignup extends Component {
             }
             else{
                 
-            }    
+            }
         }
     }
     submitStepThree = () =>{
         if(this.checkErrorStepThree()){
+            const tempState = utils.deepCopy(this.state);
+            tempState.step = 6;
+            tempState.onBackButton = this.onBackButton;
+            this.setState(tempState);
+            let session     =   JSON.stringify(tempState);
+            //console.log(session);
+            localStorage.setItem('session', session);
+        }
+    }
+
+    submitStepFour = () =>{
+        if(this.checkErrorStepFour()){
             const tempState = utils.deepCopy(this.state);
             tempState.step = 6;
             tempState.onBackButton = this.onBackButton;
@@ -122,7 +136,7 @@ class EmployerSignup extends Component {
                 tempState.psw1                  =   getlocalData.psw1;
                 tempState.psw2                  =   getlocalData.psw2;
                 tempState.companyType           =   getlocalData.companyType;
-                tempState.soletraderName        =   getlocalData.soletraderName;
+                tempState.getCompanyName        =   getlocalData.getCompanyName;
                 tempState.websiteName           =   getlocalData.websiteName;
                 tempState.utrName               =   getlocalData.utrName;
                 tempState.cityName              =   getlocalData.cityName;
@@ -141,7 +155,7 @@ class EmployerSignup extends Component {
                 employer.email          =   tempState.email;
                 employer.companies      =   [tempState.companyName];
                 employer.companyType    =   tempState.radio;
-                employer.businessname   =   tempState.soletraderName;
+                employer.businessname   =   tempState.getCompanyName;
                 employer.website        =   tempState.websiteName;
                 employer.utrno          =   tempState.utrName;
                 employer.address        =   tempState.addressTradeName;
@@ -166,7 +180,7 @@ class EmployerSignup extends Component {
                 tempState.psw1                  =   getlocalData.psw1;
                 tempState.psw2                  =   getlocalData.psw2;
                 tempState.companyType           =   'Limited Company';
-                tempState.soletraderName        =   getlocalData.soletraderName;
+                tempState.getCompanyName        =   getlocalData.getCompanyName;
                 tempState.radio                 =   getlocalData.radio;
                 tempState.isChecked             =   getlocalData.isChecked;
                 tempState.stripeId              =   stripeId
@@ -178,7 +192,7 @@ class EmployerSignup extends Component {
                 employer.email              =   tempState.email;
                 employer.companies          =   [tempState.companyName];
                 employer.companyType        =   tempState.companyType;
-                tempState.soletraderName    =   [tempState.companyName];
+                tempState.getCompanyName    =   [tempState.companyName];
                 tempState.isChecked         =   getlocalData.isChecked;
                 employer.stripeId           =   tempState.stripeId;
 
@@ -271,13 +285,60 @@ class EmployerSignup extends Component {
         const tempStateThree = utils.deepCopy(this.state);
         let checkThree = true;
         tempStateThree.errors.message = null;
-        if(!tempStateThree.soletraderName || tempStateThree.soletraderName.trim() === ""){
-            tempStateThree.errors.soletraderName = true;
-            tempStateThree.errors.message = strings.stringsSignup.errors.ERROR_SOLETRADER;
+        if(!tempStateThree.getCompanyName || tempStateThree.getCompanyName.trim() === ""){
+            tempStateThree.errors.getCompanyName = true;
             checkThree = false;
-        }    
+        }
         this.setState(tempStateThree);
         return checkThree;
+    }
+
+    checkErrorStepFour = () =>{
+        const tempStateFour = utils.deepCopy(this.state);
+        let checkFour = true;
+        tempStateFour.errors.message = null;
+        if(!tempStateFour.soletraderName || tempStateFour.soletraderName.trim() === ""){
+            tempStateFour.errors.soletraderName = true;
+            checkFour = false;
+        }
+        else if(!tempStateFour.websiteName || tempStateFour.websiteName.trim() === ""){
+            tempStateFour.errors.websiteName = true;
+            checkFour = false;
+
+        }
+        else if(!tempStateFour.utrName || tempStateFour.utrName.trim() === ""){
+            tempStateFour.errors.utrName = true;
+            checkFour = false;
+        }
+        else if(!tempStateFour.addressTradeName || tempStateFour.addressTradeName.trim() === ""){
+            tempStateFour.errors.addressTradeName = true;
+            checkFour = false;
+        }
+        else if(!tempStateFour.cityName || tempStateFour.cityName.trim() === ""){
+            tempStateFour.errors.cityName = true;
+            checkFour = false;
+        }
+        else if(!tempStateFour.postcodeName || tempStateFour.postcodeName.trim() === ""){
+            tempStateFour.errors.postcodeName = true;
+            checkFour = false;
+        }
+        else if(!tempStateFour.contactMobileName || tempStateFour.contactMobileName.trim() === ""){
+            tempStateFour.errors.contactMobileName = true;
+            checkFour = false;
+        }        
+        else if(tempStateFour.websiteName !== "")
+        {
+            let regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+            if (!regexp.test(tempStateFour.websiteName))
+            {
+                tempStateFour.errors.websiteName = true;
+                //tempStateFour.errors.message = strings.stringsSignup.errors.ERROR_WEBSITE_URL;
+                checkFour = false;
+            }
+        }
+        this.setState(tempStateFour);
+        return checkFour;
+
     }
 
     onBackButton = () =>{
@@ -299,27 +360,25 @@ class EmployerSignup extends Component {
     }
 
     componentDidMount = () =>{
-                //For Stripe Payment
-                if(this.props.location.search!=""){
-                    let params = this.props.location.search.split("&");
-                    let values = params[1].split("=");
-                    let stripeId = values[1];
-                    //console.log("Stripe Id: "+stripeId);
-                    //alert("Stripe Connected Successfully, Your Stripe ID: "+stripeId);
-                    const tempState = utils.deepCopy(this.state);
-                    tempState.step = 7;
-                    tempState.onBackButton = this.onBackButtonTwo;
-                    this.setState(tempState);
-                    // console.log(tempState);
-                    //localStorage.removeItem('session');
-                    /*console.log('CHECK ' +  getlocalData.radio);*/
-                }else{
-                    const tempState = utils.deepCopy(this.state);
-                    tempState.onBackButton = this.goToSignin;
-                    this.setState(tempState);
-
-                }  
-        
+        //For Stripe Payment
+        if(this.props.location.search!=""){
+            let params = this.props.location.search.split("&");
+            let values = params[1].split("=");
+            let stripeId = values[1];
+            //console.log("Stripe Id: "+stripeId);
+            //alert("Stripe Connected Successfully, Your Stripe ID: "+stripeId);
+            const tempState = utils.deepCopy(this.state);
+            tempState.step = 7;
+            tempState.onBackButton = this.onBackButtonTwo;
+            this.setState(tempState);
+            // console.log(tempState);
+            //localStorage.removeItem('session');
+            /*console.log('CHECK ' +  getlocalData.radio);*/
+        }else{
+            const tempState = utils.deepCopy(this.state);
+            tempState.onBackButton = this.goToSignin;
+            this.setState(tempState);
+        }        
     }
 
     onInputChange = (e) =>{
@@ -345,9 +404,9 @@ class EmployerSignup extends Component {
     }
 
     getCompanyDetails = (e) =>{
-        //console.log('Hello Soumyajeet');
+        //console.log('Hello Soumyajeet');        
         const tempState = utils.deepCopy(this.state);
-        let url    =   constants.COMPANYHOUSEAPIURL+tempState.soletraderName;        
+        let url    =   constants.COMPANYHOUSEAPIURL+tempState.getCompanyName;        
         fetch(url)
         .then((response) => response.json())
         .then((findresponse) => this.setState({apiCompanyName : findresponse.company}));
@@ -444,9 +503,10 @@ class EmployerSignup extends Component {
                                                 className={'Oval-Copy'}
                                                 name={"companyType"}
                                                 value={'Limited Company'}
-                                                defaultChecked={this.state.checked}
+                                                //defaultChecked={this.state.checked}
                                             onChange={this.onRadioButtonChange}
-                                            onClick={this.onRadioButtonChange}
+                                            //onClick={this.onRadioButtonChange}
+                                            checked={this.state.selected == 'Limited Company'}
                                             error={this.state.errors.radio}/>
                                             {/* React.createElement('input',{type: 'checkbox', defaultChecked: false}); */}
                                     </Col>        
@@ -474,6 +534,7 @@ class EmployerSignup extends Component {
                                                 name={"companyType"}
                                                 value={'Sole Trader'}
                                                 onChange={this.onRadioButtonChange}
+                                                checked={this.state.selected == 'Sole Trader'}
                                                 error={this.state.errors.radio}/>
                                     </Col>        
                                 </Col>
@@ -534,12 +595,12 @@ class EmployerSignup extends Component {
                                     </Col>  
                                     <Col xs={6}>
                                         <Input
-                                            onChange={this.onInputChange}
-                                            name={"utrName"}
-                                            error={this.state.errors.utrName}
-                                            label={strings.stringsSignup.UTR_LABEL}
-                                            value={this.state.utrName}
-                                            placeholder={strings.stringsSignup.UTR_PLACEHOLDER}/>
+                                                onChange={this.onInputChange}
+                                                name={"utrName"}
+                                                error={this.state.errors.utrName}
+                                                label={strings.stringsSignup.UTR_LABEL}
+                                                value={this.state.utrName}
+                                                placeholder={strings.stringsSignup.UTR_PLACEHOLDER}/>
                                     </Col>      
                             </Row>            
                         </div>
@@ -554,9 +615,10 @@ class EmployerSignup extends Component {
                                         onChange={this.onInputChange}
                                         name={"addressTradeName"}
                                         key={1}
-                                        error={this.state.errors.addressTraderName}
+                                        //error={this.state.errors.addressTradeName}
+                                        error={this.state.errors.addressTradeName}
                                         label={strings.stringsSignup.SUBTITLE_STEP_3}
-                                        value={this.state.addressTraderName}
+                                        value={this.state.addressTradeName}
                                         placeholder={strings.stringsSignup.ADDRESS_PLACEHOLDER}/>
                                 </Col>
                             </Row>
@@ -611,7 +673,7 @@ class EmployerSignup extends Component {
                                     className={"btnSubmitStepTwo"}
                                     loading={this.state.loading}
                                     textButton={strings.stringsSignup.BTN_CONTINUE}
-                                    onClick={this.submitStepThree}/>
+                                    onClick={this.submitStepFour}/>
 
 
                             </div>
@@ -630,12 +692,12 @@ class EmployerSignup extends Component {
                             <div className={"withPadding GetSeratchTop"}>                            
                                 <Input
                                     onChange={this.onInputChange}
-                                    name={"soletraderName"}
-                                    error={this.state.errors.soletraderName}
-                                    value={this.state.soletraderName}
-                                    className={"searchField GetSeratch"}                                    
+                                    name={"getCompanyName"}
+                                    error={this.state.errors.getCompanyName}
+                                    value={this.state.getCompanyName}
+                                    className={"searchField GetSeratch"}                                                                        
                                     placeholder={strings.stringsSignup.PLACEHOLDER_STEP_COMPANY}/>
-                                    <button className={"searchButton SearchBtnClass"} onClick = {this.getCompanyDetails}>Get Details</button>
+                                    <button className={"searchButton SearchBtnClass"} disabled={!this.state.getCompanyName} onClick = {this.getCompanyDetails}>Get Details</button>
                             </div>
                             <div className="companydatalist">
                                     {this.state.apiCompanyName.map((p,i)=>
@@ -706,6 +768,7 @@ class EmployerSignup extends Component {
                                 label={strings.stringsSignup.LBL_SOLETRADER_NAME}
                                 value={this.state.soletraderName}
                                 placeholder={strings.stringsSignup.PLACEHOLDER_STEP_3}/>
+                                
                         </div>
                         <div className={"withPadding TraderBox"}>
                             <Row className={"wrapperCheckbox checkbox-wrapper"}>
@@ -741,7 +804,7 @@ class EmployerSignup extends Component {
                                             placeholder={strings.stringsSignup.WEBSITE_PLACEHOLDER}/>
                                     </Col>  
                                     <Col xs={6}>
-                                        <Input
+                                    <Input
                                             onChange={this.onInputChange}
                                             name={"utrName"}
                                             error={this.state.errors.utrName}

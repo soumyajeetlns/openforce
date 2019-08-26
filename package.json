@@ -1,6 +1,6 @@
 {
   "name": "openforce-web",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "private": true,
   "dependencies": {
     "@bugsnag/js": "^5.0.1",

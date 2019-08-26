@@ -4,12 +4,12 @@ import firebase from 'firebase'
 let projectId = '';
 if (process.env.REACT_APP_ENV === 'prod') {
     const prodConfig = {
-        apiKey: "AIzaSyCNCeQgLdz2hLHUgAHwGFY3yFA0-rl62h0",
-        authDomain: "openforce-production.firebaseapp.com",
-        databaseURL: "https://openforce-production.firebaseio.com",
-        projectId: "openforce-production",
-        storageBucket: "openforce-production.appspot.com",
-        messagingSenderId: "252074354630"
+        apiKey: "AIzaSyDIo2XySfzCCl5SEVG_C2NARdvoRXh-Gtw",
+        authDomain: "openforce-production-b12c0.firebaseapp.com",
+        databaseURL: "https://openforce-production-b12c0.firebaseio.com",
+        projectId: "openforce-production-b12c0",
+        storageBucket: "openforce-production-b12c0.appspot.com",
+        messagingSenderId: "192642366353"
     };
     projectId = 'openforce-production';
     if (!firebase.apps.length) {
@@ -17,12 +17,12 @@ if (process.env.REACT_APP_ENV === 'prod') {
     }
 } else {
     const stagingConfig = {
-        apiKey: "AIzaSyC64VRKcuz-GlgtVFKs5w3PlgKAapWX3Eo",
-        authDomain: "openforce-staging.firebaseapp.com",
-        databaseURL: "https://openforce-staging.firebaseio.com",
-        projectId: "openforce-staging",
-        storageBucket: "openforce-staging.appspot.com",
-        messagingSenderId: "113807492392"
+        apiKey: "AIzaSyBy2U9MJl4zPQaLA8L833pm106oUf1Y4nM",
+        authDomain: "openforce-staging-309a1.firebaseapp.com",
+        databaseURL: "https://openforce-staging-309a1.firebaseio.com",
+        projectId: "openforce-staging-309a1",
+        storageBucket: "openforce-staging-309a1.appspot.com",
+        messagingSenderId: "842641980365"
     };
     projectId = 'openforce-staging';
     if (!firebase.apps.length) {
