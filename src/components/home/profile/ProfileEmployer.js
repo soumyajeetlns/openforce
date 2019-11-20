@@ -34,7 +34,9 @@ class ProfileEmployer extends Component {
             loadingChangingPassword:false,
             old_password:null,
             password_1:null,
-            password_2:null
+            password_2:null,
+            companyType:null,
+            businessname:null,
         }
 
         let fileImage;
@@ -209,144 +211,382 @@ class ProfileEmployer extends Component {
                 <div className={"backButton"} onClick={()=>this.props.history.push(constants.HOME)}>
                     <img src={goBackIcon}/>
                 </div>
-                <Row style={{marginLeft:"50px"}}>
-                    <Col xs={12}>
-                        <Row>
-                            <Col xs={3} className={"customCol"}>
-                                <div className={"titleColumn"}>
-                                    { this.props.ctr.user && this.props.ctr.user && this.props.ctr.user.companies ? this.props.ctr.user.companies[0]:null}
-                                </div>
-                            </Col>
-                            <Col xs={5} className={"customCol"}>
-                                <div className={"titleColumn"} style={{marginLeft: "30px"}}>
-                                    {strings.stringsProfileEmployer.LBL_COLUMN_BUSINESS_DETAIL}
-                                    <AsyncButton loading={this.state.loadingUpdate} className={"btnUpdate"} onClick={this.saveEmployer} textButton={strings.stringsProfileEmployer.BTN_UPDATE}/>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row className={"defaultMarginTop"}>
-                            <Col xs={3}>
-                                <span onClick={this.selectImage}>
-                                    <input onChange={this.changeImage} type="file" accept="image/*" style={{display: 'none'}} ref={input => this.inputImageRef = input}/>
-                                    <center>
-                                        {
-                                            this.props.ctr.user && (this.props.ctr.user.profileImage || this.state.previewImage)?
-                                                <Wrapper>
-                                                    <img className={"profileImg"} src={this.getImage()}/>
-                                                </Wrapper>
-                                                :
-                                                <div className={"profileImgPlaceholder"}>
-                                                    {this.state.companyNameProfile}
-                                                </div>
-                                        }
-                                    </center>
-                                </span>
+                {this.props.ctr.user.companyType === "Sole Trader"?
+                    <Row style={{marginLeft:"50px"}}>
+                        <Col xs={12}>
+                            <Row>
+                                <Col xs={3} className={"customCol"}>
+                                    <div className={"titleColumn  leftuptitle mobileHide"}>
+                                        { this.props.ctr.user && this.props.ctr.user && this.props.ctr.user.companies ? this.props.ctr.user.companies[0]:null}
+                                    </div>
+                                </Col>
+                                <Col xs={5} className={"customCol"}>
+                                    <div className={"titleColumn myTitleStyle"} style={{marginLeft: "30px"}}>
+                                        {strings.stringsProfileEmployer.LBL_COLUMN_TRADING_DETAILS}
+                                        {/* <AsyncButton loading={this.state.loadingUpdate} className={"btnUpdate"} onClick={this.saveEmployer} textButton={strings.stringsProfileEmployer.BTN_UPDATE}/> */}
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row className={"defaultMarginTop"}>
+                                <Col xs={3}>
+                                    <span onClick={this.selectImage}>
+                                        <input onChange={this.changeImage} type="file" accept="image/*" style={{display: 'none'}} ref={input => this.inputImageRef = input}/>
+                                        <center>
+                                            {
+                                                this.props.ctr.user && (this.props.ctr.user.profileImage || this.state.previewImage)?
+                                                    <Wrapper>
+                                                        <img className={"profileImg"} src={this.getImage()}/>
+                                                    </Wrapper>
+                                                    :
+                                                    <div className={"profileImgPlaceholder"}>
+                                                        {this.state.companyNameProfile}
+                                                    </div>
+                                            }
+                                        </center>
+                                    </span>
 
-                                <Row className={"defaultMarginTop2"}>
-                                    <Col xs={12} className={"customCol leftColumn"}>
-                                        <div className={"item"} onClick={this.scrollToSection.bind(this,"detail")}>
-                                            <img src={detailIcon}/>
-                                            {strings.stringsProfileEmployer.LBL_DETAIL}
-                                        </div>
-                                        <div className={"item"} onClick={this.scrollToSection.bind(this,"address")}>
-                                            <img src={addressIcon}/>
-                                            {strings.stringsProfileEmployer.LBL_ADDRESS}
-                                        </div>
-                                        <div className={"item"} onClick={this.scrollToSection.bind(this,"settings")}>
-                                            <img src={settingsIcon}/>
-                                            {strings.stringsProfileEmployer.LBL_SETTINGS}
-                                        </div>
-                                    </Col>
+                                    <Row className={"defaultMarginTop2"}>
+                                        <Col xs={12} className={"customCol leftColumn mySpaceRemove"}>
+                                            {/* <div className={"item"} onClick={this.scrollToSection.bind(this,"detail")}>
+                                                <img src={detailIcon}/>
+                                                {strings.stringsProfileEmployer.LBL_DETAIL}
+                                            </div> */}
+                                            <div className={"item"} onClick={this.scrollToSection.bind(this,"address")}>
+                                                <img src={addressIcon}/>
+                                                {strings.stringsProfileEmployer.LBL_COLUMN_BUSINESS_DETAIL}
+                                            </div>
+                                            <div className={"item"} onClick={this.scrollToSection.bind(this,"settings")}>
+                                                <img src={settingsIcon}/>
+                                                {strings.stringsProfileEmployer.LBL_SETTINGS}
+                                            </div>
+                                        </Col>
 
-                                    <Col xs={12} style={{textAlign:"center"}}>
-                                        <button className={"btnLogout"} onClick={this.logout}>{strings.stringsProfileEmployer.BTN_LOGOUT}</button>
-                                    </Col>
-                                </Row>
-                            </Col>
-                            <Col xs={5} className={"customCol bodyCustomCol defaultMarginLeft"} style={{height: "423px"}}>
-                                <div className={"section"} ref={this.refDetail}>
-                                    <p className={"sectionTitle"}>
-                                        {strings.stringsProfileEmployer.LBL_COMPANY_NUMBER}
-                                    </p>
-                                    <input type={"text"} className={"inputProfileEmployer"}
-                                           value={this.state.employer.companyNumber}
-                                           style={{width:"180px"}} onChange={this.onTextChange.bind(this,"companyNumber")}/>
-                                    <p className={"sectionTitle"}>
-                                        {strings.stringsProfileEmployer.LBL_CONTACT_NUMBER}
-                                    </p>
-                                    <input type={"number"} className={"inputProfileEmployer"}
-                                           value={this.state.employer.contactNumber}
-                                           style={{width:"180px"}} onChange={this.onTextChange.bind(this,"contactNumber")}/>
-                                </div>
-                                <hr/>
+                                        <Col xs={12} style={{textAlign:"center"}}>
+                                            <button className={"btnLogout"} onClick={this.logout}>{strings.stringsProfileEmployer.BTN_LOGOUT}</button>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft myProfileStyle"} style={{height: "423px"}}>
+                                    <div className={"section"} ref={this.refDetail}>
+                                        <Col lg={6} xs={12}>
+                                            <p className={"sectionTitle"}>
+                                                {strings.stringsProfileEmployer.LBL_REGISTER_TRADE_NAME}
+                                            </p>
+                                            <p className={"inputProfileEmployer"}>
+                                                {this.props.ctr.user.businessname}
+                                            </p>
+                                        </Col>
+                                        <Col lg={6} xs={12}>
+                                            <p className={"sectionTitle"}>
+                                                {strings.stringsProfileEmployer.LBL_COMPANY_TRADE_TYPE}
+                                            </p>
+                                            <p className={"inputProfileEmployer"}>
+                                                {this.props.ctr.user.companyType}
+                                            </p>                                    
+                                        </Col>
+                                        <Col lg={6} xs={12}>
+                                            <p className={"sectionTitle"}>
+                                                {strings.stringsProfileEmployer.LBL_COMPANY_TRADE_UTR}
+                                            </p>
+                                            <p className={"inputProfileEmployer"}>
+                                                <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                                    value={this.state.employer.utrno}
+                                                    onChange={this.onTextChange.bind(this,"utrno")}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_COMPANY_TRADE_UTR}/>
+                                            </p> 
+                                        </Col>
+                                    </div>
+                                    
+                                    <div className={"section"} ref={this.refAddress}>
+                                        <Col xs={12}>
+                                            <Col lg={12} xs={12}>
+                                                <p className={"sectionTitle"}>
+                                                    {strings.stringsProfileEmployer.LBL_ADDRESS}
+                                                </p>
+                                                <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                                    value={this.state.employer.address_1}
+                                                    onChange={this.onTextChange.bind(this,"address_1")}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_1}/>
+                                            </Col>
+                                            <Col lg={6} xs={12}>
+                                                <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                                    onChange={this.onTextChange.bind(this,"address_2")}
+                                                    value={this.state.employer.address_2}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_2}/>
+                                            </Col>
+                                            {/* <Col xs={6}>
+                                                <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                                    onChange={this.onTextChange.bind(this,"address_3")}
+                                                    value={this.state.employer.address_3}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_3}/>
+                                            </Col> */}                                            
+                                            <Col lg={6} xs={12}>
+                                                <input type={"text"} style={{width:"180px"}} className={"inputProfileEmployer marginTop"}
+                                                    onChange={this.onTextChange.bind(this,"postCode")}
+                                                    value={this.state.employer.postCode}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_POST_CODE}/>
+                                            </Col>
+                                            <Col lg={6} xs={12}>                                                
+                                                <input type={"text"} className={"inputProfileEmployer"}
+                                                    value={this.state.employer.companyNumber}
+                                                    style={{width:"180px"}} onChange={this.onTextChange.bind(this,"companyNumber")}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_COMPANY_NUMBER}
+                                                    />
+                                            </Col>
+                                        </Col>
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row className={"defaultMarginTop"}>
+                            <Col xs={3} ></Col>
+                                <Col xs={7} xsOffset={3} className={"customCol titleColumnProfile"}>
+                                    <div className={"titleColumn"}>
+                                        {strings.stringsProfileEmployer.LBL_SETTINGS}
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row className={"defaultMarginTop"}>
+                                <Col xs={3}>
+                                    &nbsp;
+                                </Col>
+                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft myProfileStyle"}>
+                                    <div className={"section"}>
+                                        <p className={"sectionTitle"}>
+                                            {strings.stringsProfileEmployer.LBL_EMAIL_ADDRESS}
+                                        </p>
+                                        <input type={"text"}
+                                            className={"inputProfileEmployer marginTop"}
+                                            readOnly={true}
+                                            value={this.props.ctr.user?this.props.ctr.user.email:null}/>
 
-                                <div className={"section"} ref={this.refAddress}>
-                                    <p className={"sectionTitle"}>
-                                        {strings.stringsProfileEmployer.LBL_ADDRESS}
-                                    </p>
-                                    <input type={"text"} className={"inputProfileEmployer marginTop"}
-                                           value={this.state.employer.address_1}
-                                           onChange={this.onTextChange.bind(this,"address_1")}
-                                           placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_1}/>
-                                    <input type={"text"} className={"inputProfileEmployer marginTop"}
-                                           onChange={this.onTextChange.bind(this,"address_2")}
-                                           value={this.state.employer.address_2}
-                                           placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_2}/>
-                                    <input type={"text"} className={"inputProfileEmployer marginTop"}
-                                           onChange={this.onTextChange.bind(this,"address_3")}
-                                           value={this.state.employer.address_3}
-                                           placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_3}/>
-                                    <input type={"text"} style={{width:"180px"}} className={"inputProfileEmployer marginTop"}
-                                           onChange={this.onTextChange.bind(this,"postCode")}
-                                           value={this.state.employer.postCode}
-                                           placeholder={strings.stringsProfileEmployer.LBL_POST_CODE}/>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row className={"defaultMarginTop"}>
-                            <Col xs={5} xsOffset={3} className={"customCol"}>
-                                <div className={"titleColumn"} style={{marginLeft: "30px"}}>
-                                    {strings.stringsProfileEmployer.LBL_SETTINGS}
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row className={"defaultMarginTop"}>
-                            <Col xs={3}>
-                                &nbsp;
-                            </Col>
-                            <Col xs={5} className={"customCol bodyCustomCol defaultMarginLeft"}>
-                                <div className={"section"}>
-                                    <p className={"sectionTitle"}>
-                                        {strings.stringsProfileEmployer.LBL_EMAIL_ADDRESS}
-                                    </p>
-                                    <input type={"text"}
-                                           className={"inputProfileEmployer marginTop"}
-                                           readOnly={true}
-                                           value={this.props.ctr.user?this.props.ctr.user.email:null}/>
+                                        <input type={"password"} className={"inputProfileEmployer marginTop"}
+                                            onChange={this.onPasswordChange.bind(this,"old_password")}
+                                            value={this.state.old_password?this.state.old_password:""}
+                                            placeholder={strings.stringsProfileEmployer.LBL_CURRENT_PASSWORD}/>
+                                        <input type={"password"} className={"inputProfileEmployer marginTop"}
+                                            onChange={this.onPasswordChange.bind(this,"password_1")}
+                                            value={this.state.password_1?this.state.password_1:""}
+                                            placeholder={strings.stringsProfileEmployer.LBL_PASSWORD_1}/>
+                                        <input type={"password"} className={"inputProfileEmployer marginTop"}
+                                            onChange={this.onPasswordChange.bind(this,"password_2")}
+                                            value={this.state.password_2?this.state.password_2:""}
+                                            placeholder={strings.stringsProfileEmployer.LBL_PASSWORD_2}/>
 
-                                    <input type={"password"} className={"inputProfileEmployer marginTop"}
-                                           onChange={this.onPasswordChange.bind(this,"old_password")}
-                                           value={this.state.old_password?this.state.old_password:""}
-                                           placeholder={strings.stringsProfileEmployer.LBL_CURRENT_PASSWORD}/>
-                                    <input type={"password"} className={"inputProfileEmployer marginTop"}
-                                           onChange={this.onPasswordChange.bind(this,"password_1")}
-                                           value={this.state.password_1?this.state.password_1:""}
-                                           placeholder={strings.stringsProfileEmployer.LBL_PASSWORD_1}/>
-                                    <input type={"password"} className={"inputProfileEmployer marginTop"}
-                                           onChange={this.onPasswordChange.bind(this,"password_2")}
-                                           value={this.state.password_2?this.state.password_2:""}
-                                           placeholder={strings.stringsProfileEmployer.LBL_PASSWORD_2}/>
+                                        <p className={"messagePassword"}>{strings.stringsProfileEmployer.LBL_PASSWORD_MESSAGE}</p>
+                                        <AsyncButton loading={this.state.loadingChangingPassword} className={"btnChangePassword"} onClick={this.changePassword}
+                                                    textButton={strings.stringsProfileEmployer.BTN_CHANGE_PASSWORD}/>
+                                        <div  ref={this.refSettings}/>
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row className={"defaultMarginTop"}>
+                                <Col lg={6} xs={12} className={"customCol"}>
+                                    <div className={"titleColumn"} style={{marginLeft: "30px"}}>
+                                        <AsyncButton loading={this.state.loadingUpdate} className={"btnUpdate"} onClick={this.saveEmployer} textButton={strings.stringsProfileEmployer.BTN_UPDATE}/>
+                                    </div>
+                                </Col>
+                                <Col lg={6} xs={12} className={"customCol"}>
+                                    <div className={"titleColumn"} style={{marginLeft: "30px"}}>
+                                        <AsyncButton loading={this.state.loadingUpdate} className={"btnDelete"}  textButton={strings.stringsProfileEmployer.BTN_DELETE_ACCOUNT}/>
+                                    </div>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                :
+                    <Row style={{marginLeft:"50px"}}>
+                        <Col xs={12}>
+                            <Row>
+                                <Col xs={3} className={"customCol"}>
+                                    <div className={"titleColumn leftuptitle mobileHide"}>
+                                        { this.props.ctr.user && this.props.ctr.user && this.props.ctr.user.companies ? this.props.ctr.user.companies[0]:null}
+                                    </div>
+                                </Col>
+                                <Col xs={5} className={"customCol"}>
+                                    <div className={"titleColumn myTitleStyle"}>
+                                        {strings.stringsProfileEmployer.LBL_COLUMN_BUSINESS_DETAIL}
+                                        {/* <AsyncButton loading={this.state.loadingUpdate} className={"btnUpdate"} onClick={this.saveEmployer} textButton={strings.stringsProfileEmployer.BTN_UPDATE}/> */}
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row className={"defaultMarginTop"}>
+                                <Col xs={3}>
+                                    <span onClick={this.selectImage}>
+                                        <input onChange={this.changeImage} type="file" accept="image/*" style={{display: 'none'}} ref={input => this.inputImageRef = input}/>
+                                        <center>
+                                            {
+                                                this.props.ctr.user && (this.props.ctr.user.profileImage || this.state.previewImage)?
+                                                    <Wrapper>
+                                                        <img className={"profileImg"} src={this.getImage()}/>
+                                                    </Wrapper>
+                                                    :
+                                                    <div className={"profileImgPlaceholder"}>
+                                                        {this.state.companyNameProfile}
+                                                    </div>
+                                            }
+                                        </center>
+                                    </span>
 
-                                    <p className={"messagePassword"}>{strings.stringsProfileEmployer.LBL_PASSWORD_MESSAGE}</p>
-                                    <AsyncButton loading={this.state.loadingChangingPassword} className={"btnChangePassword"} onClick={this.changePassword}
-                                                 textButton={strings.stringsProfileEmployer.BTN_CHANGE_PASSWORD}/>
-                                    <div  ref={this.refSettings}/>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Col>
+                                    <Row className={"defaultMarginTop2"}>
+                                        <Col xs={12} className={"customCol leftColumn mySpaceRemove"}>
+                                            <div className={"item"} onClick={this.scrollToSection.bind(this,"detail")}>
+                                                <img src={addressIcon}/>
+                                                {strings.stringsProfileEmployer.LBL_COLUMN_BUSINESS_DETAIL}
+                                            </div>
+                                            {/* <div className={"item"} onClick={this.scrollToSection.bind(this,"address")}>
+                                                <img src={detailIcon}/>
+                                                {strings.stringsProfileEmployer.LBL_ADDRESS}
+                                            </div> */}
+                                            <div className={"item"} onClick={this.scrollToSection.bind(this,"settings")}>
+                                                <img src={settingsIcon}/>
+                                                {strings.stringsProfileEmployer.LBL_SETTINGS}
+                                            </div>
+                                        </Col>
 
-                </Row>
+                                        <Col xs={12} style={{textAlign:"center"}}>
+                                            <button className={"btnLogout"} onClick={this.logout}>{strings.stringsProfileEmployer.BTN_LOGOUT}</button>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft myProfileStyle"} style={{height: "423px"}}>
+                                    <div className={"section"} ref={this.refDetail}>
+                                        <Col lg={6} xs={12}>
+                                        <p className={"sectionTitle"}>
+                                            {strings.stringsProfileEmployer.LBL_EMPLOYER_NAME}
+                                        </p>
+                                        <p className={"inputProfileEmployer"}>
+                                            {this.props.ctr.user.businessname}
+                                        </p>
+                                        </Col>
+                                        <Col lg={6} xs={12}>
+                                            <p className={"sectionTitle"}>
+                                                {strings.stringsProfileEmployer.LBL_COMPANY_TRADE_TYPE}
+                                            </p>
+                                            <p className={"inputProfileEmployer"}>
+                                                {this.props.ctr.user.companyType}
+                                            </p>                                    
+                                        </Col>
+                                        <Col lg={6} xs={12}>
+                                            <p className={"sectionTitle"}>
+                                                {strings.stringsProfileEmployer.LBL_COMPANY_NUMBER}
+                                            </p>
+                                            <p className={"inputProfileEmployer"}>
+                                                {this.props.ctr.user.utrno}
+                                            </p>                                    
+                                        </Col>
+                                        {/*
+                                        <p className={"sectionTitle"}>
+                                            {strings.stringsProfileEmployer.LBL_COMPANY_NUMBER}
+                                        </p>
+                                        <input type={"text"} className={"inputProfileEmployer"}
+                                            value={this.state.employer.companyNumber}
+                                            style={{width:"180px"}} onChange={this.onTextChange.bind(this,"companyNumber")}/>
+                                        <p className={"sectionTitle"}>
+                                            {strings.stringsProfileEmployer.LBL_CONTACT_NUMBER}
+                                        </p>
+                                        <input type={"number"} className={"inputProfileEmployer"}
+                                            value={this.state.employer.contactNumber}
+                                            style={{width:"180px"}} onChange={this.onTextChange.bind(this,"contactNumber")}/>
+                                        */}
+                                    </div>
+                                    
+                                    <div className={"section"} ref={this.refAddress}>
+                                        <Col xs={12}>
+                                            <Col xs={12}>
+                                                <p className={"sectionTitle"}>
+                                                    {strings.stringsProfileEmployer.LBL_ADDRESS}
+                                                </p>
+                                                <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                                    value={this.state.employer.address_1}
+                                                    onChange={this.onTextChange.bind(this,"address_1")}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_1}/>
+                                            </Col>
+                                            <Col lg={6} xs={12}>
+                                                <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                                    onChange={this.onTextChange.bind(this,"address_2")}
+                                                    value={this.state.employer.address_2}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_2}/>
+                                            </Col>
+                                            {/* <Col xs={6}>
+                                                <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                                    onChange={this.onTextChange.bind(this,"address_3")}
+                                                    value={this.state.employer.address_3}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_ADDRESS_3}/>
+                                            </Col> */}
+                                            <Col lg={6} xs={12}>
+                                                <input type={"text"} style={{width:"180px"}} className={"inputProfileEmployer marginTop"}
+                                                    onChange={this.onTextChange.bind(this,"postCode")}
+                                                    value={this.state.employer.postCode}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_POST_CODE}/>
+                                            </Col>
+                                            <Col lg={6} xs={12}>
+                                                <input type={"text"} className={"inputProfileEmployer marginTop"}
+                                                    onChange={this.onTextChange.bind(this,"companyNumber")}
+                                                    value={this.state.employer.companyNumber}
+                                                    placeholder={strings.stringsProfileEmployer.LBL_COMPANY_NUMBER}/>
+                                            </Col>
+                                        </Col>
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row className={"defaultMarginTop"}>
+                            <Col xs={3} ></Col>
+                                <Col xs={7} xsOffset={3} className={"customCol titleColumnProfile"}>
+                                    <div className={"titleColumn"}>
+                                        {strings.stringsProfileEmployer.LBL_SETTINGS}
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row className={"defaultMarginTop"}>
+                                <Col xs={3}>
+                                    &nbsp;
+                                </Col>
+                                <Col xs={7} className={"customCol bodyCustomCol defaultMarginLeft myProfileStyle"}>
+                                    <div className={"section"}>
+                                        <p className={"sectionTitle"}>
+                                            {strings.stringsProfileEmployer.LBL_EMAIL_ADDRESS}
+                                        </p>
+                                        <input type={"text"}
+                                            className={"inputProfileEmployer marginTop"}
+                                            readOnly={true}
+                                            value={this.props.ctr.user?this.props.ctr.user.email:null}/>
+
+                                        <input type={"password"} className={"inputProfileEmployer marginTop"}
+                                            onChange={this.onPasswordChange.bind(this,"old_password")}
+                                            value={this.state.old_password?this.state.old_password:""}
+                                            placeholder={strings.stringsProfileEmployer.LBL_CURRENT_PASSWORD}/>
+                                        <input type={"password"} className={"inputProfileEmployer marginTop"}
+                                            onChange={this.onPasswordChange.bind(this,"password_1")}
+                                            value={this.state.password_1?this.state.password_1:""}
+                                            placeholder={strings.stringsProfileEmployer.LBL_PASSWORD_1}/>
+                                        <input type={"password"} className={"inputProfileEmployer marginTop"}
+                                            onChange={this.onPasswordChange.bind(this,"password_2")}
+                                            value={this.state.password_2?this.state.password_2:""}
+                                            placeholder={strings.stringsProfileEmployer.LBL_PASSWORD_2}/>
+
+                                        <p className={"messagePassword"}>{strings.stringsProfileEmployer.LBL_PASSWORD_MESSAGE}</p>
+                                        <AsyncButton loading={this.state.loadingChangingPassword} className={"btnChangePassword"} onClick={this.changePassword}
+                                                    textButton={strings.stringsProfileEmployer.BTN_CHANGE_PASSWORD}/>
+                                        <div  ref={this.refSettings}/>
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row className={"defaultMarginTop"}>
+                                <Col lg={6} xs={12} className={"customCol myUpdateBtn"}>
+                                    <div className={"titleColumn"} style={{marginLeft: "30px"}}>
+                                        <AsyncButton loading={this.state.loadingUpdate} className={"btnUpdate"} onClick={this.saveEmployer} textButton={strings.stringsProfileEmployer.BTN_UPDATE}/>
+                                    </div>
+                                </Col>
+                                <Col lg={6} xs={12} className={"customCol myDeleteBtn"}>
+                                    <div className={"titleColumn"} style={{marginLeft: "30px"}}>
+                                        <AsyncButton loading={this.state.loadingUpdate} className={"btnDelete"}  textButton={strings.stringsProfileEmployer.BTN_DELETE_ACCOUNT}/>
+                                    </div>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                }
+                
             </div>
         )
     }

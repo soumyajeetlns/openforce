@@ -5,6 +5,7 @@ export default class HocApply{
             this.jobId = null;
             this.employeeId = null;
             this.status = _apply.status;
+            this.payRate = _apply.payRate;
             this.autoApprove = !!_apply.autoApprove;
             this.applicationDate = _apply.applicationDate;
             this.checkins = [];

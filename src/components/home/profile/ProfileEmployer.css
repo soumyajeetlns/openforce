@@ -68,8 +68,10 @@
     font-stretch: normal;
     line-height: 1.6;
     letter-spacing: normal;
-    color: #000000;
+    color: #000000;    
 }
+
+.wrapperProfileEmployer .leftuptitle{text-align: center;}
 
 .wrapperProfileEmployer .defaultMarginTop{
     margin-top: 15px;
@@ -110,14 +112,12 @@
     width: 18.7px;
     height: 19.2px;
     opacity: 0.54;
-    left: 75px;
+    left: 45px;
 }
 
 .wrapperProfileEmployer .btnUpdate{
-    width: 124.7px;
     height: 36px;
     border-radius: 2px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
     background-color: #fed91c;
     font-family: Roboto;
     font-size: 14px;
@@ -130,6 +130,28 @@
     color: #1c2238;
     float: right;
     margin-right: -25px;
+
+    width: 270px;
+    height: 36px;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+  
+}
+
+.wrapperProfileEmployer .btnDelete
+{
+    width: 312px;
+    height: 36px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #1c2238;
+    background: #eeeeee;
 }
 
 .wrapperProfileEmployer .btnChangePassword{

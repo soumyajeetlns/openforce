@@ -6,9 +6,11 @@ export const stringsSignup = new LocalizedStrings({
         TITLE_STEP_1:"Enter business detail",
         LBL_COMPANY_NAME:"Full name",
         LBL_SOLETRADER_NAME:"Sole Trader name",
+        COMPANY_HOUSE_SIGNUP_1: "Get details using companies house",
         LBL_EMAIL:"Enter email address",
         PLACEHOLDER_STEP_1:"Enter your full first and surname",
         PLACEHOLDER_STEP_3: "Your trading name",
+        PLACEHOLDER_STEP_COMPANY: "Enter business name",
         UTR_LABEL :"UTR number",
         WEBSITE_LABEL : "Website or online presence",
         WEBSITE_PLACEHOLDER :"e.g www.acneconstruction.com",
@@ -17,7 +19,12 @@ export const stringsSignup = new LocalizedStrings({
 
         TITLE_STEP_2:"Sign Up",
         TITLE_STEP_3:"Trading Details",
+        TITLE_STEP_6:"Payment details",
+        PAYMENT_SUBTITLE: "Please add your payment details to finalise your account",
+        BTN_SUBMIT:"SUBMIT",
+        TITLE_STEP_4:"Business Details",
         SUBTITLE_STEP_3:"Trading address",
+        SUBTITLE_STEP_4:"Get details using companies house",
         EMP_TYP_1 :"Limited Company",
         EMP_TYP_2 : "Sole Trader",
         SUBTITLE_STEP_1:"Full Name",
@@ -43,8 +50,9 @@ export const stringsSignup = new LocalizedStrings({
             ERROR_PASSWORD:"Invalid password. The password must be at least 6 chars",
             ERROR_PASSWORD_MATCH:"The two password doesn't match",
             ERROR_SOLETRADER : "Please provide a sole trader name",
+            ERROR_BUSINESS : "Please enter the Business Name",            
             ERROR_RADIO : "Please select one company type",
-            ERROR_CHECKBOX:"You have to confirm that you are an hiring manager"
+            ERROR_CHECKBOX:"You have to confirm that you are an hiring manager",           
         },
         LBL_TERMS_OF_CONDITIONS_1:"Openforce is a registered company in England, Wales and Northern Ireland 09860607",
         LBL_TERMS_OF_CONDITIONS_2:"CONTACT US",
@@ -79,7 +87,8 @@ export const stringsSignin = new LocalizedStrings({
         BTN_SUBMIT:"SUBMIT",
         errors:{
             ERROR_EMAIL:"Invalid email",
-            ERROR_PASSWORD:"Invalid password",
+            //ERROR_PASSWORD:"Invalid password",
+            ERROR_PASSWORD:"Invalid Credentials",
             USER_NOT_FOUND:"User not found",
             USER_NOT_VERIFIED:"Please, confirm the registration"
         }
@@ -213,6 +222,7 @@ export const stringsHiredEmployeePopup = new LocalizedStrings({
 //map:
 export const stringsJobMap = new LocalizedStrings({
     en: {
+        LBL_PAYMENT:"Payment",
         LBL_HIRED:"Hired",
         LBL_APPLIED:"Applied",
         POPUP_CONFIRM_END_JOB_TITLE:"End the job",
@@ -230,15 +240,15 @@ export const stringsJobMap = new LocalizedStrings({
 //map:
 export const stringsProfileEmployer = new LocalizedStrings({
     en: {
-        LBL_COLUMN_BUSINESS_DETAIL:"Business Details",
+        LBL_COLUMN_BUSINESS_DETAIL:"Business Details",        
         LBL_DETAIL:"Detail",
-        LBL_ADDRESS:"Address",
+        LBL_ADDRESS:"Trading Address",
         LBL_SETTINGS:"Settings",
-        BTN_UPDATE:"Update",
+        BTN_UPDATE:"Update",        
         LBL_COMPANY_NUMBER:"Company number",
         LBL_CONTACT_NUMBER:"Contact Number",
-        LBL_ADDRESS_1:"Address line 1",
-        LBL_ADDRESS_2:"Address line2",
+        LBL_ADDRESS_1:"Address",
+        LBL_ADDRESS_2:"City",
         LBL_ADDRESS_3:"Address line3",
         LBL_POST_CODE:"Post code",
         LBL_EMAIL_ADDRESS:"Email address",
@@ -254,5 +264,13 @@ export const stringsProfileEmployer = new LocalizedStrings({
         LBL_ERROR_PASSWORDS_MISMATCH:"Passwords doesn't match",
         LBL_ERROR_PASSWORDS_NO_VALID:"Your password is too week",
         BTN_LOGOUT:"LOG OUT",
+
+        LBL_COLUMN_TRADING_DETAILS:"Trading Details",
+        BTN_DELETE_ACCOUNT:"DELETE MY ACCOUNT",
+        LBL_REGISTER_TRADE_NAME:"Registered trading name",
+        LBL_COMPANY_TRADE_TYPE:"Status",
+        LBL_COMPANY_TRADE_UTR:"UTR Number",
+        LBL_EMPLOYER_NAME:"Employer name",
+        LBL_COMPANY_NUMBER:"Company number",
     }
 })

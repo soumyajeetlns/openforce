@@ -133,7 +133,6 @@ class Job extends Component {
         const tempState = utils.deepCopy(this.state.rehire);
         tempState.confirmReHire = true;
         this.setState(tempState);
-        console.log(tempState);
     }
 
     closeconfirmReHire = () =>{

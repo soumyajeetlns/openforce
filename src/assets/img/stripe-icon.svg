@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="54px" viewBox="0 0 52 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 55.2 (78181) - https://sketchapp.com -->
+    <title>2BB3CBDA-A1C5-491D-94CB-BADF883CBDCC</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <circle id="path-1" cx="24" cy="24" r="24"></circle>
+        <filter x="-8.3%" y="-8.3%" width="116.7%" height="120.8%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.24 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="MW--Enter-payment/continue" transform="translate(-12.000000, -232.000000)">
+            <g id="M-Stripe-badge" transform="translate(14.000000, 233.779297)">
+                <g>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Mask">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="Stripe-logo---blue" mask="url(#mask-2)" fill="#6772E5">
+                        <g transform="translate(5.000000, 16.000000)">
+                            <path d="M38.4,8.256 C38.4,5.52533333 37.0773333,3.37066667 34.5493333,3.37066667 C32.0106667,3.37066667 30.4746667,5.52533333 30.4746667,8.23466667 C30.4746667,11.4453333 32.288,13.0666667 34.8906667,13.0666667 C36.16,13.0666667 37.12,12.7786667 37.8453333,12.3733333 L37.8453333,10.24 C37.12,10.6026667 36.288,10.8266667 35.232,10.8266667 C34.1973333,10.8266667 33.28,10.464 33.1626667,9.20533333 L38.3786667,9.20533333 C38.3786667,9.06666667 38.4,8.512 38.4,8.256 Z M33.1306667,7.24266667 C33.1306667,6.03733333 33.8666667,5.536 34.5386667,5.536 C35.1893333,5.536 35.8826667,6.03733333 35.8826667,7.24266667 L33.1306667,7.24266667 Z" id="Shape"></path>
+                            <path d="M26.3573333,3.37066667 C25.312,3.37066667 24.64,3.86133333 24.2666667,4.20266667 L24.128,3.54133333 L21.7813333,3.54133333 L21.7813333,15.9786667 L24.448,15.4133333 L24.4586667,12.3946667 C24.8426667,12.672 25.408,13.0666667 26.3466667,13.0666667 C28.256,13.0666667 29.9946667,11.5306667 29.9946667,8.14933333 C29.984,5.056 28.224,3.37066667 26.3573333,3.37066667 Z M25.7173333,10.72 C25.088,10.72 24.7146667,10.496 24.4586667,10.2186667 L24.448,6.26133333 C24.7253333,5.952 25.1093333,5.73866667 25.7173333,5.73866667 C26.688,5.73866667 27.36,6.82666667 27.36,8.224 C27.36,9.65333333 26.6986667,10.72 25.7173333,10.72 Z" id="Shape"></path>
+                            <polygon id="Path" points="18.112 2.74133333 20.7893333 2.16533333 20.7893333 0 18.112 0.565333333"></polygon>
+                            <rect id="Rectangle" x="18.112" y="3.552" width="2.67733333" height="9.33333333"></rect>
+                            <path d="M15.2426667,4.34133333 L15.072,3.552 L12.768,3.552 L12.768,12.8853333 L15.4346667,12.8853333 L15.4346667,6.56 C16.064,5.73866667 17.1306667,5.888 17.4613333,6.00533333 L17.4613333,3.552 C17.12,3.424 15.872,3.18933333 15.2426667,4.34133333 Z" id="Path"></path>
+                            <path d="M9.90933333,1.23733333 L7.30666667,1.792 L7.296,10.336 C7.296,11.9146667 8.48,13.0773333 10.0586667,13.0773333 C10.9333333,13.0773333 11.5733333,12.9173333 11.9253333,12.7253333 L11.9253333,10.56 C11.584,10.6986667 9.89866667,11.1893333 9.89866667,9.61066667 L9.89866667,5.824 L11.9253333,5.824 L11.9253333,3.552 L9.89866667,3.552 L9.90933333,1.23733333 Z" id="Path"></path>
+                            <path d="M2.69866667,6.26133333 C2.69866667,5.84533333 3.04,5.68533333 3.60533333,5.68533333 C4.416,5.68533333 5.44,5.93066667 6.25066667,6.368 L6.25066667,3.86133333 C5.36533333,3.50933333 4.49066667,3.37066667 3.60533333,3.37066667 C1.44,3.37066667 0,4.50133333 0,6.38933333 C0,9.33333333 4.05333333,8.864 4.05333333,10.1333333 C4.05333333,10.624 3.62666667,10.784 3.02933333,10.784 C2.144,10.784 1.01333333,10.4213333 0.117333333,9.93066667 L0.117333333,12.4693333 C1.10933333,12.896 2.112,13.0773333 3.02933333,13.0773333 C5.248,13.0773333 6.77333333,11.9786667 6.77333333,10.0693333 C6.76266667,6.89066667 2.69866667,7.456 2.69866667,6.26133333 Z" id="Path"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -2,15 +2,17 @@ import {ProjectId} from "./FirebaseConfigurator";
 
 
 export const ENVIRONMENT = process.env.NODE_ENV;
-export const GOOGLE_MAPS_API_KEY = "AIzaSyB8zsVhllcu62bJaxjdLY_UFcGLkf-bDCo";
+export const GOOGLE_MAPS_API_KEY = "AIzaSyDLhCfMHWXXr1RHQbPphYVbU-W0puATnRM";
 export const HOME = "/"
 export const SIGNIN_EMPLOYER = "/employer/signin"
 export const SIGNUP_EMPLOYER = "/employer/signup"
 export const SIGNOUT_EMPLOYER = "/employer/signout"
 export const FORGOT_EMPLOYER = "/employer/forgot"
 export const PROFILE_EMPLOYER = "/employer/profile"
+export const PAYMENT_EMPLOYER = "/payment"
 export const NOT_FOUND_PAGE = "/pageNotFound"
 export const ERROR = "/error";
+export const COMPANYHOUSEAPIURL    =   "http://lnsel.co.in/openforce-web-master/companyhouseapi.php?page=";
 
 export const JOBS = "/jobs"
 export const JOB_MAP = "/map"

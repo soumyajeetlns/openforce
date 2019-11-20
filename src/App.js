@@ -26,6 +26,7 @@ import bugsnag from '@bugsnag/js'
 import bugsnagReact from '@bugsnag/plugin-react'
 import PageNotFound from "./components/home/pageNotFound/PageNotFound";
 import ErrorPage from "./components/home/errorPage/ErrorPage";
+import Payment from './components/home/payment/payment';
 
 function noop() {}
 const logger = {
@@ -76,6 +77,7 @@ class App extends Component {
                         <PrivateRoute path={constants.JOBS + "/:section"} exact component={JobsList} authUser={this.props.ctr.user} type={constants.CLUSTER_EMPLOYER}/>
                         <PrivateRoute path={constants.JOB_MAP + "/:id"} exact component={Map} authUser={this.props.ctr.user} type={constants.CLUSTER_EMPLOYER}/>
                         <PrivateRoute path={constants.PROFILE_EMPLOYER} component={ProfileEmployer} authUser={this.props.ctr.user} type={constants.CLUSTER_EMPLOYER}/>
+                        <PrivateRoute path={constants.PAYMENT_EMPLOYER} component={Payment} authUser={this.props.ctr.user} type={constants.CLUSTER_EMPLOYER}/>
 
                         <Route path={constants.SIGNIN_EMPLOYER} component={EmployerSignin}/>
                         <Route path={constants.SIGNUP_EMPLOYER} component={EmployerSignup}/>
