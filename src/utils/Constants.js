@@ -2,11 +2,7 @@ import {ProjectId} from "./FirebaseConfigurator";
 
 
 export const ENVIRONMENT = process.env.NODE_ENV;
-<<<<<<< HEAD
 export const GOOGLE_MAPS_API_KEY = "AIzaSyCJqreUxeCTMtUOQgDMGDsgBCqXVc9dg7Y";
-=======
-export const GOOGLE_MAPS_API_KEY = "AIzaSyDLhCfMHWXXr1RHQbPphYVbU-W0puATnRM";
->>>>>>> c6a7bf3604566394ba7412541e63fd53e184f81a
 export const HOME = "/"
 export const SIGNIN_EMPLOYER = "/employer/signin"
 export const SIGNUP_EMPLOYER = "/employer/signup"
