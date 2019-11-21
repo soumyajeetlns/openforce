@@ -29,10 +29,17 @@ export function getJobsByStatusWithPending(employerID, status, successCallback,e
 
 export function getJobsById(id, listening, successCallback, errorCallback){
     const ref = FirebaseRef.collection(tables.TABLE_JOBS).doc(id);
+    var paymentReqCount = 0;
+
+    
     if(listening){
         ref.onSnapshot((doc) => {
             if (doc.exists) {
-                successCallback(HocJob.getInstance(doc.data()));
+                FirebaseRef.collection(tables.TABLE_JOBS).doc(id).collection(tables.SUB_TABLE_PAYMENT).get().then(snap => {
+                    paymentReqCount = snap.size;
+                    successCallback(HocJob.getInstance(doc.data()), paymentReqCount);
+                 });
+                
             } else {
                 errorCallback();
             }
@@ -83,6 +90,57 @@ export function saveJob(job, successCallback,errorCallback){
 
 export function getApplyForJobByStatus(jobId,status,successCallback,errorCallback){
     FirebaseRef.collection(tables.TABLE_JOBS).doc(jobId).collection(tables.SUB_TABLE_EMPLOYEE).where("status", "==", status).onSnapshot((querySnapshot) => {
+        const promises = [];
+        const usersArray = [];
+
+        querySnapshot.forEach((doc)=> {
+            const promise = FirebaseRef.collection(tables.TABLE_USERS).doc(doc.id).get();
+            const apply = HocApply.getInstance(doc.data());
+            apply.jobId = jobId;
+            apply.uid = doc.id;
+            apply.employeeId = doc.id;
+            usersArray.push(apply);
+            promises.push(promise);
+        });
+
+        Promise.all(promises).then((users)=>{
+            const promisesSkills = []
+
+            users.forEach((userSnap)=> {
+                const promiseSkill = new Promise((resolve, reject) => {
+                    //get his skills:
+                    FirebaseRef.collection(tables.TABLE_USERS).doc(userSnap.data().uid).collection(tables.SUB_TABLE_EMPLOYEE_SKILLS).get().then((querySnapshot)=>{
+                        const user = EmployeeUser.getInstance(userSnap.data());
+                        const skills = [];
+                        querySnapshot.forEach((docSkill)=> {
+                            const skill = HocEmployeeSkill.getInstance(docSkill.data()) ;
+                            skills.push(skill);
+                        })
+                        user.skills = skills;
+                        if(usersArray.find(x => x.uid === user.uid)){
+                            usersArray.find(x => x.uid === user.uid).user = user;
+                        }
+                        resolve();
+                    }).catch((error)=>{
+                        utils.logError(error)
+                        reject(error)
+                    })
+                });
+                promisesSkills.push(promiseSkill)
+            });
+
+            Promise.all(promisesSkills).then(()=>{
+                successCallback(usersArray);
+            })
+        }).catch((e)=>{
+            if(errorCallback)errorCallback(e);
+            utils.logError(e)
+        });
+    });
+}
+
+export function getPaymentRequest(jobId,status,successCallback,errorCallback){
+    FirebaseRef.collection(tables.TABLE_JOBS).doc(jobId).collection(tables.SUB_TABLE_PAYMENT).onSnapshot((querySnapshot) => {
         const promises = [];
         const usersArray = [];
 
@@ -247,6 +305,15 @@ export function getLastEmployeeJobs(employeeId,jobId, successCallback, errorCall
         if (errorCallback) {
             errorCallback(error);
         }
+        utils.logError(error)
+    });
+}
+
+export function rejectPayment(jobId, empId, successCallback,errorCallback){
+    FirebaseRef.collection(tables.TABLE_JOBS).doc(jobId).collection(tables.SUB_TABLE_PAYMENT).doc(empId).update({status:'rejected'}).then((docRef) =>{
+        if(successCallback)successCallback(docRef);
+    }).catch((error)=> {
+        if(errorCallback)errorCallback(error);
         utils.logError(error)
     });
 }

@@ -104,9 +104,12 @@ class Map extends Component {
     componentDidMount = () => {
         if (this.props.match.params.id) {
             const jobID = this.props.match.params.id;
-            jobsFunctions.getJobsById(jobID, true, (job) => {
+            jobsFunctions.getJobsById(jobID, true, (job, paymentReqCount) => {
                 const tempState = utils.deepCopy(this.state);
                 tempState.job = job;
+                tempState.isPayment = false;
+                tempState.job.paymentReqCount = paymentReqCount;
+                console.log(tempState.job.paymentReqCount);
                 this.setState(tempState);
             }, () => {
                 this.props.history.push(constants.NOT_FOUND_PAGE)
@@ -129,29 +132,51 @@ class Map extends Component {
             tempState.rightBarOptions.loadingOtherItems = true;
             tempState.loadingApplications = true;
 
-            this.setState(tempState, () => {
-                jobsFunctions.getApplyForJobByStatus(tempState.job.id, status, (employees) => {
-                    const tempState = utils.deepCopy(this.state);
-                    tempState.job.applications = employees;
-                    tempState.rightBarOptions.loadingOtherItems = false;
-                    tempState.loadingApplications = false;
-                    this.setState(tempState);
+            if(sectionTitle == strings.stringsJobMap.LBL_PAYMENT){
+                this.setState(tempState, () => {
+                    jobsFunctions.getPaymentRequest(tempState.job.id, status, (employees) => {
+                        const tempState = utils.deepCopy(this.state);
+                        console.log(JSON.stringify(employees));
+                        tempState.job.applications = employees;
+                        tempState.rightBarOptions.loadingOtherItems = false;
+                        tempState.loadingApplications = false;
+                        tempState.isPayment = true;
+                        this.setState(tempState);
+                    });
                 });
-            });
+            }else{
+                this.setState(tempState, () => {
+                    jobsFunctions.getApplyForJobByStatus(tempState.job.id, status, (employees) => {
+                        const tempState = utils.deepCopy(this.state);
+                        tempState.job.applications = employees;
+                        tempState.rightBarOptions.loadingOtherItems = false;
+                        tempState.loadingApplications = false;
+                        tempState.isPayment = false;
+                        this.setState(tempState);
+                    });
+                });
+
+            }
+
+
         }
 
     }
 
     onOpenEmployeePopup = (employeeID) => {
-        const tempState = utils.deepCopy(this.state);
-        tempState.employeePopupOpened = true;
-        if (tempState.job.applications) {
-            const employeeApply = tempState.job.applications.find((apply) => apply.uid === employeeID);
-            if (employeeApply && employeeApply.user) {
-                tempState.selectedEmployee = employeeApply.user;
+
+        if(this.state.isPayment==false){
+            const tempState = utils.deepCopy(this.state);
+            tempState.employeePopupOpened = true;
+            if (tempState.job.applications) {
+                const employeeApply = tempState.job.applications.find((apply) => apply.uid === employeeID);
+                if (employeeApply && employeeApply.user) {
+                    tempState.selectedEmployee = employeeApply.user;
+                }
             }
+            this.setState(tempState);
         }
-        this.setState(tempState);
+
     }
 
     onCloseEmployeePopup = () => {
@@ -161,15 +186,18 @@ class Map extends Component {
     }
 
     onOpenHiredEmployeePopup = (employeeID) => {
-        const tempState = utils.deepCopy(this.state);
-        tempState.hiredEmployeePopupOpened = true;
-        if (tempState.job.applications) {
-            const employeeApply = tempState.job.applications.find((apply) => apply.uid === employeeID);
-            if (employeeApply && employeeApply.user) {
-                tempState.selectedEmployee = employeeApply.user;
+        if(this.state.isPayment==false){
+            const tempState = utils.deepCopy(this.state);
+            tempState.hiredEmployeePopupOpened = true;
+            if (tempState.job.applications) {
+                const employeeApply = tempState.job.applications.find((apply) => apply.uid === employeeID);
+                if (employeeApply && employeeApply.user) {
+                    tempState.selectedEmployee = employeeApply.user;
+                }
             }
+            this.setState(tempState);
         }
-        this.setState(tempState);
+
     }
 
     onCloseHiredEmployeePopup = () => {
@@ -346,6 +374,7 @@ class Map extends Component {
                         loadingOtherItems={this.state.rightBarOptions.loadingOtherItems}
                         sectionTitle={this.state.sectionTitle}
                         loading={this.state.loadingApplications}
+                        payment={this.state.isPayment}
                         onOpenEmployeePopup={this.onOpenEmployeePopup}
                         onOpenHiredEmployeePopup={this.onOpenHiredEmployeePopup}
                         applications={this.state.job.applications}/>}
@@ -396,7 +425,7 @@ class Map extends Component {
                     }
                     <div className={"footer"}>
                         <Row>
-                            <Col xs={3} xsOffset={6}
+                            <Col xs={2} xsOffset={6}
                                  className={this.state.sectionTitle === strings.stringsJobMap.LBL_APPLIED ? "tab active" : "tab"}
                                  onClick={this.chooseTab.bind(this, strings.stringsJobMap.LBL_APPLIED, constants.STATUS_EMPLOYEE_APPLIED)}>
                                 <Row>
@@ -409,7 +438,7 @@ class Map extends Component {
                                     </Col>
                                 </Row>
                             </Col>
-                            <Col xs={3}
+                            <Col xs={2}
                                  className={this.state.sectionTitle === strings.stringsJobMap.LBL_HIRED ? "tab active" : "tab"}
                                  onClick={this.chooseTab.bind(this, strings.stringsJobMap.LBL_HIRED, constants.STATUS_EMPLOYEE_HIRED)}>
                                 <Row>
@@ -419,6 +448,19 @@ class Map extends Component {
                                     <Col xs={8}>
                                         <div className={"labelDynamic"}>{this.state.job.hired}</div>
                                         <div className={"label"}>{strings.stringsJobMap.LBL_HIRED}</div>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col xs={2}
+                                 className={this.state.sectionTitle === strings.stringsJobMap.LBL_PAYMENT ? "tab active" : "tab"}
+                                 onClick={this.chooseTab.bind(this, strings.stringsJobMap.LBL_PAYMENT, constants.STATUS_EMPLOYEE_HIRED)}>
+                                <Row>
+                                    <Col xs={2}>
+
+                                    </Col>
+                                    <Col xs={8}>
+                                        <div className={"labelDynamic"}>{this.state.job.paymentReqCount}</div>
+                                        <div className={"label"}>{strings.stringsJobMap.LBL_PAYMENT}</div>
                                     </Col>
                                 </Row>
                             </Col>

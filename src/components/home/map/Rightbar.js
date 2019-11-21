@@ -17,6 +17,7 @@ class Rightbar extends Component {
     componentWillReceiveProps(nextProps) {
         const tempState = utils.deepCopy(this.state);
         tempState.loadingOtherItems = nextProps.loadingOtherItems;
+        console.log("Payment : "+this.props.payment);
         this.setState(tempState);
     }
 
@@ -35,6 +36,7 @@ class Rightbar extends Component {
                             {this.props.applications? this.props.applications.map((apply,index)=>
                                 <Apply key={index}
                                        apply={apply}
+                                       payment={this.props.payment}
                                        onOpenHiredEmployeePopup={this.props.onOpenHiredEmployeePopup.bind(this,apply.uid)}
                                        onOpenEmployeePopup={this.props.onOpenEmployeePopup.bind(this,apply.uid)}/>
                             ):null}

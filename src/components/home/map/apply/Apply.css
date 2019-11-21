@@ -53,3 +53,22 @@
     letter-spacing: normal;
     color: rgba(0, 0, 0, 0.87);
 }
+
+.btnAccept{
+    background:#128e12;
+    padding: 4px 10px;
+    margin-bottom: 5px;
+    line-height: 18px;
+}
+
+.btnReject{
+    background:#b00907;
+    padding: 3px 10px;
+    margin-bottom: 5px;
+    line-height: 18px;
+    width: 70px;
+}
+
+.paymentAccept{
+    font: 12px !important;
+}

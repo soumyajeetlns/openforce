@@ -222,6 +222,7 @@ export const stringsHiredEmployeePopup = new LocalizedStrings({
 //map:
 export const stringsJobMap = new LocalizedStrings({
     en: {
+        LBL_PAYMENT:"Payment",
         LBL_HIRED:"Hired",
         LBL_APPLIED:"Applied",
         POPUP_CONFIRM_END_JOB_TITLE:"End the job",
