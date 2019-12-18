@@ -71,4 +71,10 @@
 
 .paymentAccept{
     font: 12px !important;
+    color: #128e12;
+}
+
+.paymentReject{
+    font: 12px !important;
+    color: #b00a0a;
 }

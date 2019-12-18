@@ -136,7 +136,8 @@ class EmployerSignup extends Component {
                 tempState.psw1                  =   getlocalData.psw1;
                 tempState.psw2                  =   getlocalData.psw2;
                 tempState.companyType           =   getlocalData.companyType;
-                tempState.getCompanyName        =   getlocalData.getCompanyName;
+                //tempState.getCompanyName        =   getlocalData.getCompanyName;
+                tempState.getCompanyName        =   getlocalData.companyName;
                 tempState.websiteName           =   getlocalData.websiteName;
                 tempState.utrName               =   getlocalData.utrName;
                 tempState.cityName              =   getlocalData.cityName;

@@ -28,6 +28,19 @@ export function getEmployer(id, successCallback, errorCallback){
     });
 }
 
+export function getEmployerStripe(id, successCallback, errorCallback){
+    FirebaseRef.collection(tables.TABLE_USERS).doc(id).collection(tables.SUB_TABLE_EMPLOYEE_STRIPE).doc(id).get().then((doc) => {
+        if (doc.exists) {
+            successCallback(doc.data());
+        } else {
+            errorCallback();
+        }
+    }).catch((error) => {
+        errorCallback(error);
+        utils.logError(error)
+    });
+}
+
 export function hireEmployee(jobId, employeeUID, successCallback, errorCallback){
     const data = {jobId: jobId, employeeUID: employeeUID};
     const hireEmployee = FirebaseFunctionsRef.httpsCallable(constants.FUNCTION_HIRE_EMPLOYEE);

@@ -5,41 +5,95 @@ import StarRatings from 'react-star-ratings';
 import LaddaButton, { XL, EXPAND_LEFT, XS } from 'react-ladda';
 import StripeCheckout from 'react-stripe-checkout';
 import * as jobsFunctions from "../../../../functions/JobsFunctions";
+import * as employerFunctions from "../../../../functions/EmployerFunctions";
+import qs from 'querystring'
 
 
 import React from 'react';
 
 class Apply extends React.Component{
 
-    onToken = (token) => {
-        console.log(JSON.stringify(token));
+    onToken = (token, addresses) => {
+        console.log({token, addresses});
+        console.log(JSON.stringify(this.props.apply));
         this.createPayment(token.id);
       }
 
-    createPayment(token){
-        const params = {
-            amount: parseFloat(this.props.apply.payRate),
-            email: this.props.apply.user.email,
-            id: token
-        }
-        console.log(JSON.stringify(params));
-        fetch('http://lnsel.co.in:3001/stripecharge',{
-            method: 'post',
-            body: {
-                amount: parseFloat(this.props.apply.payRate),
-                email: this.props.apply.user.email,
-                id: token
-            },
-        }).then((response) => response.json()).then((responseJson) => {
-            console.log(JSON.stringify(responseJson));
-        }).catch((error) => {
-            console.error(error);
+    getEmployerInfo(id){
+        employerFunctions.getEmployerStripe(id,(employer)=>{
+            console.log("STRIPE: "+JSON.stringify(employer));
+            return employer.user_id;
+
+        },(error)=>{
+            console.log("ERR: "+error);
         });
     }
 
-    rejectPayment = (jobId, employeeId) => {
-        console.log('Reject Payment>>>>'+jobId+'>>>'+employeeId);
-        jobsFunctions.rejectPayment(jobId, employeeId, (payment) => {
+                // function
+encodeFormData = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&');
+}
+
+
+
+    createPayment(token){
+        employerFunctions.getEmployerStripe(this.props.apply.uid,(employer)=>{
+            console.log("STRIPE: "+JSON.stringify(employer));
+            const params = {
+                amount: this.props.apply.payRate,
+                email: this.props.apply.user.email,
+                id: token,
+                stripeId: employer.user_id
+            }
+
+            var data = new FormData();
+            data.append('amount', this.props.apply.payRate);
+            data.append('email', this.props.apply.user.email);
+            data.append('id', 'token');
+            data.append('stripeId', employer.user_id);
+
+            console.log(JSON.stringify(params));
+
+
+
+            fetch('http://lnsel.co.in:3001/stripecharge',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                  },
+                body: qs.stringify(params)
+
+                // body: {
+                //     amount: this.props.apply.payRate,
+                //     email: this.props.apply.user.email,
+                //     id: token,
+                //     currency: "GBP",
+                //     stripeId: employer.user_id
+                // }
+            }).then((response) => {
+                console.log(response);
+                this.updatePaymentStatus(this.props.apply.jobId, this.props.apply.employeeId, 'accepted');
+            });
+            // .then((responseJson) => {
+            //     console.log(JSON.stringify(responseJson));
+            //     alert(JSON.stringify(responseJson));
+            // }).catch((error) => {
+            //     console.error(error);
+            // });
+
+        },(error)=>{
+            console.log("ERR: "+error);
+        });
+
+        
+
+    }
+
+    updatePaymentStatus = (jobId, employeeId, status) => {
+        console.log('Payment Status>>>>'+jobId+'>>>'+employeeId+'>>>'+status);
+        jobsFunctions.updatePaymentStatus(jobId, employeeId, status, (payment) => {
             console.log(JSON.stringify(payment));
         });
     }
@@ -120,13 +174,15 @@ class Apply extends React.Component{
       </StripeCheckout>
             </div>
             <div>
-            <button className="btn btn-danger btnReject" onClick={this.rejectPayment.bind(this, this.props.apply.jobId, this.props.apply.employeeId)}>
+            <button className="btn btn-danger btnReject" onClick={this.updatePaymentStatus.bind(this, this.props.apply.jobId, this.props.apply.employeeId, 'rejected')}>
       Reject
     </button>
             </div>
         </Col>
         :<Col xs={4}>
+        {this.props.apply.status=='accepted'?
             <h4 className="paymentAccept">{this.props.apply.status.toUpperCase()}</h4>
+            :<h4 className="paymentReject">{this.props.apply.status.toUpperCase()}</h4>}
         </Col>
     }
     </Row>
