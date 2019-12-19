@@ -79,13 +79,11 @@
 }
 
 .paymentAccept{
-    font-size: 12px;
-    color:green;
-    text-transform: capitalize;
+    font: 12px !important;
+    color: #128e12;
 }
 
 .paymentReject{
-    font-size: 12px;
-    color:red;
-    text-transform: capitalize;
+    font: 12px !important;
+    color: #b00a0a;
 }

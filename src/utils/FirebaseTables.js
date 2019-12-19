@@ -7,5 +7,6 @@ export const SUB_TABLE_PAYMENT = "payment"
 export const SUB_TABLE_CHAT = "messages"
 export const SUB_TABLE_CHECKIN = "checkins"
 export const SUB_TABLE_EMPLOYEE_SKILLS = "skills"
+export const SUB_TABLE_EMPLOYEE_STRIPE = "stripe_info"
 
 export const TABLE_ROLES = "job_roles"

@@ -309,8 +309,8 @@ export function getLastEmployeeJobs(employeeId,jobId, successCallback, errorCall
     });
 }
 
-export function rejectPayment(jobId, empId, successCallback,errorCallback){
-    FirebaseRef.collection(tables.TABLE_JOBS).doc(jobId).collection(tables.SUB_TABLE_PAYMENT).doc(empId).update({status:'rejected'}).then((docRef) =>{
+export function updatePaymentStatus(jobId, empId, paymentStatus, successCallback,errorCallback){
+    FirebaseRef.collection(tables.TABLE_JOBS).doc(jobId).collection(tables.SUB_TABLE_PAYMENT).doc(empId).update({status: paymentStatus}).then((docRef) =>{
         if(successCallback)successCallback(docRef);
     }).catch((error)=> {
         if(errorCallback)errorCallback(error);
