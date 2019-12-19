@@ -126,7 +126,7 @@ class Apply extends React.Component{
             </div>
         </Col>
         :<Col xs={4}>
-            <h4 className="paymentAccept">{this.props.apply.status.toUpperCase()}</h4>
+            <h4 className="paymentReject">{this.props.apply.status}</h4>
         </Col>
     }
     </Row>

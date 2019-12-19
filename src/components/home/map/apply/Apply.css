@@ -56,9 +56,14 @@
 
 .btnAccept{
     background:#128e12;
-    padding: 4px 10px;
+    padding: 3px 10px;
     margin-bottom: 5px;
     line-height: 18px;
+    width: 70px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 2px 0
+    rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
 }
 
 .btnReject{
@@ -67,8 +72,20 @@
     margin-bottom: 5px;
     line-height: 18px;
     width: 70px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 2px 0
+    rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
 }
 
 .paymentAccept{
-    font: 12px !important;
+    font-size: 12px;
+    color:green;
+    text-transform: capitalize;
+}
+
+.paymentReject{
+    font-size: 12px;
+    color:red;
+    text-transform: capitalize;
 }

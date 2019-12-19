@@ -425,11 +425,11 @@ class Map extends Component {
                     }
                     <div className={"footer"}>
                         <Row>
-                            <Col xs={2} xsOffset={6}
+                            <Col md={2} xs={4} xsOffset={6}
                                  className={this.state.sectionTitle === strings.stringsJobMap.LBL_APPLIED ? "tab active" : "tab"}
                                  onClick={this.chooseTab.bind(this, strings.stringsJobMap.LBL_APPLIED, constants.STATUS_EMPLOYEE_APPLIED)}>
                                 <Row>
-                                    <Col xs={2}>
+                                    <Col xs={4}>
 
                                     </Col>
                                     <Col xs={8}>
@@ -438,7 +438,7 @@ class Map extends Component {
                                     </Col>
                                 </Row>
                             </Col>
-                            <Col xs={2}
+                            <Col md={2} xs={4}
                                  className={this.state.sectionTitle === strings.stringsJobMap.LBL_HIRED ? "tab active" : "tab"}
                                  onClick={this.chooseTab.bind(this, strings.stringsJobMap.LBL_HIRED, constants.STATUS_EMPLOYEE_HIRED)}>
                                 <Row>
@@ -451,7 +451,7 @@ class Map extends Component {
                                     </Col>
                                 </Row>
                             </Col>
-                            <Col xs={2}
+                            <Col md={2} xs={4}
                                  className={this.state.sectionTitle === strings.stringsJobMap.LBL_PAYMENT ? "tab active" : "tab"}
                                  onClick={this.chooseTab.bind(this, strings.stringsJobMap.LBL_PAYMENT, constants.STATUS_EMPLOYEE_HIRED)}>
                                 <Row>
