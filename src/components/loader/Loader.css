@@ -1,0 +1,15 @@
+.myLoader{
+    top: 5px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #FFFFFF45;
+}
+.myLoader img{
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 200px;
+    height: 200px;
+}

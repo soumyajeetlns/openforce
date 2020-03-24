@@ -1,0 +1,50 @@
+.wrapperChatBaloon{
+    margin-bottom: 30px;
+}
+
+.wrapperChatBaloon .chatBaloon{
+    width: 250px;
+    border-radius: 20px;
+    background-color: #05106e;
+    padding: 8px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: #ffffff;
+    border-bottom-right-radius: 0px;
+}
+
+
+.wrapperChatBaloon.fromEmployee .chatBaloon{
+    border-bottom-right-radius:20px;
+    border-bottom-left-radius: 0px;
+}
+
+.wrapperChatBaloon .chatBaloon .textMessage{
+    padding: 7px 20px 7px 20px;
+}
+
+.wrapperChatBaloon .chatBaloon .staticImg{
+    margin-left: -20px;
+    border-radius: 16px;
+    margin-top: 5px;
+}
+
+.wrapperChatBaloon.fromEmployee .strTypeOfChatMessage{
+    float: left;
+}
+.wrapperChatBaloon .strTypeOfChatMessage{
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: #000000;
+    margin-top: 5px;
+}
