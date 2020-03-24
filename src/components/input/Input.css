@@ -1,0 +1,38 @@
+.customInput .customLabel{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #323432;
+    margin:0;
+    padding: 0;
+    width: 100%;
+}
+
+.customInput .custom-material-icons{
+    position: absolute;
+    z-index: 1;
+    color: #323432;
+}
+
+.customInput .defaultInputError{
+    border-bottom: 1px solid red !important;
+}
+
+.autocomplete-dropdown-container{
+    z-index: 999;
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    background-color: #ffffff;
+}
+.autocomplete-dropdown-container .suggestion{
+    cursor: pointer;
+    padding: 5px;
+
+}

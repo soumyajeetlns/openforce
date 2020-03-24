@@ -1,0 +1,255 @@
+.wrapperProfileEmployer{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #eeeeee;
+    position: relative;
+
+    padding: 32px 80px;
+}
+
+.wrapperProfileEmployer .backButton{
+    width: 41.1px;
+    height: 41.1px;
+    border-radius: 41px;
+    box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.25);
+    background-color: #0c15b0;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.wrapperProfileEmployer .backButton img{
+    position: absolute;
+    margin: auto;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.wrapperProfileEmployer .customCol.bodyCustomCol{
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    background-color: #ffffff;
+    padding: 20px 80px;
+}
+
+.wrapperProfileEmployer .profileImg{
+    width: 118px;
+    height: 118px;
+    border-radius: 118px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+
+    display: inline-block;
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;         /* Generic*/
+    cursor: pointer;
+}
+
+.wrapperProfileEmployer .profileImgPlaceholder{
+    width: 118px;
+    height: 118px;
+    border-radius: 118px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: #464647;
+    color:#fed91c;
+    display: inline-block;
+    text-align: center;
+    font-size: 75px;
+    padding-top: 13px;
+    cursor: pointer;
+}
+
+.wrapperProfileEmployer .titleColumn{
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+    color: #000000;    
+}
+
+.wrapperProfileEmployer .leftuptitle{text-align: center;}
+
+.wrapperProfileEmployer .defaultMarginTop{
+    margin-top: 15px;
+}
+.wrapperProfileEmployer .defaultMarginTop2{
+    margin-top: 25px;
+}
+.wrapperProfileEmployer .defaultMarginLeft{
+    margin-left: 17px;
+}
+
+.wrapperProfileEmployer .leftColumn .item{
+    height: 59px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    background-color: #ffffff;
+    padding-top: 21px;
+    padding-bottom: 14px;
+    position: relative;
+    text-align: center;
+
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
+}
+
+.wrapperProfileEmployer p{
+    margin: 0;
+}
+
+.wrapperProfileEmployer .leftColumn .item img{
+    position: absolute;
+    width: 18.7px;
+    height: 19.2px;
+    opacity: 0.54;
+    left: 45px;
+}
+
+.wrapperProfileEmployer .btnUpdate{
+    height: 36px;
+    border-radius: 2px;
+    background-color: #fed91c;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #1c2238;
+    float: right;
+    margin-right: -25px;
+
+    width: 270px;
+    height: 36px;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+  
+}
+
+.wrapperProfileEmployer .btnDelete
+{
+    width: 312px;
+    height: 36px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #1c2238;
+    background: #eeeeee;
+}
+
+.wrapperProfileEmployer .btnChangePassword{
+    width: 100%;
+    height: 36px;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    background-color: #fed91c;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #1c2238;
+    float: right;
+}
+
+.wrapperProfileEmployer .section{
+    margin-top: 15px;
+}
+
+.wrapperProfileEmployer .customCol hr{
+    margin-left: -80px;
+    margin-right: -80px;
+    margin-top: 40px;
+}
+
+.wrapperProfileEmployer .inputProfileEmployer{
+    height: 35px;
+    border: 0;
+    border-bottom: 1px solid #dcdada;
+    width: 100%;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.wrapperProfileEmployer .inputProfileEmployer::-webkit-input-placeholder{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.wrapperProfileEmployer .section .sectionTitle{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.wrapperProfileEmployer .inputProfileEmployer.marginTop{
+    margin-top: 10px;
+}
+
+.wrapperProfileEmployer .messagePassword{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.wrapperProfileEmployer .btnLogout{
+    width: 215px;
+    height: 36px;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    background-color: #06158f;
+    color: #ffffff;
+    margin-top: 22px;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+}

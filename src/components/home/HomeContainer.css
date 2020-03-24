@@ -1,0 +1,102 @@
+.wrapperHomeContainer{
+    overflow-x: hidden;
+    background-color: #eeeeee;
+    min-height: 100vh;
+    position: relative;
+}
+
+.wrapperHomeContainer .header{
+    height: 200px;
+    background-color: #fed91c;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
+    position: relative;
+}
+
+.wrapperHomeContainer .header .logo{
+    margin-top: 50px;
+    margin-left: 110px;
+    display: inline-block;
+
+}
+.wrapperHomeContainer .header .profile{
+    margin-top: 50px;
+    margin-right: 230px;
+    display: inline-block;
+    float: right;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.wrapperHomeContainer .header .sections{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 150px;
+}
+
+.wrapperHomeContainer .header .sections .section{
+    width: 125px;
+    padding: 18px;
+    display: inline-block;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.wrapperHomeContainer .header .sections .section.active{
+    border-bottom: solid 2px #000000;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    color: #000000;
+    cursor: auto;
+}
+
+.wrapperHomeContainer .header .btnAddJob{
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.24), 0 0 6px 0 rgba(0, 0, 0, 0.12);
+    background-color: #0c15b0;
+    border-style: solid;
+    border-width: 0.5px;
+    border-image-source: linear-gradient(to bottom, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06) 20%, rgba(255, 255, 255, 0));
+    border-image-slice: 1;
+    border-radius: 56px;
+    position: absolute;
+    bottom:-28px;
+    right:300px;
+    z-index: 10;
+    color:white;
+}
+
+.wrapperHomeContainer .blur{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size:cover;
+    -webkit-filter: blur(6px);
+    -moz-filter: blur(6px);
+    -ms-filter: blur(6px);
+    -o-filter: blur(6px);
+    filter: blur(6px);
+    z-index: 10;
+}
