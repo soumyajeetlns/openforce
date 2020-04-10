@@ -25,6 +25,8 @@ class EmployerSignup extends Component {
             psw1:undefined,
             psw2:undefined,
             companyType:undefined,
+            companyAddress:undefined,
+            companyNumber:undefined,
             soletraderName:undefined,
             websiteName:undefined,
             utrName:undefined,
@@ -181,8 +183,9 @@ class EmployerSignup extends Component {
                 tempState.psw1                  =   getlocalData.psw1;
                 tempState.psw2                  =   getlocalData.psw2;
                 tempState.companyType           =   'Limited Company';
+                tempState.companyNumber         =   getlocalData.companyNumber;
                 tempState.getCompanyName        =   getlocalData.getCompanyName;
-                tempState.radio                 =   getlocalData.radio;
+                tempState.address_1             =   getlocalData.radio;
                 tempState.isChecked             =   getlocalData.isChecked;
                 tempState.stripeId              =   stripeId
                 // Pritam Amends
@@ -193,6 +196,7 @@ class EmployerSignup extends Component {
                 employer.email              =   tempState.email;
                 employer.companies          =   [tempState.companyName];
                 employer.companyType        =   tempState.companyType;
+                employer.utrno              =   tempState.companyNumber;
                 tempState.getCompanyName    =   [tempState.companyName];
                 tempState.isChecked         =   getlocalData.isChecked;
                 employer.stripeId           =   tempState.stripeId;
@@ -396,9 +400,11 @@ class EmployerSignup extends Component {
     }
     onRadioButtonChange = (e) =>{
         const tempState = utils.deepCopy(this.state);
+        //console.log(e.target.value.split(','));
         tempState.radio = e.target.value;
         // tempState.errors.companyType = true;
-        tempState.companyType = tempState.radio;
+        tempState.companyType       =   e.target.value.split(',')[0];
+        tempState.companyNumber     =   e.target.value.split(',')[1];
         tempState.errors.message = null;
         this.setState(tempState);
         this.setState({submitting: !this.state.submitting});
@@ -720,7 +726,7 @@ class EmployerSignup extends Component {
                                             <Input type={"radio"}
                                                     className={'Oval-Copy'}
                                                     name={"registedbusinessname"}
-                                                    value={p.title}
+                                                    value={[p.title,p.company_number,p.address_snippet]}
                                                     defaultChecked={this.state.checked}
                                                 onChange={this.onRadioButtonChange}
                                                 onClick={this.onRadioButtonChange}
