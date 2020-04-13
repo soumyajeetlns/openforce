@@ -192,7 +192,7 @@ class EmployerSignup extends Component {
                 tempState.loading = true;
                 this.setState(tempState,()=>{
                 const employer = {};
-                employer.businessname       =   tempState.radio;
+                employer.businessname       =   tempState.companyName;
                 employer.email              =   tempState.email;
                 employer.companies          =   [tempState.companyName];
                 employer.companyType        =   tempState.companyType;
