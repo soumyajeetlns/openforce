@@ -6,7 +6,7 @@
     "@bugsnag/js": "^5.0.1",
     "@bugsnag/plugin-react": "^5.0.1",
     "cloudinary-core": "^2.5.0",
-    "firebase": "^5.5.8",
+    "firebase": "^10.9.0",
     "google-maps-react": "^2.0.2",
     "i": "^0.3.6",
     "moment": "^2.22.2",
